@@ -15,14 +15,32 @@ function fbLead(){ if(typeof fbq!=="undefined") fbq("track","Lead"); }
 </script>
 <!-- End Pixel -->
 
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D8K29I3C77UAEKHUOUCG');
+  ttq.page(); // حدث PageView عام
+</script>
+<!-- TikTok Pixel Code End -->
+
 <!-- Paddle Billing v2 — SA page only -->
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
   Paddle.Initialize({
     token: 'live_8bc4a1aac5c543b8f96173b433c',
     eventCallback: function(data) {
+
+      // حدث: نافذة الدفع اتفتحت — أقرب بديل لـ AddBilling
+      if (data.name === 'checkout.loaded') {
+        if (typeof ttq !== 'undefined') {
+          ttq.track('AddBilling');
+        }
+      }
+
+      // حدث: إتمام الدفع بنجاح
       if (data.name === 'checkout.completed') {
-        // Fire Facebook Purchase event
+        // Facebook Purchase
         if (typeof fbq !== 'undefined') {
           fbq('track', 'Purchase', { value: 19, currency: 'SAR' });
         }
@@ -33,6 +51,26 @@ function fbLead(){ if(typeof fbq!=="undefined") fbq("track","Lead"); }
       }
     }
   });
+
+  // حدث TikTok: ViewContent عند تحميل الصفحة
+  window.addEventListener('load', function() {
+    if (typeof ttq !== 'undefined') {
+      ttq.track('ViewContent');
+    }
+  });
+
+  // حدث TikTok: InitiateCheckout عند الضغط على زر الشراء
+  function openCheckout() {
+    if (typeof ttq !== 'undefined') {
+      ttq.track('InitiateCheckout');
+    }
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+    }
+    Paddle.Checkout.open({
+      items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }]
+    });
+  }
 </script>
 
 <style>
@@ -178,7 +216,7 @@ footer strong{color:rgba(255,255,255,.75);}
   <h1>تبغين طفلك يترك الآيباد؟ <em>هذا هو الحل! 🎨</em></h1>
   <p class="hero-sub">كتاب تلوين رقمي بـ 24 صفحة تلوين رائعة — اطبعيه في البيت بلا حدود، وخلّي طفلك يتعلم ويستمتع بعيداً عن الشاشات ✨</p>
 
-  <button class="cta-btn" onclick="fbLead(); Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }] });">
+  <button class="cta-btn" onclick="openCheckout()">
     <span class="apple-icon"></span> احصلي على نسختك الآن بـ 19 ريال
   </button>
 
@@ -337,7 +375,7 @@ footer strong{color:rgba(255,255,255,.75);}
     <div class="o-new">19 <small>ريال ≈ $5</small></div>
   </div>
   <p class="offer-sub">📥 تحميل فوري · 🖨️ طباعة لا نهائية · 24 صفحة تلوين رائعة</p>
-  <button class="cta-btn" onclick="fbLead(); Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }] });" style="font-size:20px;padding:20px 52px;">
+  <button class="cta-btn" onclick="openCheckout();" style="font-size:20px;padding:20px 52px;">
     <span class="apple-icon"></span> احصلي على نسختك الآن
   </button>
   <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:10px;">💡 السعر 19 ريال — يظهر في صفحة الدفع كـ $5 بالدولار (نفس القيمة تماماً)</p>
