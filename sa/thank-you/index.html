@@ -13,6 +13,25 @@ fbq("track","Purchase");
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=984154821134752&ev=Purchase&noscript=1"/></noscript>
 
+<!-- Google Tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239139004"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18239139004');
+</script>
+
+<!-- Google Ads — Purchase Conversion Event -->
+<script>
+  window.addEventListener('load', function() {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18239139004/OZ5gCMmZ_74cELzZjPlD',
+      'transaction_id': ''
+    });
+  });
+</script>
+
 <!-- TikTok Pixel — CompletePayment event -->
 <script>
 !function (w, d, t) {
