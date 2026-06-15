@@ -41,20 +41,24 @@ function fbLead(){ if(typeof fbq!=="undefined") fbq("track","Lead"); }
     token: 'live_8bc4a1aac5c543b8f96173b433c',
     eventCallback: function(data) {
 
-      // حدث: نافذة الدفع اتفتحت — أقرب بديل لـ AddBilling
+      // حدث: الـ Inline checkout اتحمل
       if (data.name === 'checkout.loaded') {
         if (typeof ttq !== 'undefined') {
           ttq.track('AddBilling');
+        }
+        // إظهار قسم الـ Inline checkout
+        var section = document.getElementById('inline-checkout-section');
+        if (section) {
+          section.style.display = 'block';
+          section.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }
 
       // حدث: إتمام الدفع بنجاح
       if (data.name === 'checkout.completed') {
-        // Facebook Purchase
         if (typeof fbq !== 'undefined') {
           fbq('track', 'Purchase', { value: 19, currency: 'SAR' });
         }
-        // Redirect to thank-you page after 1.5s
         setTimeout(function() {
           window.location.href = '/sa/thank-you/';
         }, 1500);
@@ -67,19 +71,31 @@ function fbLead(){ if(typeof fbq!=="undefined") fbq("track","Lead"); }
     if (typeof ttq !== 'undefined') {
       ttq.track('ViewContent');
     }
+    // تحميل الـ Inline checkout مسبقاً
+    Paddle.Checkout.open({
+      settings: {
+        displayMode: 'inline',
+        frameTarget: 'paddle-checkout-frame',
+        frameInitialHeight: 450,
+        frameStyle: 'width: 100%; background-color: transparent; border: none;',
+        successUrl: 'https://smartpdf.shop/sa/thank-you/'
+      },
+      items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }]
+    });
   });
 
-  // حدث TikTok: InitiateCheckout عند الضغط على زر الشراء
-  function openCheckout() {
+  // حدث TikTok + Facebook: عند الضغط على زر الشراء
+  function scrollToCheckout() {
     if (typeof ttq !== 'undefined') {
       ttq.track('InitiateCheckout');
     }
     if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead');
     }
-    Paddle.Checkout.open({
-      items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }]
-    });
+    var section = document.getElementById('inline-checkout-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 </script>
 
@@ -226,7 +242,7 @@ footer strong{color:rgba(255,255,255,.75);}
   <h1>تبغين طفلك يترك الآيباد؟ <em>هذا هو الحل! 🎨</em></h1>
   <p class="hero-sub">كتاب تلوين رقمي بـ 24 صفحة تلوين رائعة — اطبعيه في البيت بلا حدود، وخلّي طفلك يتعلم ويستمتع بعيداً عن الشاشات ✨</p>
 
-  <button class="cta-btn" onclick="openCheckout()">
+  <button class="cta-btn" onclick="scrollToCheckout()">
     <span class="apple-icon"></span> احصلي على نسختك الآن بـ 19 ريال
   </button>
 
@@ -385,11 +401,45 @@ footer strong{color:rgba(255,255,255,.75);}
     <div class="o-new">19 <small>ريال ≈ $5</small></div>
   </div>
   <p class="offer-sub">📥 تحميل فوري · 🖨️ طباعة لا نهائية · 24 صفحة تلوين رائعة</p>
-  <button class="cta-btn" onclick="openCheckout();" style="font-size:20px;padding:20px 52px;">
+  <button class="cta-btn" onclick="scrollToCheckout();" style="font-size:20px;padding:20px 52px;">
     <span class="apple-icon"></span> احصلي على نسختك الآن
   </button>
   <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:10px;">💡 السعر 19 ريال — يظهر في صفحة الدفع كـ $5 بالدولار (نفس القيمة تماماً)</p>
   <p class="guarantee">🔒 دفع آمن عبر Paddle · ✅ Apple Pay مدعوم · 📧 support@smartpdf.shop</p>
+</section>
+
+<!-- ══ INLINE CHECKOUT SECTION ══ -->
+<section id="inline-checkout-section" style="
+  background: #fff;
+  padding: 32px 20px 48px;
+  display: block;
+">
+  <div style="max-width:600px;margin:0 auto;text-align:center;">
+    <div style="
+      font-family:'Tajawal',sans-serif;
+      font-size:22px;
+      font-weight:900;
+      color:#14532d;
+      margin-bottom:6px;
+    ">🔒 أكملي الدفع بأمان</div>
+    <p style="font-size:14px;color:#888;margin-bottom:20px;">
+      ادفعي بـ Apple Pay أو بطاقتك مباشرة 👇
+    </p>
+    <div style="
+      background:#f9fafb;
+      border:1.5px solid #e5e7eb;
+      border-radius:20px;
+      overflow:hidden;
+      padding:16px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.06);
+    ">
+      <!-- Paddle Inline Checkout Frame -->
+      <div class="paddle-checkout-frame"></div>
+    </div>
+    <p style="font-size:12px;color:#aaa;margin-top:14px;">
+      🛡️ دفع آمن ومشفر · Powered by Paddle
+    </p>
+  </div>
 </section>
 
 <!-- FOOTER -->
