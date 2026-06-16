@@ -66,25 +66,16 @@ function fbLead(){ if(typeof fbq!=="undefined") fbq("track","Lead"); }
     }
   });
 
-  // حدث TikTok: ViewContent عند تحميل الصفحة
+  // حدث TikTok: ViewContent عند تحميل الصفحة فقط
   window.addEventListener('load', function() {
     if (typeof ttq !== 'undefined') {
       ttq.track('ViewContent');
     }
-    // تحميل الـ Inline checkout مسبقاً
-    Paddle.Checkout.open({
-      settings: {
-        displayMode: 'inline',
-        frameTarget: 'paddle-checkout-frame',
-        frameInitialHeight: 450,
-        frameStyle: 'width: 100%; background-color: transparent; border: none;',
-        successUrl: 'https://smartpdf.shop/sa/thank-you/'
-      },
-      items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }]
-    });
   });
 
-  // حدث TikTok + Facebook: عند الضغط على زر الشراء
+  // تحميل الـ Inline checkout عند الضغط فقط
+  var checkoutLoaded = false;
+
   function scrollToCheckout() {
     if (typeof ttq !== 'undefined') {
       ttq.track('InitiateCheckout');
@@ -92,9 +83,26 @@ function fbLead(){ if(typeof fbq!=="undefined") fbq("track","Lead"); }
     if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead');
     }
+
     var section = document.getElementById('inline-checkout-section');
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // تحميل الـ checkout مرة واحدة بس
+    if (!checkoutLoaded) {
+      checkoutLoaded = true;
+      Paddle.Checkout.open({
+        settings: {
+          displayMode: 'inline',
+          frameTarget: 'paddle-checkout-frame',
+          frameInitialHeight: 450,
+          frameStyle: 'width: 100%; background-color: transparent; border: none;',
+          successUrl: 'https://smartpdf.shop/sa/thank-you/'
+        },
+        items: [{ priceId: 'pri_01ktbz09hpd805bjrjsfjgeg77', quantity: 1 }]
+      });
     }
   }
 </script>
@@ -412,7 +420,7 @@ footer strong{color:rgba(255,255,255,.75);}
 <section id="inline-checkout-section" style="
   background: #fff;
   padding: 32px 20px 48px;
-  display: block;
+  display: none;
 ">
   <div style="max-width:600px;margin:0 auto;text-align:center;">
     <div style="
