@@ -322,19 +322,19 @@ src="https://www.facebook.com/tr?id=993126060252620&ev=PageView&noscript=1"
         </div>
       </div>
 
-      <!-- Forminit form: r5rlmks14bb — submitted via JS fetch so we control the redirect to thank-you.html (needed for the Purchase pixel event) -->
-      <form id="payment-form" class="bg-cream border border-[#EAE0D2] rounded-2xl p-5" action="https://app.forminit.com/f/r5rlmks14bb" method="POST" enctype="multipart/form-data">
+      <!-- Forminit form: r5rlmks14bb — using forminit.com domain and fi- prefixed field names per the confirmed-working reference page -->
+      <form id="payment-form" class="bg-cream border border-[#EAE0D2] rounded-2xl p-5" action="https://forminit.com/f/r5rlmks14bb" method="POST" enctype="multipart/form-data">
         <div class="font-display font-black text-base mb-1">نموذج تأكيد التحويل</div>
         <div class="text-xs text-[#2D251E] mb-4 leading-relaxed">بعد التحويل على رقم المحفظة الإلكترونية 01151276173 عبّي البيانات دي وهنفعّل نسختك حالاً</div>
         <div class="mb-4">
           <label class="block text-xs font-bold mb-1" for="full_name">اسمك الثنائي</label>
-          <input class="w-full border border-[#EAE0D2] rounded-lg px-3 py-2.5 text-sm bg-white" type="text" id="full_name" name="الاسم" placeholder="مثال: سارة أحمد" required>
+          <input class="w-full border border-[#EAE0D2] rounded-lg px-3 py-2.5 text-sm bg-white" type="text" id="full_name" name="fi-sender-fullName" placeholder="مثال: سارة أحمد" required>
         </div>
         <div class="mb-4">
           <label class="block text-xs font-bold mb-1" for="transfer_proof">صورة سكرين شوت التحويل</label>
           <div class="relative border border-dashed border-[#EAE0D2] rounded-lg p-4 text-center bg-white">
             <span class="block text-xl mb-1">📎</span><span class="text-xs text-[#2D251E]">اضغطي هنا لرفع صورة التحويل</span>
-            <input class="absolute inset-0 opacity-0 cursor-pointer" type="file" id="transfer_proof" name="صورة التحويل" accept="image/*" required>
+            <input class="absolute inset-0 opacity-0 cursor-pointer" type="file" id="transfer_proof" name="fi-file-transferProof" accept="image/*" required>
           </div>
         </div>
         <button type="submit" id="submitBtn" class="cta-btn w-full bg-coral text-white font-extrabold py-3 rounded-lg text-sm">تأكيد التحويل وإرسال الطلب</button>
