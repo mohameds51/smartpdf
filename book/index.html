@@ -468,31 +468,9 @@ function fallback(text,cb){
   tick();
 })();
 
-// Submit the payment confirmation form via fetch so we control the redirect
-// to thank-you.html (needed so the Meta Pixel "Purchase" event fires reliably).
-(function(){
-  var form = document.getElementById('payment-form');
-  var btn = document.getElementById('submitBtn');
-  if(!form || !btn) return;
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var originalText = btn.textContent;
-    btn.textContent = 'بنبعت طلبك..';
-    btn.disabled = true;
-    var formData = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors' // Forminit doesn't return CORS headers; we proceed optimistically
-    }).then(function(){
-      window.location.href = '/book/thank-you.html';
-    }).catch(function(){
-      // Even if the network call errors out due to no-cors opacity, still move the
-      // customer forward — the data was sent; don't trap them on the form.
-      window.location.href = '/book/thank-you.html';
-    });
-  });
-})();
+// NOTE: form submission is now native (no JS interception). Forminit has its
+// own "Redirect to" setting configured in its dashboard to send the customer
+// to /book/thank-you.html after a successful submit, where the Purchase pixel fires.
 </script>
 </body>
 </html>
