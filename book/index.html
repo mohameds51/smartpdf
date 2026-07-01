@@ -37,6 +37,8 @@
   .cta-btn{ transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease; }
   .cta-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 28px -8px rgba(199,90,56,.45); background-color:#C75A38; }
   .cta-btn:active{ transform:translateY(0); }
+  #payment-form iframe{ min-height:657px; }
+  @media (max-width:767px){ #payment-form iframe{ min-height:520px; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -322,27 +324,15 @@ src="https://www.facebook.com/tr?id=993126060252620&ev=PageView&noscript=1"
         </div>
       </div>
 
-      <!-- Forminit form: wcbozjnvnzx — using forminit.com domain and fi- prefixed field names per the confirmed-working reference page -->
-      <form id="payment-form" class="bg-cream border border-[#EAE0D2] rounded-2xl p-5" action="https://forminit.com/f/wcbozjnvnzx" method="POST" enctype="multipart/form-data">
-        <div class="font-display font-black text-base mb-1">نموذج تأكيد التحويل</div>
-        <div class="text-xs text-[#2D251E] mb-4 leading-relaxed">بعد التحويل على رقم المحفظة الإلكترونية 01151276173 عبّي البيانات دي وهنفعّل نسختك حالاً</div>
-        <div class="mb-4">
-          <label class="block text-xs font-bold mb-1" for="full_name">اسمك الثنائي</label>
-          <input class="w-full border border-[#EAE0D2] rounded-lg px-3 py-2.5 text-sm bg-white" type="text" id="full_name" name="fi-sender-fullName" placeholder="مثال: سارة أحمد" required>
-        </div>
-        <div class="mb-4">
-          <label class="block text-xs font-bold mb-1" for="transfer_proof">صورة سكرين شوت التحويل</label>
-          <div class="relative border border-dashed border-[#EAE0D2] rounded-lg p-4 text-center bg-white">
-            <span class="block text-xl mb-1">📎</span><span id="fileLabel" class="text-xs text-[#2D251E]">اضغطي هنا لرفع صورة التحويل</span>
-            <input class="absolute inset-0 opacity-0 cursor-pointer" type="file" id="transfer_proof" name="fi-file-transferProof" accept="image/*" required onchange="document.getElementById('fileLabel').textContent = this.files[0] ? '✅ ' + this.files[0].name : 'اضغطي هنا لرفع صورة التحويل'">
-          </div>
-        </div>
-        <button type="submit" id="submitBtn" class="cta-btn w-full bg-coral text-white font-extrabold py-3 rounded-lg text-sm">تأكيد التحويل وإرسال الطلب</button>
-        <div class="text-center text-[10px] text-[#2D251E] mt-2">بياناتك بتتبعت لينا فقط لتأكيد طلبك ومراجعته</div>
-      </form>
+      <!-- Tally embed form: 5BQYYv -->
+      <div id="payment-form" class="bg-cream border border-[#EAE0D2] rounded-2xl p-3 md:p-4 overflow-hidden">
+        <iframe data-tally-src="https://tally.so/embed/5BQYYv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="657" frameborder="0" marginheight="0" marginwidth="0" title="book" style="width:100%;display:block;border:0;min-height:657px;"></iframe>
+      </div>
     </div>
   </div>
 </section>
+
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
 <!-- ============ FAQ ============ -->
 <section class="py-12 md:py-20 bg-cream">
