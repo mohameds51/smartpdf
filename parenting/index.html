@@ -37,6 +37,12 @@
   .cta-btn{ transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease; }
   .cta-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 28px -8px rgba(199,90,56,.45); background-color:#C75A38; }
   .cta-btn:active{ transform:translateY(0); }
+  #lightbox{ position:fixed; inset:0; background:rgba(20,15,10,.92); display:none; align-items:center; justify-content:center; z-index:100; padding:20px; }
+  #lightbox.show{ display:flex; }
+  #lightbox img{ max-width:92vw; max-height:88vh; border-radius:10px; box-shadow:0 20px 50px -10px rgba(0,0,0,.5); }
+  #lightboxClose{ position:absolute; top:16px; left:16px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.15); color:#fff; font-size:22px; font-weight:800; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .preview-thumb{ transition:transform .15s ease; }
+  .preview-thumb:hover{ transform:scale(1.02); }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -121,7 +127,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     </div>
 
     <div class="relative flex justify-center items-center">
-      <img src="/parenting/images/hero-mom.jpg" alt="أم تحتضن طفلها بهدوء وحب" class="w-full max-w-sm md:max-w-md rounded-2xl shadow-2xl object-contain">
+      <img src="/parenting/images/hero-mom.png" alt="أم تحتضن طفلها بهدوء وحب" class="w-full max-w-sm md:max-w-md rounded-2xl shadow-2xl object-contain">
     </div>
   </div>
 </section>
@@ -203,24 +209,27 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     </div>
 
     <!-- Book 1: الكتاب الأساسي -->
-    <div class="preview-panel grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4" data-panel="main">
-      <img src="/parenting/images/preview-main-1.png" alt="صفحة من كتاب بين شد وجذب" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
-      <img src="/parenting/images/preview-main-2.png" alt="صفحة من كتاب بين شد وجذب" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
-      <img src="/parenting/images/preview-main-3.png" alt="صفحة من كتاب بين شد وجذب" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
+    <div class="preview-panel grid grid-cols-2 gap-3 md:gap-4" data-panel="main">
+      <img src="/parenting/images/preview-main-1.png" alt="صفحة من كتاب بين شد وجذب" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-main-2.png" alt="صفحة من كتاب بين شد وجذب" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-main-3.png" alt="صفحة من كتاب بين شد وجذب" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-main-4.png" alt="نموذج موقف: التعامل مع الكذب الخيالي والمبالغة في سن الرابعة" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
     </div>
 
-    <!-- Book 2: موسوعة الـ 60 موقفًا (تُستكمل عند توفر الصور) -->
-    <div class="preview-panel hidden grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4" data-panel="sixty">
-      <img src="/parenting/images/preview-sixty-1.png" alt="فهرس المجموعة الأولى من موسوعة الـ 60 موقفًا: الطوارئ السلوكية والاجتماعية" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
-      <img src="/parenting/images/preview-sixty-2.png" alt="فهرس المجموعة الثانية من موسوعة الـ 60 موقفًا: معارك الدراسة والمدرسة وجيل الشاشات" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
-      <img src="/parenting/images/preview-sixty-3.png" alt="فهرس المجموعة الثالثة من موسوعة الـ 60 موقفًا: البناء النفسي والأخلاق والمجتمع" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
+    <!-- Book 2: موسوعة الـ 60 موقفًا -->
+    <div class="preview-panel hidden grid grid-cols-2 gap-3 md:gap-4" data-panel="sixty">
+      <img src="/parenting/images/preview-sixty-1.png" alt="فهرس المجموعة الأولى من موسوعة الـ 60 موقفًا: الطوارئ السلوكية والاجتماعية" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-sixty-2.png" alt="فهرس المجموعة الثانية من موسوعة الـ 60 موقفًا: معارك الدراسة والمدرسة وجيل الشاشات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-sixty-3.png" alt="فهرس المجموعة الثالثة من موسوعة الـ 60 موقفًا: البناء النفسي والأخلاق والمجتمع" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-sixty-4.png" alt="نموذج موقف: رفض الذهاب إلى المدرسة صباحًا والتظاهر بالمرض" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
     </div>
 
-    <!-- Book 3: مملكة الحيوانات (تُستكمل عند توفر الصور) -->
-    <div class="preview-panel hidden grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4" data-panel="animals">
-      <img src="/parenting/images/preview-animals-1.jpg" alt="صفحة تلوين أرنب من كتاب مملكة الحيوانات" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
-      <img src="/parenting/images/preview-animals-2.jpg" alt="صفحة تلوين زرافة من كتاب مملكة الحيوانات" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
-      <img src="/parenting/images/preview-animals-3.jpg" alt="صفحة تلوين فيل من كتاب مملكة الحيوانات" class="w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover">
+    <!-- Book 3: مملكة الحيوانات -->
+    <div class="preview-panel hidden grid grid-cols-2 gap-3 md:gap-4" data-panel="animals">
+      <img src="/parenting/images/preview-animals-1.jpg" alt="صفحة تلوين أرنب من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-animals-2.jpg" alt="صفحة تلوين زرافة من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-animals-3.jpg" alt="صفحة تلوين فيل من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
+      <img src="/parenting/images/preview-animals-4.jpg" alt="صفحة تلوين تمساح من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
     </div>
   </div>
 </section>
@@ -465,6 +474,19 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 </div>
 
 <script>
+function openLightbox(src){
+  var lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e){
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+</script>
+
+<script>
 function showPreviewTab(name){
   document.querySelectorAll('.preview-panel').forEach(function(p){
     p.classList.toggle('hidden', p.getAttribute('data-panel') !== name);
@@ -534,5 +556,11 @@ function showPreviewTab(name){
 // لصفحة الشكر thank-you.html اللي فيها روابط تحميل الكتب وحدث الشراء لبيكسل فيسبوك.
 // لازم بس تحطي الـ Client-side Token بتاع حسابك في Paddle مكان PASTE_YOUR_PADDLE_CLIENT_TOKEN_HERE فوق.
 </script>
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <span id="lightboxClose" onclick="closeLightbox(event)">✕</span>
+  <img id="lightboxImg" src="" alt="معاينة مكبّرة">
+</div>
+
 </body>
 </html>
