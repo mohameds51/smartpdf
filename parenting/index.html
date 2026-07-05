@@ -37,12 +37,6 @@
   .cta-btn{ transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease; }
   .cta-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 28px -8px rgba(199,90,56,.45); background-color:#C75A38; }
   .cta-btn:active{ transform:translateY(0); }
-  #lightbox{ position:fixed; inset:0; background:rgba(20,15,10,.92); display:none; align-items:center; justify-content:center; z-index:100; padding:20px; }
-  #lightbox.show{ display:flex; }
-  #lightbox img{ max-width:92vw; max-height:88vh; border-radius:10px; box-shadow:0 20px 50px -10px rgba(0,0,0,.5); }
-  #lightboxClose{ position:absolute; top:16px; left:16px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.15); color:#fff; font-size:22px; font-weight:800; display:flex; align-items:center; justify-content:center; cursor:pointer; }
-  .preview-thumb{ transition:transform .15s ease; }
-  .preview-thumb:hover{ transform:scale(1.02); }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -192,48 +186,6 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ============ INTERIOR PREVIEW ============ -->
-<section class="py-12 md:py-20 bg-white" id="preview">
-  <div class="max-w-5xl mx-auto px-5">
-    <span class="block text-center text-sm md:text-base font-extrabold text-coral uppercase mb-2">لمحة من الداخل</span>
-    <h2 class="text-center font-display font-black text-2xl md:text-3xl mb-8">شوفي صفحات حقيقية من الحقيبة قبل ما تشترين</h2>
-
-    <!-- Tabs -->
-    <div class="flex justify-center gap-2 flex-wrap mb-8" id="previewTabs">
-      <button type="button" onclick="showPreviewTab('main')" data-tab="main"
-        class="preview-tab-btn font-bold text-sm px-4 py-2 rounded-full bg-coral text-white">📘 الكتاب الأساسي</button>
-      <button type="button" onclick="showPreviewTab('sixty')" data-tab="sixty"
-        class="preview-tab-btn font-bold text-sm px-4 py-2 rounded-full bg-[#F1E9DD] text-ink">🎁 موسوعة الـ ٦٠ موقفًا</button>
-      <button type="button" onclick="showPreviewTab('animals')" data-tab="animals"
-        class="preview-tab-btn font-bold text-sm px-4 py-2 rounded-full bg-[#F1E9DD] text-ink">🎨 مملكة الحيوانات</button>
-    </div>
-
-    <!-- Book 1: الكتاب الأساسي -->
-    <div class="preview-panel grid grid-cols-2 gap-3 md:gap-4" data-panel="main">
-      <img src="/parenting/images/preview-main-1.png" alt="صفحة من كتاب بين شد وجذب" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-main-2.png" alt="صفحة من كتاب بين شد وجذب" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-main-3.png" alt="صفحة من كتاب بين شد وجذب" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-main-4.png" alt="نموذج موقف: التعامل مع الكذب الخيالي والمبالغة في سن الرابعة" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-    </div>
-
-    <!-- Book 2: موسوعة الـ 60 موقفًا -->
-    <div class="preview-panel hidden grid grid-cols-2 gap-3 md:gap-4" data-panel="sixty">
-      <img src="/parenting/images/preview-sixty-1.png" alt="فهرس المجموعة الأولى من موسوعة الـ 60 موقفًا: الطوارئ السلوكية والاجتماعية" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-sixty-2.png" alt="فهرس المجموعة الثانية من موسوعة الـ 60 موقفًا: معارك الدراسة والمدرسة وجيل الشاشات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-sixty-3.png" alt="فهرس المجموعة الثالثة من موسوعة الـ 60 موقفًا: البناء النفسي والأخلاق والمجتمع" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-sixty-4.png" alt="نموذج موقف: رفض الذهاب إلى المدرسة صباحًا والتظاهر بالمرض" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-    </div>
-
-    <!-- Book 3: مملكة الحيوانات -->
-    <div class="preview-panel hidden grid grid-cols-2 gap-3 md:gap-4" data-panel="animals">
-      <img src="/parenting/images/preview-animals-1.jpg" alt="صفحة تلوين أرنب من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-animals-2.jpg" alt="صفحة تلوين زرافة من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-animals-3.jpg" alt="صفحة تلوين فيل من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-      <img src="/parenting/images/preview-animals-4.jpg" alt="صفحة تلوين تمساح من كتاب مملكة الحيوانات" onclick="openLightbox(this.src)" class="preview-thumb w-full rounded-xl border border-[#EAE0D2] shadow-sm object-cover cursor-zoom-in">
-    </div>
-  </div>
-</section>
-
 <!-- ============ TESTIMONIALS ============ -->
 <section class="py-12 md:py-20 bg-white">
   <div class="max-w-5xl mx-auto px-5">
@@ -374,7 +326,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         <div class="flex justify-between items-center"><span class="font-extrabold">الإجمالي</span><span class="font-display font-black text-3xl text-coral">12.99$</span></div>
         <div class="text-xs text-[#A8A096] text-left mt-1">المبلغ المطلوب بالدولار، ويعادل تقريباً 49 ريال سعودي</div>
       </div>
-      <div class="text-center text-sm font-bold text-sage-dark bg-sage-light py-3">✦ توفير أكثر من 57$ عن القيمة الحقيقية للباقة ✦</div>
+      <div class="text-center text-sm font-bold text-sage-dark bg-sage-light py-3">✦ توفير أكثر من 214 ريال عن القيمة الحقيقية للباقة ✦</div>
     </div>
 
     <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
@@ -474,34 +426,6 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 </div>
 
 <script>
-function openLightbox(src){
-  var lb = document.getElementById('lightbox');
-  document.getElementById('lightboxImg').src = src;
-  lb.classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(e){
-  document.getElementById('lightbox').classList.remove('show');
-  document.body.style.overflow = '';
-}
-</script>
-
-<script>
-function showPreviewTab(name){
-  document.querySelectorAll('.preview-panel').forEach(function(p){
-    p.classList.toggle('hidden', p.getAttribute('data-panel') !== name);
-  });
-  document.querySelectorAll('.preview-tab-btn').forEach(function(b){
-    var active = b.getAttribute('data-tab') === name;
-    b.classList.toggle('bg-coral', active);
-    b.classList.toggle('text-white', active);
-    b.classList.toggle('bg-[#F1E9DD]', !active);
-    b.classList.toggle('text-ink', !active);
-  });
-}
-</script>
-
-<script>
 (function(){
   var bar = document.getElementById('stickyBar');
   var hero = document.querySelector('section');
@@ -556,11 +480,6 @@ function showPreviewTab(name){
 // لصفحة الشكر thank-you.html اللي فيها روابط تحميل الكتب وحدث الشراء لبيكسل فيسبوك.
 // لازم بس تحطي الـ Client-side Token بتاع حسابك في Paddle مكان PASTE_YOUR_PADDLE_CLIENT_TOKEN_HERE فوق.
 </script>
-<!-- Lightbox -->
-<div id="lightbox" onclick="closeLightbox(event)">
-  <span id="lightboxClose" onclick="closeLightbox(event)">✕</span>
-  <img id="lightboxImg" src="" alt="معاينة مكبّرة">
-</div>
 
 </body>
 </html>
