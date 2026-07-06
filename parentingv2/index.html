@@ -70,33 +70,47 @@
     padding:8px 12px;
   }
 
-  /* ---------- HERO — matched to reference layout ---------- */
+  /* ---------- HERO — real photo, reordered for above-the-fold CTA ---------- */
   .hero{
-    padding:0 0 48px;
+    padding:0 0 44px;
     background:var(--cream);
   }
   .hero-photo-wrap{
     position:relative;
     width:100%;
-    padding:40px 20px 0;
-    margin-bottom:36px;
+    padding:18px 20px 14px;
   }
-  /* Placeholder for the real lifestyle photo (mother + child) —
-     swap this background-image for the real asset when available.
-     No fabricated photo is used here. */
   .hero-photo-bg{
-    position:absolute; inset:0 0 auto 0; height:520px;
-    background:linear-gradient(180deg, var(--coral-tint) 0%, var(--cream) 85%);
+    position:absolute; inset:0;
+    background-image:url('assets/photos/hero-bg.webp');
+    background-size:cover;
+    background-position:24% 38%;
     z-index:0;
   }
+  .hero-photo-bg::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(250,246,240,0.55) 0%, rgba(250,246,240,0.88) 78%, var(--cream) 100%);
+  }
   .hero-photo-wrap .wrap{ position:relative; z-index:1; }
-  .hero h1{font-size:26px; margin-bottom:14px;}
+  .hero h1{font-size:25px; margin-bottom:8px;}
   .hero .sub{
-    font-size:15.5px; color:var(--charcoal-soft);
-    margin-bottom:30px; max-width:420px; margin-inline:auto;
+    font-size:14.5px; color:var(--charcoal-soft);
+    margin-bottom:12px; max-width:400px; margin-inline:auto;
   }
 
-  /* Book bundle — percentage widths + aspect-ratio so the composition
+  /* Social proof — sits between the copy and the books */
+  .hero-social-proof{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--card); border:1px solid var(--line);
+    padding:6px 14px; border-radius:100px;
+    font-size:11.5px; font-weight:700; color:var(--charcoal);
+    box-shadow:var(--shadow);
+    margin-bottom:14px;
+  }
+  .hero-social-proof .n{color:var(--coral-deep); font-family:'Cairo'; font-weight:900;}
+
+  /* Book bundle — larger (+~12%), soft glow behind, percentage-based so it
      scales proportionally on every screen instead of using fixed pixels. */
   .hero-visual{
     direction:ltr; /* physical left/right placement regardless of page RTL */
@@ -104,13 +118,19 @@
     display:flex; align-items:flex-end; justify-content:center;
     width:100%; max-width:340px;
     margin:0 auto;
-    padding-top:18px;
+    padding-top:14px;
+  }
+  .hero-visual-glow{
+    position:absolute; inset:-18% 6%;
+    background:radial-gradient(60% 60% at 50% 45%, rgba(255,255,255,0.55) 0%, transparent 72%);
+    filter:blur(22px);
+    z-index:0;
   }
   .hero-visual::after{
     content:'';
     position:absolute; bottom:0; left:50%; transform:translateX(-50%);
-    width:56%; height:22px; border-radius:50%;
-    background:radial-gradient(closest-side, rgba(43,36,31,0.22), transparent 75%);
+    width:58%; height:20px; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(43,36,31,0.24), transparent 75%);
     filter:blur(3px);
     z-index:0;
   }
@@ -123,15 +143,15 @@
   }
   .hero-book img{width:100%; height:100%; object-fit:cover; display:block;}
   .hero-book.side{
-    width:34%;
+    width:37%;
     z-index:1; margin-bottom:6%;
     box-shadow:0 14px 28px -12px rgba(43,36,31,0.28);
-    opacity:.96;
+    opacity:.97;
   }
   .hero-book.side.left{ transform:rotate(-6deg); margin-right:-9%; }
   .hero-book.side.right{ transform:rotate(6deg); margin-left:-9%; }
   .hero-book.main{
-    width:45%;
+    width:50%;
     z-index:2;
     box-shadow:0 30px 54px -16px rgba(43,36,31,0.4);
     animation:heroFloat 4.5s ease-in-out infinite;
@@ -141,35 +161,14 @@
     50%{ transform:translateY(-6px); }
   }
 
-  /* Benefit cards — one bordered container, 3 columns with dividers,
-     light circular line-icons (matches the reference exactly) */
-  .hero-benefits{
-    display:flex;
-    background:var(--card); border:1px solid var(--line);
-    border-radius:var(--radius-lg); box-shadow:var(--shadow);
-    overflow:hidden;
-    margin-top:28px;
-  }
-  .hero-benefit-item{
-    flex:1; display:flex; flex-direction:column; align-items:center;
-    text-align:center; gap:10px; padding:20px 8px;
-  }
-  .hero-benefit-item + .hero-benefit-item{ border-inline-start:1px solid var(--line); }
-  .hero-benefit-item .ic{
-    width:44px; height:44px; border-radius:50%; flex-shrink:0;
-    background:var(--sage-tint); color:var(--sage);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hero-benefit-item p{font-size:12px; font-weight:700; color:var(--charcoal); line-height:1.4;}
-
-  /* Price */
-  .price-block{display:flex; align-items:baseline; justify-content:center; gap:12px; margin:32px 0 14px;}
-  .price-new{font-family:'Cairo'; font-weight:900; font-size:46px; letter-spacing:-0.5px; color:var(--coral-deep);}
+  /* Price — now sits directly under the books, above the benefit cards */
+  .price-block{display:flex; align-items:baseline; justify-content:center; gap:12px; margin:18px 0 10px;}
+  .price-new{font-family:'Cairo'; font-weight:900; font-size:44px; letter-spacing:-0.5px; color:var(--coral-deep);}
   .price-old{font-size:16px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.55;}
   .price-save{
-    display:inline-block; margin-top:8px;
-    font-size:12.5px; font-weight:700; color:var(--sage);
-    background:var(--sage-tint); padding:5px 16px; border-radius:100px;
+    display:inline-block; margin-top:6px;
+    font-size:12px; font-weight:700; color:var(--sage);
+    background:var(--sage-tint); padding:5px 14px; border-radius:100px;
   }
 
   .cta-btn{
@@ -184,7 +183,7 @@
 
   /* Hero-only CTA enhancement — scoped so Offer/sticky CTAs stay untouched */
   .hero-cta-btn{
-    padding:20px 20px; font-size:18px; min-height:58px;
+    padding:18px 20px; font-size:17.5px; min-height:56px;
     box-shadow:0 18px 36px -12px rgba(226,114,77,0.6);
   }
   @media (hover:hover){
@@ -199,6 +198,27 @@
     opacity:.75; margin-top:8px; max-width:400px; margin-inline:auto;
   }
 
+  /* Benefit cards — shrunk ~22%, now below the CTA (supporting, not competing) */
+  .hero-benefits{
+    display:flex;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius-md); box-shadow:var(--shadow);
+    overflow:hidden;
+    margin-top:22px;
+  }
+  .hero-benefit-item{
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    text-align:center; gap:7px; padding:15px 6px;
+  }
+  .hero-benefit-item + .hero-benefit-item{ border-inline-start:1px solid var(--line); }
+  .hero-benefit-item .ic{
+    width:34px; height:34px; border-radius:50%; flex-shrink:0;
+    background:var(--sage-tint); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-benefit-item .ic svg{width:15px; height:15px;}
+  .hero-benefit-item p{font-size:10px; font-weight:700; color:var(--charcoal); line-height:1.35;}
+
   /* ---------- Payment trust icons ---------- */
   .pay-row{
     display:flex; justify-content:center; align-items:center; gap:10px;
@@ -212,7 +232,7 @@
   }
   .pay-badge img{width:100%; height:100%; object-fit:contain;}
 
-  /* Bottom trust row — minimal, plain columns (no card chrome), matches reference */
+  /* Bottom trust row — minimal, plain columns (no card chrome) */
   .hero-trust-strip{
     display:flex;
     margin-top:22px;
@@ -372,59 +392,64 @@
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
   <div class="hero-photo-wrap">
-    <!-- Placeholder background — swap for the real mother+child photo when available -->
     <div class="hero-photo-bg" aria-hidden="true"></div>
     <div class="wrap center">
-      <h1>لكل موقف مع طفلك... هناك طريقة أهدأ للتعامل معه.</h1>
+      <h1>في كل موقف مع طفلك... تستحقين أن تكوني الأم الهادئة التي يحتاجها.</h1>
       <p class="sub">دليل عملي يساعدك على التعامل مع أكثر المواقف اليومية التي تواجه الأمهات، بخطوات واضحة وسهلة التطبيق.</p>
 
+      <span class="hero-social-proof">
+        <span class="n">739+</span> أم أعدن الهدوء إلى منازلهن
+      </span>
+
       <div class="hero-visual">
+        <div class="hero-visual-glow" aria-hidden="true"></div>
         <div class="hero-book side left">
-          <img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="116" height="174" loading="eager" decoding="async">
+          <img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="126" height="189" loading="eager" decoding="async">
         </div>
         <div class="hero-book main">
-          <img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="153" height="230" loading="eager" fetchpriority="high" decoding="async">
+          <img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="170" height="255" loading="eager" fetchpriority="high" decoding="async">
         </div>
         <div class="hero-book side right">
-          <img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="116" height="174" loading="eager" decoding="async">
+          <img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="126" height="189" loading="eager" decoding="async">
         </div>
       </div>
+
+      <div class="price-block">
+        <span class="price-new">٤٩ ريال فقط</span>
+        <span class="price-old">١٤٩ ريال</span>
+      </div>
+      <span class="price-save">وفّري ١٠٠ ريال اليوم</span>
+
+      <div style="height:20px"></div>
+
+      <button class="cta-btn hero-cta-btn" onclick="scrollToOffer()">احصلي على الهدوء الآن</button>
     </div>
   </div>
 
   <div class="wrap center">
+    <p class="cta-sub">دفع آمن · تسليم فوري · متوافق مع جميع الأجهزة</p>
+    <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
+
     <div class="hero-benefits">
       <div class="hero-benefit-item">
         <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>
         </span>
         <p>أكثر من 60 موقفاً<br>تربوياً عملياً</p>
       </div>
       <div class="hero-benefit-item">
         <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13.5s-3.2-2-3.2-4.3a2 2 0 0 1 3.7-1.1 2 2 0 0 1 3.7 1.1c0 2.3-3.2 4.3-3.2 4.3z"/><path d="M4 17c1.5 1.5 4 2.5 8 2.5s6.5-1 8-2.5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13.5s-3.2-2-3.2-4.3a2 2 0 0 1 3.7-1.1 2 2 0 0 1 3.7 1.1c0 2.3-3.2 4.3-3.2 4.3z"/><path d="M4 17c1.5 1.5 4 2.5 8 2.5s6.5-1 8-2.5"/></svg>
         </span>
         <p>حلول هادئة بعيداً<br>عن الصراخ والعقاب</p>
       </div>
       <div class="hero-benefit-item">
         <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9 5 5 0 0 1 9.6-1.9A4.5 4.5 0 0 1 17 18H7z"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9 5 5 0 0 1 9.6-1.9A4.5 4.5 0 0 1 17 18H7z"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
         </span>
         <p>استلام فوري<br>بصيغة PDF</p>
       </div>
     </div>
-
-    <div class="price-block">
-      <span class="price-new">٤٩ ريال فقط</span>
-      <span class="price-old">١٤٩ ريال</span>
-    </div>
-    <span class="price-save">وفّري ١٠٠ ريال اليوم</span>
-
-    <div style="height:28px"></div>
-
-    <button class="cta-btn hero-cta-btn" onclick="scrollToOffer()">احصلي على الهدوء الآن</button>
-    <p class="cta-sub">دفع آمن · تسليم فوري · متوافق مع جميع الأجهزة</p>
-    <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
 
     <div class="pay-row" aria-label="طرق الدفع المتاحة">
       <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="64" height="38" loading="lazy" decoding="async"></span>
