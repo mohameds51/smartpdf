@@ -78,51 +78,61 @@
   .hero h1{font-size:26px; margin-bottom:12px;}
   .hero .sub{
     font-size:15.5px; color:var(--charcoal-soft);
-    margin-bottom:20px; max-width:440px; margin-inline:auto;
+    margin-bottom:24px; max-width:440px; margin-inline:auto;
   }
 
-  /* Compact bundle summary — real covers + labels, not emoji illustrations */
-  .bundle-summary{
-    display:flex; flex-direction:column; gap:8px;
+  /* Real bundle visualization — three real covers, premium overlapping depth */
+  .hero-visual{
+    direction:ltr; /* physical left/right placement regardless of page RTL */
+    position:relative;
+    display:flex; align-items:flex-end; justify-content:center;
+    height:190px; margin:0 auto 26px;
+  }
+  .hero-visual-glow{
+    position:absolute; inset:-30px 10%;
+    background:
+      radial-gradient(55% 55% at 35% 45%, var(--coral-tint) 0%, transparent 70%),
+      radial-gradient(50% 50% at 68% 60%, var(--sage-tint) 0%, transparent 72%);
+    filter:blur(28px);
+    opacity:.9;
+    z-index:0;
+  }
+  .hero-book{
+    position:relative;
+    border-radius:10px; overflow:hidden;
+    box-shadow:var(--shadow-lift);
+    background:var(--cream-deep);
+  }
+  .hero-book img{width:100%; height:100%; object-fit:cover; display:block;}
+  .hero-book.side{
+    width:76px; height:114px;
+    z-index:1; margin-bottom:8px;
+    box-shadow:var(--shadow);
+    opacity:.94;
+  }
+  .hero-book.side.left{ transform:rotate(-9deg); margin-right:-20px; }
+  .hero-book.side.right{ transform:rotate(9deg); margin-left:-20px; }
+  .hero-book.main{
+    width:94px; height:141px;
+    z-index:2;
+  }
+
+  /* Premium benefit cards — replaces the old checklist strip */
+  .hero-benefits{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;
+    margin-bottom:22px;
+  }
+  .hero-benefit-card{
     background:var(--card); border:1px solid var(--line);
-    border-radius:var(--radius-md); padding:12px 14px;
-    margin-bottom:20px; box-shadow:var(--shadow);
-    text-align:right;
+    border-radius:var(--radius-md); padding:12px 6px;
+    text-align:center; box-shadow:var(--shadow);
   }
-  .bundle-summary-item{
-    display:flex; align-items:center; gap:10px;
-    font-size:13.5px; font-weight:700;
-  }
-  .bundle-summary-item .thumb{
-    width:34px; height:44px; border-radius:6px; flex-shrink:0; overflow:hidden;
-    background:linear-gradient(155deg, var(--sage-tint), var(--cream-deep));
-  }
-  .bundle-summary-item .thumb img{width:100%; height:100%; object-fit:cover;}
-  .bundle-summary-item + .bundle-summary-item{border-top:1px solid var(--line); padding-top:8px;}
+  .hero-benefit-card .ic{display:block; font-size:19px; margin-bottom:6px;}
+  .hero-benefit-card p{font-size:11px; font-weight:700; color:var(--charcoal); line-height:1.4;}
 
-  /* Premium value strip — reinforces value just before price, existing tokens only */
-  .value-strip{
-    display:flex; flex-direction:column; gap:10px;
-    background:linear-gradient(135deg, var(--coral-tint), var(--sage-tint));
-    border:1px solid var(--line);
-    border-radius:var(--radius-md);
-    padding:14px 16px;
-    margin-bottom:20px;
-  }
-  .value-strip-item{
-    display:flex; align-items:center; gap:10px;
-    font-size:13px; font-weight:700; color:var(--charcoal);
-    text-align:right;
-  }
-  .value-strip-item .ic{
-    width:22px; height:22px; border-radius:50%; flex-shrink:0;
-    background:var(--sage); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-size:12px;
-  }
-
-  .price-block{display:flex; align-items:baseline; justify-content:center; gap:10px; margin-bottom:18px;}
-  .price-new{font-family:'Cairo'; font-weight:900; font-size:36px; color:var(--coral-deep);}
-  .price-old{font-size:17px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.7;}
+  .price-block{display:flex; align-items:baseline; justify-content:center; gap:10px; margin-bottom:10px;}
+  .price-new{font-family:'Cairo'; font-weight:900; font-size:40px; color:var(--coral-deep);}
+  .price-old{font-size:16px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.6;}
   .price-save{
     display:inline-block; margin-top:6px;
     font-size:12.5px; font-weight:700; color:var(--sage);
@@ -134,23 +144,25 @@
     background:var(--coral); color:#fff; border:none; border-radius:100px;
     padding:17px 20px; font-family:'Cairo'; font-weight:800; font-size:17px;
     box-shadow:0 14px 30px -10px rgba(226,114,77,0.55);
-    transition:transform .15s ease;
+    transition:transform .15s ease, box-shadow .15s ease;
     min-height:52px;
   }
   .cta-btn:active{transform:scale(.98);}
+
+  /* Hero-only CTA enhancement — scoped so Offer/sticky CTAs stay untouched */
+  .hero-cta-btn{
+    padding:19px 20px; font-size:18px; min-height:56px;
+  }
+  @media (hover:hover){
+    .hero-cta-btn:hover{ transform:translateY(-2px); box-shadow:0 18px 34px -10px rgba(226,114,77,0.6); }
+  }
+
   .cta-sub{text-align:center; font-size:12.5px; color:var(--charcoal-soft); margin-top:10px;}
 
   /* Subtle currency disclosure — deliberately quiet, never competes with the CTA */
   .price-note{
     text-align:center; font-size:11px; line-height:1.6; color:var(--charcoal-soft);
     opacity:.75; margin-top:8px; max-width:400px; margin-inline:auto;
-  }
-
-  .trust-row{display:flex; justify-content:center; gap:18px; margin-top:18px; flex-wrap:wrap;}
-  .trust-item{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--charcoal-soft);}
-  .trust-item .dot{
-    width:16px; height:16px; border-radius:50%; background:var(--sage); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0;
   }
 
   /* ---------- Payment trust icons ---------- */
@@ -309,25 +321,23 @@
     <h1>لكل موقف مع طفلك... هناك طريقة أهدأ للتعامل معه.</h1>
     <p class="sub">دليل عملي يساعدك على التعامل مع أكثر المواقف اليومية التي تواجه الأمهات، بخطوات واضحة وسهلة التطبيق.</p>
 
-    <div class="bundle-summary">
-      <div class="bundle-summary-item">
-        <span class="thumb"><img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="34" height="44" loading="eager" fetchpriority="high" decoding="async"></span>
-        <span>📘 دليل بين الشد والجذب</span>
+    <div class="hero-visual">
+      <div class="hero-visual-glow" aria-hidden="true"></div>
+      <div class="hero-book side left">
+        <img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="76" height="114" loading="eager" decoding="async">
       </div>
-      <div class="bundle-summary-item">
-        <span class="thumb"><img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="34" height="44" loading="lazy" decoding="async"></span>
-        <span>📗 موسوعة 60 موقفاً تربوياً</span>
+      <div class="hero-book main">
+        <img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="94" height="141" loading="eager" fetchpriority="high" decoding="async">
       </div>
-      <div class="bundle-summary-item">
-        <span class="thumb"><img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="34" height="44" loading="lazy" decoding="async"></span>
-        <span>🎨 كتاب تلوين مملكة الحيوانات</span>
+      <div class="hero-book side right">
+        <img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="76" height="114" loading="eager" decoding="async">
       </div>
     </div>
 
-    <div class="value-strip">
-      <div class="value-strip-item"><span class="ic">✓</span> أكثر من 60 موقفًا تربويًا عمليًا</div>
-      <div class="value-strip-item"><span class="ic">✓</span> حلول هادئة بعيدًا عن الصراخ والعقاب</div>
-      <div class="value-strip-item"><span class="ic">✓</span> استلام فوري بصيغة PDF</div>
+    <div class="hero-benefits">
+      <div class="hero-benefit-card"><span class="ic">📘</span><p>أكثر من 60 موقفاً عملياً</p></div>
+      <div class="hero-benefit-card"><span class="ic">❤️</span><p>حلول هادئة بعيداً عن الصراخ</p></div>
+      <div class="hero-benefit-card"><span class="ic">⚡</span><p>استلام فوري بصيغة PDF</p></div>
     </div>
 
     <div class="price-block">
@@ -338,15 +348,9 @@
 
     <div style="height:18px"></div>
 
-    <button class="cta-btn" onclick="scrollToOffer()">احصلي على الهدوء الآن</button>
+    <button class="cta-btn hero-cta-btn" onclick="scrollToOffer()">احصلي على الهدوء الآن</button>
     <p class="cta-sub">دفع آمن · تسليم فوري · متوافق مع جميع الأجهزة</p>
     <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
-
-    <div class="trust-row">
-      <div class="trust-item"><span class="dot">✓</span> تسليم فوري</div>
-      <div class="trust-item"><span class="dot">✓</span> دفع آمن</div>
-      <div class="trust-item"><span class="dot">✓</span> يعمل على جميع الأجهزة</div>
-    </div>
 
     <div class="pay-row" aria-label="طرق الدفع المتاحة">
       <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="44" height="28" loading="lazy" decoding="async"></span>
