@@ -79,92 +79,129 @@
     position:relative;
     width:100%;
     padding:18px 20px 14px;
+    overflow:hidden;
   }
   .hero-photo-bg{
     position:absolute; inset:0;
     background-image:url('assets/photos/hero-bg.webp');
     background-size:cover;
     background-position:24% 38%;
+    filter:blur(3px) contrast(0.93) brightness(1.03);
+    transform:scale(1.06);
     z-index:0;
   }
   .hero-photo-bg::after{
     content:'';
     position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(250,246,240,0.55) 0%, rgba(250,246,240,0.88) 78%, var(--cream) 100%);
+    background:linear-gradient(180deg, rgba(250,246,240,0.62) 0%, rgba(250,246,240,0.92) 78%, var(--cream) 100%);
   }
   .hero-photo-wrap .wrap{ position:relative; z-index:1; }
-  .hero h1{font-size:25px; margin-bottom:8px;}
+  .hero h1{
+    font-size:25px; margin-bottom:12px;
+    animation:heroFadeIn 550ms ease-out both;
+  }
   .hero .sub{
     font-size:14.5px; color:var(--charcoal-soft);
-    margin-bottom:12px; max-width:400px; margin-inline:auto;
+    margin-bottom:18px; max-width:400px; margin-inline:auto;
   }
 
-  /* Social proof — sits between the copy and the books */
+  /* Social proof — premium frosted glass badge */
   .hero-social-proof{
     display:inline-flex; align-items:center; gap:6px;
-    background:var(--card); border:1px solid var(--line);
+    background:rgba(255,255,255,0.5);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.65);
     padding:6px 14px; border-radius:100px;
     font-size:11.5px; font-weight:700; color:var(--charcoal);
-    box-shadow:var(--shadow);
-    margin-bottom:14px;
+    box-shadow:0 8px 20px -10px rgba(43,36,31,0.25);
+    margin-bottom:20px;
   }
   .hero-social-proof .n{color:var(--coral-deep); font-family:'Cairo'; font-weight:900;}
 
-  /* Book bundle — larger (+~12%), soft glow behind, percentage-based so it
-     scales proportionally on every screen instead of using fixed pixels. */
+  /* Book bundle — premium depth: rim light, layered ambient shadow, soft center glow */
   .hero-visual{
     direction:ltr; /* physical left/right placement regardless of page RTL */
     position:relative;
     display:flex; align-items:flex-end; justify-content:center;
     width:100%; max-width:340px;
     margin:0 auto;
-    padding-top:14px;
+    padding-top:20px;
   }
   .hero-visual-glow{
     position:absolute; inset:-18% 6%;
-    background:radial-gradient(60% 60% at 50% 45%, rgba(255,255,255,0.55) 0%, transparent 72%);
-    filter:blur(22px);
+    background:radial-gradient(58% 58% at 50% 44%, rgba(255,255,255,0.42) 0%, transparent 72%);
+    filter:blur(28px);
     z-index:0;
   }
   .hero-visual::after{
     content:'';
     position:absolute; bottom:0; left:50%; transform:translateX(-50%);
     width:58%; height:20px; border-radius:50%;
-    background:radial-gradient(closest-side, rgba(43,36,31,0.24), transparent 75%);
-    filter:blur(3px);
+    background:radial-gradient(closest-side, rgba(43,36,31,0.26), transparent 75%);
+    filter:blur(4px);
     z-index:0;
   }
   .hero-book{
     position:relative;
     border-radius:8px; overflow:hidden;
-    box-shadow:var(--shadow-lift);
     background:var(--cream-deep);
     aspect-ratio:2/3;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.4),
+      inset -1px 0 0 rgba(0,0,0,0.04);
   }
   .hero-book img{width:100%; height:100%; object-fit:cover; display:block;}
   .hero-book.side{
     width:37%;
     z-index:1; margin-bottom:6%;
-    box-shadow:0 14px 28px -12px rgba(43,36,31,0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.35),
+      0 4px 10px -4px rgba(43,36,31,0.18),
+      0 16px 30px -14px rgba(43,36,31,0.26);
     opacity:.97;
   }
-  .hero-book.side.left{ transform:rotate(-6deg); margin-right:-9%; }
-  .hero-book.side.right{ transform:rotate(6deg); margin-left:-9%; }
+  .hero-book.side.left{ margin-right:-9%; animation:heroFadeUpLeft 600ms ease-out 80ms both; }
+  .hero-book.side.right{ margin-left:-9%; animation:heroFadeUpRight 600ms ease-out 80ms both; }
   .hero-book.main{
     width:50%;
     z-index:2;
-    box-shadow:0 30px 54px -16px rgba(43,36,31,0.4);
-    animation:heroFloat 4.5s ease-in-out infinite;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.45),
+      inset -1px 0 0 rgba(0,0,0,0.03),
+      0 4px 10px -4px rgba(43,36,31,0.2),
+      0 18px 30px -12px rgba(43,36,31,0.28),
+      0 38px 64px -18px rgba(43,36,31,0.42);
+    animation:heroFadeUpMain 600ms ease-out 160ms both, heroFloat 4.8s ease-in-out 760ms infinite;
   }
   @keyframes heroFloat{
     0%, 100%{ transform:translateY(0); }
     50%{ transform:translateY(-6px); }
   }
+  @keyframes heroFadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+  }
+  @keyframes heroFadeUpLeft{
+    from{ opacity:0; transform:translateY(14px) rotate(-6deg); }
+    to{ opacity:1; transform:translateY(0) rotate(-6deg); }
+  }
+  @keyframes heroFadeUpRight{
+    from{ opacity:0; transform:translateY(14px) rotate(6deg); }
+    to{ opacity:1; transform:translateY(0) rotate(6deg); }
+  }
+  @keyframes heroFadeUpMain{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
 
-  /* Price — now sits directly under the books, above the benefit cards */
-  .price-block{display:flex; align-items:baseline; justify-content:center; gap:12px; margin:18px 0 10px;}
-  .price-new{font-family:'Cairo'; font-weight:900; font-size:44px; letter-spacing:-0.5px; color:var(--coral-deep);}
-  .price-old{font-size:16px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.55;}
+  /* Price — stronger hierarchy: heavier new price, lighter/quieter old price */
+  .price-block{
+    display:flex; align-items:baseline; justify-content:center; gap:12px;
+    margin:28px 0 10px;
+    animation:heroFadeIn 650ms ease-out 300ms both;
+  }
+  .price-new{font-family:'Cairo'; font-weight:900; font-size:48px; letter-spacing:-0.6px; color:var(--coral-deep);}
+  .price-old{font-size:15px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.45; font-weight:400;}
   .price-save{
     display:inline-block; margin-top:6px;
     font-size:12px; font-weight:700; color:var(--sage);
@@ -176,7 +213,7 @@
     background:var(--coral); color:#fff; border:none; border-radius:100px;
     padding:17px 20px; font-family:'Cairo'; font-weight:800; font-size:17px;
     box-shadow:0 14px 30px -10px rgba(226,114,77,0.55);
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
     min-height:52px;
   }
   .cta-btn:active{transform:scale(.98);}
@@ -184,10 +221,11 @@
   /* Hero-only CTA enhancement — scoped so Offer/sticky CTAs stay untouched */
   .hero-cta-btn{
     padding:18px 20px; font-size:17.5px; min-height:56px;
-    box-shadow:0 18px 36px -12px rgba(226,114,77,0.6);
+    box-shadow:0 22px 44px -14px rgba(226,114,77,0.68);
   }
+  .hero-cta-btn:active{ transform:scale(.97); filter:brightness(0.96); }
   @media (hover:hover){
-    .hero-cta-btn:hover{ transform:translateY(-2px); box-shadow:0 22px 40px -12px rgba(226,114,77,0.65); }
+    .hero-cta-btn:hover{ transform:translateY(-2px); box-shadow:0 26px 48px -14px rgba(226,114,77,0.72); filter:brightness(1.03); }
   }
 
   .cta-sub{text-align:center; font-size:12.5px; color:var(--charcoal-soft); margin-top:10px;}
@@ -250,6 +288,9 @@
 
   @media (prefers-reduced-motion: reduce){
     .hero-book.main{ animation:none; }
+    .hero-book.side.left{ animation:none; transform:rotate(-6deg); }
+    .hero-book.side.right{ animation:none; transform:rotate(6deg); }
+    .hero h1, .price-block{ animation:none; opacity:1; }
   }
 
   /* ---------- SITUATIONS ---------- */
