@@ -70,36 +70,41 @@
     padding:8px 12px;
   }
 
-  /* ---------- HERO — art direction redesign ---------- */
+  /* ---------- HERO — matched to reference layout ---------- */
   .hero{
-    padding:44px 0 48px;
-    background:radial-gradient(120% 90% at 50% -10%, var(--coral-tint) 0%, var(--cream) 55%);
+    padding:0 0 48px;
+    background:var(--cream);
   }
+  .hero-photo-wrap{
+    position:relative;
+    width:100%;
+    padding:40px 20px 0;
+    margin-bottom:36px;
+  }
+  /* Placeholder for the real lifestyle photo (mother + child) —
+     swap this background-image for the real asset when available.
+     No fabricated photo is used here. */
+  .hero-photo-bg{
+    position:absolute; inset:0 0 auto 0; height:520px;
+    background:linear-gradient(180deg, var(--coral-tint) 0%, var(--cream) 85%);
+    z-index:0;
+  }
+  .hero-photo-wrap .wrap{ position:relative; z-index:1; }
   .hero h1{font-size:26px; margin-bottom:14px;}
   .hero .sub{
     font-size:15.5px; color:var(--charcoal-soft);
-    margin-bottom:34px; max-width:420px; margin-inline:auto;
+    margin-bottom:30px; max-width:420px; margin-inline:auto;
   }
 
-  /* Book bundle — the dominant visual element of the hero.
-     Percentage widths + aspect-ratio so the composition scales
-     proportionally on every screen instead of using fixed pixels. */
+  /* Book bundle — percentage widths + aspect-ratio so the composition
+     scales proportionally on every screen instead of using fixed pixels. */
   .hero-visual{
     direction:ltr; /* physical left/right placement regardless of page RTL */
     position:relative;
     display:flex; align-items:flex-end; justify-content:center;
     width:100%; max-width:340px;
-    margin:0 auto 40px;
+    margin:0 auto;
     padding-top:18px;
-  }
-  .hero-visual-glow{
-    position:absolute; inset:-15% 2% -6%;
-    background:
-      radial-gradient(58% 58% at 34% 40%, var(--coral-tint) 0%, transparent 72%),
-      radial-gradient(52% 52% at 70% 60%, var(--sage-tint) 0%, transparent 75%);
-    filter:blur(38px);
-    opacity:.65;
-    z-index:0;
   }
   .hero-visual::after{
     content:'';
@@ -111,7 +116,7 @@
   }
   .hero-book{
     position:relative;
-    border-radius:13px; overflow:hidden;
+    border-radius:8px; overflow:hidden;
     box-shadow:var(--shadow-lift);
     background:var(--cream-deep);
     aspect-ratio:2/3;
@@ -121,10 +126,10 @@
     width:34%;
     z-index:1; margin-bottom:6%;
     box-shadow:0 14px 28px -12px rgba(43,36,31,0.28);
-    opacity:.92;
+    opacity:.96;
   }
-  .hero-book.side.left{ transform:rotate(-11deg); margin-right:-9%; }
-  .hero-book.side.right{ transform:rotate(11deg); margin-left:-9%; }
+  .hero-book.side.left{ transform:rotate(-6deg); margin-right:-9%; }
+  .hero-book.side.right{ transform:rotate(6deg); margin-left:-9%; }
   .hero-book.main{
     width:45%;
     z-index:2;
@@ -136,8 +141,29 @@
     50%{ transform:translateY(-6px); }
   }
 
-  /* Price — the second-strongest visual element after the books */
-  .price-block{display:flex; align-items:baseline; justify-content:center; gap:12px; margin-bottom:14px;}
+  /* Benefit cards — one bordered container, 3 columns with dividers,
+     light circular line-icons (matches the reference exactly) */
+  .hero-benefits{
+    display:flex;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius-lg); box-shadow:var(--shadow);
+    overflow:hidden;
+    margin-top:28px;
+  }
+  .hero-benefit-item{
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    text-align:center; gap:10px; padding:20px 8px;
+  }
+  .hero-benefit-item + .hero-benefit-item{ border-inline-start:1px solid var(--line); }
+  .hero-benefit-item .ic{
+    width:44px; height:44px; border-radius:50%; flex-shrink:0;
+    background:var(--sage-tint); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-benefit-item p{font-size:12px; font-weight:700; color:var(--charcoal); line-height:1.4;}
+
+  /* Price */
+  .price-block{display:flex; align-items:baseline; justify-content:center; gap:12px; margin:32px 0 14px;}
   .price-new{font-family:'Cairo'; font-weight:900; font-size:46px; letter-spacing:-0.5px; color:var(--coral-deep);}
   .price-old{font-size:16px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.55;}
   .price-save{
@@ -173,54 +199,34 @@
     opacity:.75; margin-top:8px; max-width:400px; margin-inline:auto;
   }
 
-  /* Benefits — intentionally secondary, a quiet supporting row, not cards */
-  .hero-benefits{
-    display:flex; justify-content:center; flex-wrap:wrap;
-    gap:8px 18px;
-    margin-top:28px;
-  }
-  .hero-benefit-item{
-    display:flex; align-items:center; gap:7px;
-    font-size:11.5px; font-weight:600; color:var(--charcoal-soft);
-  }
-  .hero-benefit-item .ic{
-    width:20px; height:20px; border-radius:50%; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hero-benefit-item .ic.coral{background:var(--coral-tint); color:var(--coral-deep);}
-  .hero-benefit-item .ic.sage{background:var(--sage-tint); color:var(--sage);}
-
   /* ---------- Payment trust icons ---------- */
   .pay-row{
     display:flex; justify-content:center; align-items:center; gap:10px;
     margin-top:20px; flex-wrap:wrap;
   }
   .pay-badge{
-    height:30px; width:46px; border-radius:8px;
+    height:38px; width:64px; border-radius:8px;
     background:var(--card); border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
-    padding:5px;
+    padding:6px;
   }
   .pay-badge img{width:100%; height:100%; object-fit:contain;}
 
-  /* Premium trust strip — icon + title + short description, one clean row */
+  /* Bottom trust row — minimal, plain columns (no card chrome), matches reference */
   .hero-trust-strip{
-    display:flex; margin-top:16px;
-    background:var(--card); border:1px solid var(--line);
-    border-radius:var(--radius-md); box-shadow:var(--shadow);
-    overflow:hidden;
+    display:flex;
+    margin-top:22px;
   }
   .hero-trust-strip-item{
     flex:1; display:flex; flex-direction:column; align-items:center;
-    text-align:center; gap:4px; padding:14px 6px;
+    text-align:center; gap:6px; padding:6px;
   }
-  .hero-trust-strip-item + .hero-trust-strip-item{ border-inline-start:1px solid var(--line); }
   .hero-trust-strip-item .ic{
-    width:24px; height:24px; border-radius:50%; background:var(--sage); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-size:12px; margin-bottom:2px;
+    width:26px; height:26px; border-radius:50%; background:var(--sage-tint); color:var(--sage);
+    display:flex; align-items:center; justify-content:center; font-size:13px; margin-bottom:2px;
   }
-  .hero-trust-strip-item .t{font-family:'Cairo'; font-weight:800; font-size:11.5px; color:var(--charcoal);}
-  .hero-trust-strip-item .d{font-size:9.5px; color:var(--charcoal-soft); line-height:1.35;}
+  .hero-trust-strip-item .t{font-family:'Cairo'; font-weight:700; font-size:11.5px; color:var(--charcoal);}
+  .hero-trust-strip-item .d{font-size:10px; color:var(--charcoal-soft); line-height:1.3;}
 
   @media (prefers-reduced-motion: reduce){
     .hero-book.main{ animation:none; }
@@ -365,20 +371,46 @@
 
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
-  <div class="wrap center">
-    <h1>لكل موقف مع طفلك... هناك طريقة أهدأ للتعامل معه.</h1>
-    <p class="sub">دليل عملي يساعدك على التعامل مع أكثر المواقف اليومية التي تواجه الأمهات، بخطوات واضحة وسهلة التطبيق.</p>
+  <div class="hero-photo-wrap">
+    <!-- Placeholder background — swap for the real mother+child photo when available -->
+    <div class="hero-photo-bg" aria-hidden="true"></div>
+    <div class="wrap center">
+      <h1>لكل موقف مع طفلك... هناك طريقة أهدأ للتعامل معه.</h1>
+      <p class="sub">دليل عملي يساعدك على التعامل مع أكثر المواقف اليومية التي تواجه الأمهات، بخطوات واضحة وسهلة التطبيق.</p>
 
-    <div class="hero-visual">
-      <div class="hero-visual-glow" aria-hidden="true"></div>
-      <div class="hero-book side left">
-        <img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="116" height="174" loading="eager" decoding="async">
+      <div class="hero-visual">
+        <div class="hero-book side left">
+          <img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="116" height="174" loading="eager" decoding="async">
+        </div>
+        <div class="hero-book main">
+          <img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="153" height="230" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="hero-book side right">
+          <img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="116" height="174" loading="eager" decoding="async">
+        </div>
       </div>
-      <div class="hero-book main">
-        <img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="153" height="230" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap center">
+    <div class="hero-benefits">
+      <div class="hero-benefit-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>
+        </span>
+        <p>أكثر من 60 موقفاً<br>تربوياً عملياً</p>
       </div>
-      <div class="hero-book side right">
-        <img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="116" height="174" loading="eager" decoding="async">
+      <div class="hero-benefit-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13.5s-3.2-2-3.2-4.3a2 2 0 0 1 3.7-1.1 2 2 0 0 1 3.7 1.1c0 2.3-3.2 4.3-3.2 4.3z"/><path d="M4 17c1.5 1.5 4 2.5 8 2.5s6.5-1 8-2.5"/></svg>
+        </span>
+        <p>حلول هادئة بعيداً<br>عن الصراخ والعقاب</p>
+      </div>
+      <div class="hero-benefit-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9 5 5 0 0 1 9.6-1.9A4.5 4.5 0 0 1 17 18H7z"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
+        </span>
+        <p>استلام فوري<br>بصيغة PDF</p>
       </div>
     </div>
 
@@ -394,49 +426,34 @@
     <p class="cta-sub">دفع آمن · تسليم فوري · متوافق مع جميع الأجهزة</p>
     <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
 
-    <div class="hero-benefits">
-      <div class="hero-benefit-item">
-        <span class="ic coral" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0-1.1.9-2 2-2h5v16H6c-1.1 0-2 .9-2 2V5z"/><path d="M20 5c0-1.1-.9-2-2-2h-5v16h5c1.1 0 2 .9 2 2V5z"/></svg>
-        </span>
-        أكثر من 60 موقفاً عملياً
-      </div>
-      <div class="hero-benefit-item">
-        <span class="ic sage" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9C.5 7.5 3 4 6.5 4c2 0 3.5 1.2 4.5 2.5C12 5.2 13.5 4 15.5 4 19 4 21.5 7.5 21.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg>
-        </span>
-        حلول هادئة بعيداً عن الصراخ
-      </div>
-      <div class="hero-benefit-item">
-        <span class="ic coral" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="M13 2 3 14h6l-1 8 11-14h-7l1-6z"/></svg>
-        </span>
-        استلام فوري بصيغة PDF
-      </div>
-    </div>
-
     <div class="pay-row" aria-label="طرق الدفع المتاحة">
-      <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="46" height="30" loading="lazy" decoding="async"></span>
-      <span class="pay-badge"><img src="assets/icons/mada.svg" alt="مدى" width="46" height="30" loading="lazy" decoding="async"></span>
-      <span class="pay-badge"><img src="assets/icons/visa.svg" alt="Visa" width="46" height="30" loading="lazy" decoding="async"></span>
-      <span class="pay-badge"><img src="assets/icons/mastercard.svg" alt="Mastercard" width="46" height="30" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="64" height="38" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/mada.svg" alt="مدى" width="64" height="38" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/visa.svg" alt="Visa" width="64" height="38" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/mastercard.svg" alt="Mastercard" width="64" height="38" loading="lazy" decoding="async"></span>
     </div>
 
     <div class="hero-trust-strip">
       <div class="hero-trust-strip-item">
-        <span class="ic">✓</span>
-        <span class="t">تسليم فوري</span>
-        <span class="d">تصل الملفات خلال دقائق</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19v1a3 3 0 0 1-3 3h-2"/></svg>
+        </span>
+        <span class="t">دعم فني</span>
+        <span class="d">يخدمك دائماً</span>
       </div>
       <div class="hero-trust-strip-item">
-        <span class="ic">✓</span>
-        <span class="t">دفع آمن</span>
-        <span class="d">بياناتك محمية بالكامل</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </span>
+        <span class="t">خصوصيتك آمنة</span>
+        <span class="d">نحمي بياناتك</span>
       </div>
       <div class="hero-trust-strip-item">
-        <span class="ic">✓</span>
-        <span class="t">يعمل على أي جهاز</span>
-        <span class="d">افتحيه من جوالك مباشرة</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span class="t">منتج رقمي</span>
+        <span class="d">ليس له استرجاع</span>
       </div>
     </div>
   </div>
