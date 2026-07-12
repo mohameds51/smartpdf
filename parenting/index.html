@@ -56,6 +56,16 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script") ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9A1U7RC77U6Q0JCJV70');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
 <!-- Paddle.js -->
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
@@ -72,6 +82,20 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 
   function openPaddleCheckout(e){
     if(e) e.preventDefault();
+    // TikTok Pixel: تتبع بداية عملية الدفع
+    if (typeof ttq !== 'undefined') {
+      ttq.track('InitiateCheckout', {
+        contents: [{
+          content_id: 'bein-shad-wa-jazb',
+          content_name: 'كتاب بين شد وجذب',
+          content_type: 'product',
+          quantity: 1,
+          price: 12.99
+        }],
+        value: 12.99,
+        currency: 'USD'
+      });
+    }
     Paddle.Checkout.open({
       items: [{ priceId: 'pri_01kwm0cv7scd97gwhztg7h2293', quantity: 1 }],
       settings: {
@@ -111,6 +135,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         <span>✅ تحميل فوري PDF</span>
         <span>✅ دفع آمن عبر مدى أو Apple Pay</span>
         <span>✅ يشتغل على كل الأجهزة</span>
+        <span>✅ ضمان استرداد 14 يوم</span>
       </div>
       <div class="flex justify-center md:justify-start items-center gap-2 mt-4">
         <svg width="42" height="26" viewBox="0 0 42 26" xmlns="http://www.w3.org/2000/svg"><rect width="42" height="26" rx="4" fill="#1A1F71"/><text x="21" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-style="italic" font-weight="700" font-size="10" fill="#ffffff">VISA</text></svg>
@@ -361,7 +386,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         <span class="w-8 h-8 rounded-full bg-deep text-white font-black flex items-center justify-center shrink-0">٣</span>
         <div>
           <div class="font-extrabold text-base">حمّلي الحقيبة فورًا</div>
-          <div class="text-sm text-[#171310] mt-1">تنزل الحقيبة على جوالك بصيغة PDF في نفس اللحظة، وتوصلك كمان نسخة على الإيميل</div>
+          <div class="text-sm text-[#171310] mt-1">فور إتمام الدفع تظهر لك روابط تحميل الكتب مباشرة على جوالك بصيغة PDF، وتقدرين كمان تحصلي على نسختك على واتساب</div>
         </div>
       </div>
     </div>
@@ -376,7 +401,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 
     <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
       <div class="flex justify-between items-center font-extrabold text-base">كيف بستلم الحقيبة بعد الدفع مباشرة؟<span class="qm-icon text-coral text-xl">+</span></div>
-      <div class="faq-a text-sm text-[#171310] leading-relaxed">رابط التحميل يطلع لك فورًا بعد الدفع، وتوصلك كمان نسخة على الإيميل تكون محفوظة عندك طول الوقت. الخدمة رقمية بالكامل وتوصلك أينما كنتِ.</div>
+      <div class="faq-a text-sm text-[#171310] leading-relaxed">روابط تحميل الكتب تطلع لك فورًا بعد الدفع مباشرة، وتقدرين كمان تحصلي على نسختك على واتساب. الخدمة رقمية بالكامل وتوصلك أينما كنتِ.</div>
     </div>
     <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
       <div class="flex justify-between items-center font-extrabold text-base">وش طرق الدفع المتاحة؟<span class="qm-icon text-coral text-xl">+</span></div>
@@ -392,7 +417,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     </div>
     <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
       <div class="flex justify-between items-center font-extrabold text-base">وإذا الكتاب ما ناسبني؟<span class="qm-icon text-coral text-xl">+</span></div>
-      <div class="faq-a text-sm text-[#171310] leading-relaxed">ثقتنا الكبيرة في كتابنا والخطوات العملية اللي فيه خلّتنا نعطيكِ «ضمان ذهبي»؛ إذا قرأتِ الكتاب وطبقتِ الخطوات وما لاحظتِ أي تغيير في سلوك طفلك أو هدوء بيتك خلال ١٤ يوم، تقدرين تتواصلين معانا بسهولة عبر الإيميل وتستردين مبلغ الـ 12.99$ بالكامل بدون أي تعقيد. راحة أسرتك هي أهم شي عندنا.</div>
+      <div class="faq-a text-sm text-[#171310] leading-relaxed">ثقتنا الكبيرة في كتابنا والخطوات العملية اللي فيه خلّتنا نعطيكِ «ضمان ذهبي»؛ إذا قرأتِ الكتاب وطبقتِ الخطوات وما لاحظتِ أي تغيير في سلوك طفلك أو هدوء بيتك خلال ١٤ يوم، تقدرين تتواصلين معانا بسهولة عبر واتساب وتستردين مبلغ الـ 12.99$ بالكامل بدون أي تعقيد. راحة أسرتك هي أهم شي عندنا.</div>
     </div>
   </div>
 </section>
