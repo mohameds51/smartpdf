@@ -101,9 +101,10 @@
     animation:heroFadeIn 550ms ease-out both;
   }
   .hero .sub{
-    font-size:14.5px; color:var(--charcoal-soft);
+    font-size:14.5px; color:var(--charcoal); font-weight:600;
     margin-bottom:18px; max-width:400px; margin-inline:auto;
   }
+  .hero .sub strong{ font-weight:800; color:var(--charcoal); }
 
   /* Social proof — premium frosted glass badge */
   .hero-social-proof{
@@ -371,6 +372,13 @@
   .invoice-head .s{font-size:11.5px; opacity:.55;}
 
   .delivery-steps{display:flex; flex-direction:column; gap:16px;}
+
+  .payment-gateway-note{
+    background:var(--coral); color:#fff;
+    font-size:13px; font-weight:700; line-height:1.7; text-align:center;
+    border-radius:var(--radius-md); padding:14px 18px;
+    margin-bottom:22px;
+  }
   .delivery-step{display:flex; align-items:flex-start; gap:12px;}
   .delivery-step .n{
     flex-shrink:0; width:30px; height:30px; border-radius:100%;
@@ -515,7 +523,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <div class="hero-photo-bg" aria-hidden="true"></div>
     <div class="wrap center">
       <h1>حزمة تربوية متكاملة تجعلكِ الأم الهادئة في كل موقف مع طفلك</h1>
-      <p class="sub">3 كتب تكمّل بعضها: دليل عملي، موسوعة مواقف يومية، وكتاب أنشطة لطفلك — بخطوات واضحة وسهلة التطبيق فورًا.</p>
+      <p class="sub"><strong>3 كتب تكمّل بعضها من أول صفحة لآخرها</strong>: دليل عملي، موسوعة مواقف يومية، وكتاب أنشطة لطفلك — بخطوات واضحة وسهلة التطبيق فورًا.</p>
 
       <span class="hero-social-proof">
         <span class="n">739+</span> أم أعدن الهدوء إلى منازلهن
@@ -778,6 +786,9 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <div class="sit-head center">
       <h2>استلام رقمي فوري خلال دقائق</h2>
     </div>
+    <div class="payment-gateway-note">
+      نستخدم بوابة دفع عالمية آمنة، والحزمة تُباع بشكل عالمي، ولذلك يظهر لك السعر بالدولار الأمريكي (12.99$) وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.
+    </div>
     <div class="delivery-steps">
       <div class="delivery-step">
         <span class="n">١</span>
@@ -785,11 +796,11 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       </div>
       <div class="delivery-step">
         <span class="n">٢</span>
-        <span class="txt"><strong>أدخلي إيميلك وادفعي بأمان</strong><span>بوابة الدفع تطلب إيميلك أولاً لترسل لك الفاتورة تلقائياً، ثم تدفعين بمدى أو فيزا أو ماستركارد أو Apple Pay عبر بوابة دفع عالمية موثوقة</span></span>
+        <span class="txt"><strong>أدخلي إيميلك وادفعي بأمان</strong><span>بوابة الدفع تطلب إيميلك أولاً لترسل لك فاتورة الشراء تلقائياً، ثم تدفعين بمدى أو فيزا أو ماستركارد أو Apple Pay عبر بوابة دفع عالمية موثوقة</span></span>
       </div>
       <div class="delivery-step">
         <span class="n">٣</span>
-        <span class="txt"><strong>حمّلي الحزمة فوراً</strong><span>فور إتمام الدفع تظهر لك روابط تحميل الكتب الثلاثة مباشرة على جوالك بصيغة PDF، وتقدرين كمان تحصلي على نسختك على واتساب</span></span>
+        <span class="txt"><strong>حمّلي الحزمة فوراً</strong><span>فور إتمام الدفع تظهر لك روابط تحميل الكتب الثلاثة مباشرة على صفحة الشكر، تحمّليها على جوالك بصيغة PDF، أو تطلبي نسختك جاهزة على واتساب من نفس الصفحة</span></span>
       </div>
     </div>
   </div>
@@ -804,7 +815,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <div id="faqList">
       <div class="faq-item">
         <button class="faq-q"><span>متى سأستلم المحتوى؟</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>روابط تحميل الكتب الثلاثة تظهر لك فوراً بعد إتمام الدفع مباشرة، وتصلك أيضاً على البريد الإلكتروني، وتقدرين كمان تحصلي على نسختك على واتساب.</p></div>
+        <div class="faq-a"><p>روابط تحميل الكتب الثلاثة تظهر لك مباشرة على صفحة الشكر فور إتمام الدفع، وتقدرين تحمّليها على جوالك أو جهازك من هناك، أو تطلبي نسختك جاهزة على واتساب من نفس الصفحة. البريد الإلكتروني تستخدمينه فقط لاستلام فاتورة الشراء.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>هل أحتاج إلى خبرة تربوية للاستفادة من الحزمة؟</span><span class="plus">+</span></button>
@@ -863,7 +874,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="support">
       <span class="support-item">✓ خدمة العملاء</span>
-      <span class="support-item">✓ البريد الإلكتروني</span>
+      <span class="support-item">✓ تحميل فوري</span>
       <span class="support-item">✓ واتساب</span>
     </div>
     <div class="links">
