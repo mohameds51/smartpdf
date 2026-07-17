@@ -433,6 +433,64 @@
   .offer-price{display:flex; align-items:baseline; justify-content:center; gap:10px; margin-bottom:20px;}
   .offer-price .new{font-family:'Cairo'; font-weight:900; font-size:34px;}
   .offer-price .old{font-size:16px; text-decoration:line-through; opacity:.7;}
+
+  .promo-box{ margin-bottom:16px; }
+  .promo-input-row{ display:flex; gap:8px; }
+  .promo-input{
+    flex:1; min-width:0;
+    background:rgba(255,255,255,0.12); border:1.5px solid rgba(255,255,255,0.3);
+    border-radius:10px; padding:12px 14px; font-size:14px; font-family:'Tajawal',sans-serif;
+    color:#fff;
+  }
+  .promo-input::placeholder{ color:rgba(255,255,255,0.65); }
+  .promo-input:disabled{ opacity:.6; }
+  .promo-btn{
+    flex-shrink:0; background:#fff; color:var(--coral-deep);
+    border:none; border-radius:10px; padding:0 20px;
+    font-family:'Cairo'; font-weight:800; font-size:14px; cursor:pointer;
+  }
+  .promo-btn:disabled{ opacity:.6; }
+  .promo-msg{ font-size:12.5px; font-weight:700; margin-top:8px; min-height:16px; }
+  .promo-msg.success{ color:#B9F0C4; }
+  .promo-msg.error{ color:#FFC9B8; }
+
+  /* Exit-intent discount popup */
+  .exit-popup-overlay{
+    display:none; position:fixed; inset:0; z-index:200;
+    background:rgba(21,17,13,0.6);
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .exit-popup-overlay.show{ display:flex; }
+  .exit-popup{
+    position:relative; width:100%; max-width:360px;
+    background:var(--cream); border-radius:20px;
+    padding:30px 22px 24px; text-align:center;
+    box-shadow:0 30px 60px -12px rgba(0,0,0,0.4);
+    animation:exitPopupIn 280ms ease-out both;
+  }
+  @keyframes exitPopupIn{ from{opacity:0; transform:translateY(14px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);} }
+  .exit-popup-close{
+    position:absolute; top:12px; left:12px;
+    width:30px; height:30px; border-radius:100%;
+    background:rgba(43,36,31,0.06); border:none;
+    color:var(--charcoal-soft); font-size:14px; cursor:pointer;
+  }
+  .exit-popup-emoji{ font-size:40px; margin-bottom:10px; }
+  .exit-popup h3{ font-family:'Cairo'; font-weight:800; font-size:19px; margin-bottom:10px; color:var(--charcoal); }
+  .exit-popup p{ font-size:14px; color:var(--charcoal-soft); line-height:1.7; margin-bottom:18px; }
+  .exit-popup p strong{ color:var(--coral-deep); font-weight:800; }
+  .exit-promo-code{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    background:#fff; border:2px dashed var(--coral); border-radius:12px;
+    padding:12px 16px; margin-bottom:18px; cursor:pointer;
+  }
+  .exit-promo-code .code{ font-family:'Cairo'; font-weight:900; font-size:20px; letter-spacing:2px; color:var(--coral-deep); }
+  .exit-promo-code .copy-hint{ font-size:11.5px; color:var(--charcoal-soft); font-weight:600; }
+  .exit-popup-cta{ width:100%; margin-bottom:10px; }
+  .exit-popup-dismiss{
+    background:none; border:none; color:var(--charcoal-soft);
+    font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer;
+  }
   .offer-card .cta-btn{background:#fff; color:var(--coral-deep); box-shadow:0 14px 30px -10px rgba(0,0,0,0.35);}
   .offer-card .cta-sub{color:rgba(255,255,255,0.85);}
   .offer-card .price-note{color:rgba(255,255,255,0.8); opacity:.9;}
@@ -647,7 +705,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 </section>
 
 <!-- ============ 3. WHY THIS BUNDLE ============ -->
-<section class="section">
+<section class="section" id="whyBundleSection">
   <div class="wrap">
     <div class="why-card">
       <span class="eyebrow">لماذا هذه الحزمة التربوية؟</span>
@@ -856,13 +914,22 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       <span class="eyebrow">عرض اليوم</span>
       <h2>احصلي على الحزمة كاملة الآن</h2>
       <p class="urgency">السعر الحالي متاح لفترة محدودة، ثم يعود إلى سعره الأصلي</p>
-      <div class="offer-price">
+      <div class="offer-price" id="offerPriceBlock">
         <span class="new">٤٩ ريال فقط</span>
         <span class="old">٢١٧ ريال</span>
       </div>
+
+      <div class="promo-box">
+        <div class="promo-input-row">
+          <input type="text" id="promoInput" class="promo-input" placeholder="عندك كود خصم؟" autocapitalize="characters" autocomplete="off">
+          <button type="button" class="promo-btn" id="promoBtn" onclick="applyPromoCode()">تطبيق</button>
+        </div>
+        <p class="promo-msg" id="promoMsg"></p>
+      </div>
+
       <button class="cta-btn" id="checkoutBtn" onclick="redirectToCheckout()">احصلي على الهدوء الآن</button>
       <p class="cta-sub">تسليم فوري · دفع آمن · ضمان استرداد خلال ١٤ يومًا</p>
-      <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
+      <p class="price-note" id="offerPriceNote">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
       <div class="pay-row" aria-label="طرق الدفع المتاحة">
         <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="44" height="28" loading="lazy" decoding="async"></span>
         <span class="pay-badge"><img src="assets/icons/mada.svg" alt="مدى" width="44" height="28" loading="lazy" decoding="async"></span>
@@ -897,6 +964,22 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <button class="cta-btn" style="flex:1" onclick="redirectToCheckout()">احصلي عليها الآن</button>
   </div>
   <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
+</div>
+
+<!-- ============ EXIT-INTENT DISCOUNT POPUP ============ -->
+<div class="exit-popup-overlay" id="exitPopupOverlay">
+  <div class="exit-popup">
+    <button class="exit-popup-close" id="exitPopupClose" aria-label="إغلاق">✕</button>
+    <div class="exit-popup-emoji">🎁</div>
+    <h3>استني.. قبل ما تسكّرين الصفحة!</h3>
+    <p>عندنا خصم خاص لك دلوقتي بس، خصم <strong>٥٠٪</strong> على الحزمة كاملة. مايتكررش بسهولة.</p>
+    <div class="exit-promo-code" id="exitPromoCode" onclick="copyExitPromoCode()">
+      <span class="code">MOM50</span>
+      <span class="copy-hint" id="exitCopyHint">اضغطي للنسخ</span>
+    </div>
+    <button class="cta-btn exit-popup-cta" onclick="applyExitDiscountAndCheckout()">طبّقي الخصم واحصلي على الحزمة الآن</button>
+    <button class="exit-popup-dismiss" id="exitPopupDismiss">لأ، شكرًا</button>
+  </div>
 </div>
 
 <script>
@@ -962,6 +1045,72 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     }
   });
 
+  // ============ PROMO CODE ============
+  // أكواد الخصم الصالحة ونسبتها. أضيفي أي كود جديد هنا بنفس الشكل.
+  const VALID_PROMO_CODES = { 'MOM50': 0.5 };
+  let appliedDiscount = null; // { code, percent }
+
+  function toArabicNumerals(value){
+    const map = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+    return String(value).split('').map(ch => map[ch] !== undefined ? map[ch] : ch).join('');
+  }
+
+  function formatSar(amount){
+    // تنسيق بسيط: يشيل الصفر العشري لو مش محتاج (24.0 -> 24)، ويسيب رقم عشري واحد لو محتاج (24.5)
+    const rounded = Math.round(amount * 10) / 10;
+    const str = Number.isInteger(rounded) ? String(rounded) : String(rounded);
+    return toArabicNumerals(str) + ' ريال';
+  }
+
+  function applyPromoCode(){
+    const input = document.getElementById('promoInput');
+    const btn = document.getElementById('promoBtn');
+    const msg = document.getElementById('promoMsg');
+    const code = input.value.trim().toUpperCase();
+
+    if (!code) return;
+
+    if (VALID_PROMO_CODES[code]) {
+      appliedDiscount = { code: code, percent: VALID_PROMO_CODES[code] };
+      updatePricesWithDiscount();
+      msg.textContent = '✅ تم تطبيق كود الخصم! السعر الجديد أقل بنسبة ' + Math.round(appliedDiscount.percent * 100) + '٪';
+      msg.className = 'promo-msg success';
+      input.disabled = true;
+      btn.disabled = true;
+      btn.textContent = 'تم ✓';
+    } else {
+      msg.textContent = '❌ الكود غير صحيح أو منتهي الصلاحية';
+      msg.className = 'promo-msg error';
+    }
+  }
+
+  function updatePricesWithDiscount(){
+    if (!appliedDiscount) return;
+    const baseSar = 49;
+    const baseUsd = 12.99;
+    const newSar = baseSar * (1 - appliedDiscount.percent);
+    const newUsd = (baseUsd * (1 - appliedDiscount.percent)).toFixed(2);
+    const newSarLabel = formatSar(newSar) + ' فقط';
+
+    // سعر قسم العرض
+    const offerNew = document.querySelector('#offerPriceBlock .new');
+    if (offerNew) offerNew.textContent = newSarLabel;
+
+    // سعر الهيرو
+    const heroNew = document.querySelector('.price-new');
+    if (heroNew) heroNew.textContent = newSarLabel;
+
+    // سعر الشريط اللاصق
+    const stickyNew = document.querySelector('.sticky-cta .p .n');
+    if (stickyNew) stickyNew.textContent = newSarLabel;
+
+    // تحديث ملاحظة السعر بالدولار تحت زرار العرض
+    const priceNote = document.getElementById('offerPriceNote');
+    if (priceNote) {
+      priceNote.textContent = 'بعد تطبيق كود الخصم، سيتم الدفع بالدولار الأمريكي (' + newUsd + ' USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا ' + Math.round(newSar) + ' ريالًا سعوديًا حسب سعر الصرف وقت الشراء.';
+    }
+  }
+
   // زرار "احصلي على الحزمة كاملة الآن" في قسم العرض هو اللي بيفتح شاشة الدفع الفعلية من Paddle.
   // بعد نجاح الدفع، Paddle بيوجّه العميلة تلقائيًا لصفحة الشكر حسب successUrl تحت.
   function redirectToCheckout(){
@@ -987,13 +1136,121 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         currency: 'USD'
       });
     }
-    Paddle.Checkout.open({
+    const checkoutParams = {
       items: [{ priceId: 'pri_01kwm0cv7scd97gwhztg7h2293', quantity: 1 }],
       settings: {
         successUrl: 'https://smartpdf.shop/parenting/thank-you'
       }
-    });
+    };
+    // لو العميلة طبّقت كود خصم صحيح في الصفحة، نبعته لـ Paddle عشان يتطبق تلقائي في شاشة الدفع
+    if (appliedDiscount) {
+      checkoutParams.discountCode = appliedDiscount.code;
+    }
+    Paddle.Checkout.open(checkoutParams);
   }
+
+  // ============ EXIT-INTENT DISCOUNT POPUP ============
+  const EXIT_POPUP_CODE = 'MOM50';
+  const EXIT_POPUP_SESSION_KEY = 'exitPopupShown';
+  let exitPopupHasBeenShown = false;
+
+  function showExitPopup(){
+    if (exitPopupHasBeenShown) return;
+    if (appliedDiscount) return; // العميلة أصلاً طبّقت خصم، مفيش داعي نزعجها
+    exitPopupHasBeenShown = true;
+    try { sessionStorage.setItem(EXIT_POPUP_SESSION_KEY, '1'); } catch(e) {}
+    document.getElementById('exitPopupOverlay').classList.add('show');
+  }
+
+  function hideExitPopup(){
+    document.getElementById('exitPopupOverlay').classList.remove('show');
+  }
+
+  function copyExitPromoCode(){
+    const hint = document.getElementById('exitCopyHint');
+    const done = () => {
+      hint.textContent = 'تم النسخ ✓';
+      setTimeout(() => { hint.textContent = 'اضغطي للنسخ'; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(EXIT_POPUP_CODE).then(done).catch(done);
+    } else {
+      done();
+    }
+  }
+
+  function applyExitDiscountAndCheckout(){
+    if (VALID_PROMO_CODES[EXIT_POPUP_CODE]) {
+      appliedDiscount = { code: EXIT_POPUP_CODE, percent: VALID_PROMO_CODES[EXIT_POPUP_CODE] };
+      updatePricesWithDiscount();
+      // نعكس نفس الحالة على مكان إدخال الكود في قسم العرض لو موجود
+      const promoInput = document.getElementById('promoInput');
+      const promoBtn = document.getElementById('promoBtn');
+      const promoMsg = document.getElementById('promoMsg');
+      if (promoInput) { promoInput.value = EXIT_POPUP_CODE; promoInput.disabled = true; }
+      if (promoBtn) { promoBtn.disabled = true; promoBtn.textContent = 'تم ✓'; }
+      if (promoMsg) { promoMsg.textContent = '✅ تم تطبيق كود الخصم! السعر الجديد أقل بنسبة 50٪'; promoMsg.className = 'promo-msg success'; }
+    }
+    hideExitPopup();
+    redirectToCheckout();
+  }
+
+  document.getElementById('exitPopupClose').addEventListener('click', hideExitPopup);
+  document.getElementById('exitPopupDismiss').addEventListener('click', hideExitPopup);
+  document.getElementById('exitPopupOverlay').addEventListener('click', function(e){
+    if (e.target === this) hideExitPopup();
+  });
+
+  // لو ظهر الـ popup قبل كده في نفس الجلسة، منعرضوش تاني
+  try {
+    if (sessionStorage.getItem(EXIT_POPUP_SESSION_KEY) === '1') {
+      exitPopupHasBeenShown = true;
+    }
+  } catch(e) {}
+
+  // كمبيوتر/لابتوب: لما الماوس يتحرك برا الصفحة من فوق (نية الخروج الكلاسيكية)
+  document.addEventListener('mouseout', function(e){
+    if (!e.relatedTarget && !e.toElement && e.clientY <= 0) {
+      showExitPopup();
+    }
+  });
+
+  // جوال: نعترض ضغطة زرار الرجوع (مش هينفع نمنع إغلاق التطبيق أو التبويب نفسه، بس زرار الرجوع أكتر حاجة بتستخدمها الزائرة)
+  try {
+    history.pushState({ exitPopupGuard: true }, '', location.href);
+    window.addEventListener('popstate', function(){
+      if (!exitPopupHasBeenShown) {
+        showExitPopup();
+        history.pushState({ exitPopupGuard: true }, '', location.href);
+      }
+    });
+  } catch(e) {}
+
+  // جوال/كمبيوتر: تظهر بعد 30 ثانية من فتح الصفحة، وبس لو العميلة فعلاً نزلت وشافت
+  // قسم "لماذا هذه الحزمة التربوية" أو بعده (يعني مش لسه واقفة في الهيرو)
+  let exitTimerElapsed = false;
+  let exitScrolledEnough = false;
+
+  function maybeShowTimedExitPopup(){
+    if (exitTimerElapsed && exitScrolledEnough) {
+      showExitPopup();
+      window.removeEventListener('scroll', onExitScrollCheck);
+    }
+  }
+
+  function onExitScrollCheck(){
+    const target = document.getElementById('whyBundleSection');
+    if (target && target.getBoundingClientRect().top < window.innerHeight) {
+      exitScrolledEnough = true;
+      maybeShowTimedExitPopup();
+    }
+  }
+
+  window.addEventListener('scroll', onExitScrollCheck, { passive: true });
+  setTimeout(function(){
+    exitTimerElapsed = true;
+    maybeShowTimedExitPopup();
+  }, 30000);
 
 </script>
 
