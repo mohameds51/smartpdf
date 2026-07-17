@@ -243,8 +243,12 @@
 
   /* Subtle currency disclosure — deliberately quiet, never competes with the CTA */
   .price-note{
-    text-align:center; font-size:11px; line-height:1.6; color:var(--charcoal-soft);
-    opacity:.75; margin-top:8px; max-width:400px; margin-inline:auto;
+    text-align:center; font-size:11.5px; line-height:1.7; color:var(--charcoal-soft);
+    font-weight:600; opacity:.9; margin-top:8px; max-width:400px; margin-inline:auto;
+  }
+  .usd-highlight{ font-family:'Cairo'; font-weight:900; font-size:1.2em; color:var(--coral-deep); }
+  .price-note .usd-highlight{
+    font-family:'Cairo'; font-weight:900; font-size:1.3em; color:var(--charcoal);
   }
 
   /* Benefit cards — shrunk ~22%, now below the CTA (supporting, not competing) */
@@ -382,6 +386,9 @@
     margin-bottom:22px;
   }
   .payment-gateway-note strong{ color:var(--charcoal); font-weight:800; }
+  .payment-gateway-note .usd-highlight{
+    font-family:'Cairo'; font-weight:900; font-size:1.3em; color:var(--coral-deep);
+  }
   .delivery-step{display:flex; align-items:flex-start; gap:12px;}
   .delivery-step .n{
     flex-shrink:0; width:30px; height:30px; border-radius:100%;
@@ -494,6 +501,7 @@
   .offer-card .cta-btn{background:#fff; color:var(--coral-deep); box-shadow:0 14px 30px -10px rgba(0,0,0,0.35);}
   .offer-card .cta-sub{color:rgba(255,255,255,0.85);}
   .offer-card .price-note{color:rgba(255,255,255,0.8); opacity:.9;}
+  .offer-card .price-note .usd-highlight{ color:#fff; }
   .offer-card .pay-badge{background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.25);}
 
   /* ---------- FOOTER ---------- */
@@ -616,7 +624,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 
       <div style="height:20px"></div>
 
-      <button class="cta-btn hero-cta-btn" onclick="redirectToCheckout()">احصلي على الهدوء الآن</button>
+      <button class="cta-btn hero-cta-btn" onclick="scrollToOffer()">احصلي على الهدوء الآن</button>
     </div>
   </div>
 
@@ -849,7 +857,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       <h2>استلام رقمي فوري خلال دقائق</h2>
     </div>
     <div class="payment-gateway-note">
-      <strong>ملاحظة مهمة:</strong> نستخدم بوابة دفع عالمية آمنة، والحزمة تُباع بشكل عالمي، ولذلك يظهر لك السعر بالدولار الأمريكي (12.99$) وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.
+      <strong>ملاحظة مهمة:</strong> نستخدم بوابة دفع عالمية آمنة، والحزمة تُباع بشكل عالمي، ولذلك يظهر لك السعر بالدولار الأمريكي <span class="usd-highlight">(12.99$)</span> وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.
     </div>
     <div class="delivery-steps">
       <div class="delivery-step">
@@ -897,7 +905,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>لماذا يتم الدفع بالدولار الأمريكي؟</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>نستخدم بوابة الدفع العالمية Paddle، لذلك يتم عرض المبلغ النهائي بالدولار الأمريكي (12.99 USD). ويعادل ذلك تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p></div>
+        <div class="faq-a"><p>نستخدم بوابة الدفع العالمية Paddle، لذلك يتم عرض المبلغ النهائي بالدولار الأمريكي <span class="usd-highlight">(12.99 USD)</span>. ويعادل ذلك تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>هل يمكن استرجاع المبلغ؟</span><span class="plus">+</span></button>
@@ -929,7 +937,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 
       <button class="cta-btn" id="checkoutBtn" onclick="redirectToCheckout()">احصلي على الهدوء الآن</button>
       <p class="cta-sub">تسليم فوري · دفع آمن · ضمان استرداد خلال ١٤ يومًا</p>
-      <p class="price-note" id="offerPriceNote">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
+      <p class="price-note" id="offerPriceNote">سيتم الدفع بالدولار الأمريكي <span class="usd-highlight">(12.99 USD)</span> عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
       <div class="pay-row" aria-label="طرق الدفع المتاحة">
         <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="44" height="28" loading="lazy" decoding="async"></span>
         <span class="pay-badge"><img src="assets/icons/mada.svg" alt="مدى" width="44" height="28" loading="lazy" decoding="async"></span>
@@ -961,9 +969,9 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-row">
     <div class="p"><span class="n">٤٩ ريال فقط</span><br><span class="o">٢١٧ ريال</span></div>
-    <button class="cta-btn" style="flex:1" onclick="redirectToCheckout()">احصلي عليها الآن</button>
+    <button class="cta-btn" style="flex:1" onclick="scrollToOffer()">احصلي عليها الآن</button>
   </div>
-  <p class="price-note">سيتم الدفع بالدولار الأمريكي (12.99 USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
+  <p class="price-note">سيتم الدفع بالدولار الأمريكي <span class="usd-highlight">(12.99 USD)</span> عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا 49 ريالًا سعوديًا حسب سعر الصرف وقت الشراء.</p>
 </div>
 
 <!-- ============ EXIT-INTENT DISCOUNT POPUP ============ -->
@@ -1109,6 +1117,11 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     if (priceNote) {
       priceNote.textContent = 'بعد تطبيق كود الخصم، سيتم الدفع بالدولار الأمريكي (' + newUsd + ' USD) عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا ' + Math.round(newSar) + ' ريالًا سعوديًا حسب سعر الصرف وقت الشراء.';
     }
+  }
+
+  function scrollToOffer(){
+    const target = document.getElementById('offer');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // زرار "احصلي على الحزمة كاملة الآن" في قسم العرض هو اللي بيفتح شاشة الدفع الفعلية من Paddle.
