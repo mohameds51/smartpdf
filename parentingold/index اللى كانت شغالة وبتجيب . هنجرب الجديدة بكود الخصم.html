@@ -37,46 +37,6 @@
   .cta-btn{ transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease; }
   .cta-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 28px -8px rgba(199,90,56,.45); background-color:#C75A38; }
   .cta-btn:active{ transform:translateY(0); }
-  .promo-msg.success{ color:#3E6A3B; }
-  .promo-msg.error{ color:#C0392B; }
-
-  /* Exit-intent discount popup */
-  .exit-popup-overlay{
-    display:none; position:fixed; inset:0; z-index:200;
-    background:rgba(21,17,13,0.6);
-    align-items:center; justify-content:center; padding:20px;
-  }
-  .exit-popup-overlay.show{ display:flex; }
-  .exit-popup{
-    position:relative; width:100%; max-width:360px;
-    background:#FAF6F0; border-radius:20px;
-    padding:30px 22px 24px; text-align:center;
-    box-shadow:0 30px 60px -12px rgba(0,0,0,0.4);
-    animation:exitPopupIn 280ms ease-out both;
-  }
-  @keyframes exitPopupIn{ from{opacity:0; transform:translateY(14px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);} }
-  .exit-popup-close{
-    position:absolute; top:12px; left:12px;
-    width:30px; height:30px; border-radius:100%;
-    background:rgba(43,36,31,0.06); border:none;
-    color:#6B6258; font-size:14px; cursor:pointer;
-  }
-  .exit-popup-emoji{ font-size:40px; margin-bottom:10px; }
-  .exit-popup h3{ font-family:'Cairo',sans-serif; font-weight:800; font-size:19px; margin-bottom:10px; color:#2D251E; }
-  .exit-popup p{ font-size:14px; color:#6B6258; line-height:1.7; margin-bottom:18px; }
-  .exit-popup p strong{ color:#C75A38; font-weight:800; }
-  .exit-promo-code{
-    display:flex; align-items:center; justify-content:center; gap:10px;
-    background:#fff; border:2px dashed #E2724D; border-radius:12px;
-    padding:12px 16px; margin-bottom:18px; cursor:pointer;
-  }
-  .exit-promo-code .code{ font-family:'Cairo',sans-serif; font-weight:900; font-size:20px; letter-spacing:2px; color:#C75A38; }
-  .exit-promo-code .copy-hint{ font-size:11.5px; color:#6B6258; font-weight:600; }
-  .exit-popup-cta{ width:100%; margin-bottom:10px; }
-  .exit-popup-dismiss{
-    background:none; border:none; color:#6B6258;
-    font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer;
-  }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -136,16 +96,12 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         currency: 'USD'
       });
     }
-    var checkoutParams = {
+    Paddle.Checkout.open({
       items: [{ priceId: 'pri_01kwm0cv7scd97gwhztg7h2293', quantity: 1 }],
       settings: {
         successUrl: 'https://smartpdf.shop/parenting/thank-you.html'
       }
-    };
-    if (typeof appliedDiscount !== 'undefined' && appliedDiscount) {
-      checkoutParams.discountCode = appliedDiscount.code;
-    }
-    Paddle.Checkout.open(checkoutParams);
+    });
   }
 </script>
 
@@ -173,7 +129,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         دليلك العملي المجرّب لإنهاء العناد اليومي بدون احتراق نفسي.. خطوات واضحة تبدئين تطبيقها من أول ساعة، لينعم بيتك بالهدوء.
       </p>
       <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block md:inline-block bg-coral text-white font-display font-extrabold text-lg md:text-xl py-4 px-7 rounded-2xl shadow-xl shadow-coral/30">
-        📥 احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span>
+        📥 احصلي على الحقيبة كاملة الآن بـ 12.99$ — حوالي 49 ريال سعودي
       </a>
       <div class="flex justify-center md:justify-start gap-4 flex-wrap text-sm text-[#171310] font-bold mt-5">
         <span>✅ تحميل فوري PDF</span>
@@ -221,7 +177,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 </section>
 
 <!-- ============ BENEFITS ============ -->
-<section class="py-12 md:py-20 bg-cream" id="benefitsSection">
+<section class="py-12 md:py-20 bg-cream">
   <div class="max-w-5xl mx-auto px-5">
     <span class="block text-center text-sm md:text-base font-extrabold text-coral uppercase mb-2">محتوى الكتاب</span>
     <h2 class="text-center font-display font-black text-2xl md:text-3xl mb-10">مهارات بتطبقينها من أول يوم.. وتشوفين نتيجتها في بيتك</h2>
@@ -330,21 +286,10 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       <div>
         <div class="text-center mb-5">
           <div class="text-base line-through text-[#A8A096]">القيمة الإجمالية: 45$ <span class="text-sm">(حوالي 169 ريال)</span></div>
-          <div class="font-display font-black text-5xl md:text-5xl text-coral mt-1" id="offerMainPrice">12.99$</div>
-          <div class="text-sm text-[#171310] font-semibold mt-1" id="offerMainPriceSar">حوالي 49 ريال سعودي</div>
+          <div class="font-display font-black text-5xl md:text-5xl text-coral mt-1">12.99$</div>
+          <div class="text-sm text-[#171310] font-semibold mt-1">حوالي 49 ريال سعودي</div>
           <div class="text-sm text-[#171310] font-semibold mt-2 leading-relaxed">استثمار تربوي ذكي وشامل أقل من تكلفة استشارة تربوية واحدة، يعيد لكِ الهدوء لسنوات</div>
         </div>
-
-        <div class="bg-white border border-[#EAE0D2] rounded-2xl p-4 mb-5">
-          <div class="flex gap-2">
-            <input type="text" id="promoInput" placeholder="عندك كود خصم؟" autocapitalize="characters" autocomplete="off"
-                   class="flex-1 min-w-0 border border-[#EAE0D2] rounded-xl px-3 py-3 text-[16px] font-tajawal">
-            <button type="button" id="promoBtn" onclick="applyPromoCode()"
-                    class="shrink-0 bg-ink text-white font-display font-extrabold text-sm rounded-xl px-5">تطبيق</button>
-          </div>
-          <p class="promo-msg text-xs font-bold mt-2 min-h-[16px]" id="promoMsg"></p>
-        </div>
-
         <div class="bg-white border border-dashed border-[#EAE0D2] rounded-2xl p-4 text-center mb-5">
           <div class="text-sm font-extrabold text-redish mb-3">⏰ دقائق قليلة وينتهي العرض ويرجع السعر الأساسي</div>
           <div class="flex justify-center gap-2" id="countdown" dir="ltr">
@@ -368,7 +313,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         </div>
         <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
         <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block text-center bg-coral text-white font-display font-extrabold text-lg md:text-xl py-4 rounded-2xl shadow-lg shadow-coral/30">
-          🛒 احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span>
+          🛒 احصلي على الحقيبة كاملة الآن بـ 12.99$ — حوالي 49 ريال سعودي
         </a>
       </div>
     </div>
@@ -391,7 +336,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
             <div class="text-sm text-[#171310] font-semibold">الدليل الأساسي الكامل</div>
             <span class="inline-block text-[11px] font-extrabold bg-redish-light text-redish px-2 py-0.5 rounded-full mt-1">خصم ٧٠٪</span>
           </div>
-          <div class="text-left whitespace-nowrap"><span class="block text-sm line-through text-[#A8A096]">45$</span><span class="font-bold text-base" id="receiptItemPrice">12.99$</span></div>
+          <div class="text-left whitespace-nowrap"><span class="block text-sm line-through text-[#A8A096]">45$</span><span class="font-bold text-base">12.99$</span></div>
         </div>
         <div class="flex justify-between items-start py-2">
           <div class="text-base font-bold">موسوعة الـ ٦٠ موقفًا التربوي الإسعافي<div class="text-sm text-[#171310] font-semibold">هدية بونص ١</div></div>
@@ -403,15 +348,15 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         </div>
 
         <div class="border-t border-dashed border-[#EAE0D2] my-3"></div>
-        <div class="flex justify-between items-center"><span class="font-extrabold">الإجمالي</span><span class="font-display font-black text-3xl text-coral" id="receiptTotal">12.99$</span></div>
-        <div class="text-xs text-[#A8A096] text-left mt-1" id="receiptNote">المبلغ المطلوب بالدولار، ويعادل تقريباً 49 ريال سعودي</div>
+        <div class="flex justify-between items-center"><span class="font-extrabold">الإجمالي</span><span class="font-display font-black text-3xl text-coral">12.99$</span></div>
+        <div class="text-xs text-[#A8A096] text-left mt-1">المبلغ المطلوب بالدولار، ويعادل تقريباً 49 ريال سعودي</div>
       </div>
-      <div class="text-center text-sm font-bold text-sage-dark bg-sage-light py-3" id="receiptSavings">✦ توفير أكثر من 214 ريال عن القيمة الحقيقية للباقة ✦</div>
+      <div class="text-center text-sm font-bold text-sage-dark bg-sage-light py-3">✦ توفير أكثر من 214 ريال عن القيمة الحقيقية للباقة ✦</div>
     </div>
 
     <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
     <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block max-w-md mx-auto text-center bg-coral text-white font-display font-extrabold py-4 rounded-2xl mb-4">
-      احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span> <span class="block text-sm font-bold mt-1 opacity-85">دفع آمن عبر مدى أو Apple Pay</span>
+      احصلي على الحقيبة كاملة الآن بـ 12.99$ — حوالي 49 ريال سعودي <span class="block text-sm font-bold mt-1 opacity-85">دفع آمن عبر مدى أو Apple Pay</span>
     </a>
     <div class="flex justify-center items-center gap-2 mb-10">
       <svg width="42" height="26" viewBox="0 0 42 26" xmlns="http://www.w3.org/2000/svg"><rect width="42" height="26" rx="4" fill="#1A1F71"/><text x="21" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-style="italic" font-weight="700" font-size="10" fill="#ffffff">VISA</text></svg>
@@ -472,7 +417,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     </div>
     <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
       <div class="flex justify-between items-center font-extrabold text-base">وإذا الكتاب ما ناسبني؟<span class="qm-icon text-coral text-xl">+</span></div>
-      <div class="faq-a text-sm text-[#171310] leading-relaxed">ثقتنا الكبيرة في كتابنا والخطوات العملية اللي فيه خلّتنا نعطيكِ «ضمان ذهبي»؛ إذا قرأتِ الكتاب وطبقتِ الخطوات وما لاحظتِ أي تغيير في سلوك طفلك أو هدوء بيتك خلال ١٤ يوم، تقدرين تتواصلين معانا بسهولة عبر واتساب وتستردين مبلغ الـ <span id="faqRefundPrice">12.99$</span> بالكامل بدون أي تعقيد. راحة أسرتك هي أهم شي عندنا.</div>
+      <div class="faq-a text-sm text-[#171310] leading-relaxed">ثقتنا الكبيرة في كتابنا والخطوات العملية اللي فيه خلّتنا نعطيكِ «ضمان ذهبي»؛ إذا قرأتِ الكتاب وطبقتِ الخطوات وما لاحظتِ أي تغيير في سلوك طفلك أو هدوء بيتك خلال ١٤ يوم، تقدرين تتواصلين معانا بسهولة عبر واتساب وتستردين مبلغ الـ 12.99$ بالكامل بدون أي تعقيد. راحة أسرتك هي أهم شي عندنا.</div>
     </div>
   </div>
 </section>
@@ -482,7 +427,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   <h2 class="font-display font-black text-xl md:text-3xl mb-2">جاهزة تبدين رحلة تربية أهدى؟</h2>
   <p class="text-base md:text-lg text-white/85 mb-6">آلاف الأمهات بدأن فعلاً.. دورك جاي 💛</p>
   <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
-  <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn inline-block bg-ink text-white font-display font-extrabold py-4 px-8 rounded-2xl">احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span></a>
+  <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn inline-block bg-ink text-white font-display font-extrabold py-4 px-8 rounded-2xl">احصلي على الحقيبة كاملة الآن بـ 12.99$ — حوالي 49 ريال سعودي</a>
 </section>
 
 <footer class="bg-cream text-[#171310] text-center text-sm py-7 px-5 leading-loose border-t border-[#EAE0D2]">
@@ -500,25 +445,9 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 
 <!-- sticky bar -->
 <div id="stickyBar" class="fixed bottom-0 inset-x-0 bg-white border-t border-[#EAE0D2] shadow-[0_-8px_24px_-10px_rgba(0,0,0,0.15)] flex items-center gap-3 px-5 py-3 z-50">
-  <div class="font-display font-black text-xl text-deep whitespace-nowrap"><span id="stickyPrice">12.99$</span><span class="block text-[11px] font-bold text-[#171310]" id="stickyPriceSar">حوالي 49 ريال</span></div>
+  <div class="font-display font-black text-xl text-deep whitespace-nowrap">12.99$<span class="block text-[11px] font-bold text-[#171310]">حوالي 49 ريال</span></div>
   <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
   <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn flex-1 text-center bg-coral text-white font-extrabold text-base py-3 rounded-xl">احصلي على الحقيبة كاملة الآن</a>
-</div>
-
-<!-- ============ EXIT-INTENT DISCOUNT POPUP ============ -->
-<div class="exit-popup-overlay" id="exitPopupOverlay">
-  <div class="exit-popup">
-    <button class="exit-popup-close" id="exitPopupClose" aria-label="إغلاق">✕</button>
-    <div class="exit-popup-emoji">🎁</div>
-    <h3>استني.. قبل ما تسكّرين الصفحة!</h3>
-    <p>عندنا خصم خاص لك دلوقتي بس، خصم <strong>٥٠٪</strong> على الحقيبة كاملة. مايتكررش بسهولة.</p>
-    <div class="exit-promo-code" id="exitPromoCode" onclick="copyExitPromoCode()">
-      <span class="code">MOM50</span>
-      <span class="copy-hint" id="exitCopyHint">اضغطي للنسخ</span>
-    </div>
-    <button class="cta-btn exit-popup-cta bg-coral text-white font-display font-extrabold text-base py-4 rounded-2xl" onclick="applyExitDiscountAndCheckout()">طبّقي الخصم واحصلي على الحقيبة الآن</button>
-    <button class="exit-popup-dismiss" id="exitPopupDismiss">لأ، شكرًا</button>
-  </div>
 </div>
 
 <script>
@@ -570,171 +499,6 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   }
   tick();
 })();
-
-// ============ PROMO CODE ============
-var VALID_PROMO_CODES = { 'MOM50': 0.5 };
-var appliedDiscount = null; // { code, percent }
-var DISCOUNTED_USD = '6.50';
-var DISCOUNTED_SAR = 25;
-var TOTAL_VALUE_USD = 70; // 45 + 15 + 10 (نفس قيمة الباقة المذكورة في الصفحة)
-
-function applyPromoCode(){
-  var input = document.getElementById('promoInput');
-  var btn = document.getElementById('promoBtn');
-  var msg = document.getElementById('promoMsg');
-  var code = input.value.trim().toUpperCase();
-  if (!code) return;
-
-  if (VALID_PROMO_CODES[code]) {
-    appliedDiscount = { code: code, percent: VALID_PROMO_CODES[code] };
-    updateAllPricesWithDiscount();
-    msg.textContent = '✅ تم تطبيق كود الخصم! السعر الجديد أقل بنسبة ' + Math.round(appliedDiscount.percent * 100) + '٪';
-    msg.className = 'promo-msg text-xs font-bold mt-2 min-h-[16px] success';
-    input.disabled = true;
-    btn.disabled = true;
-    btn.textContent = 'تم ✓';
-  } else {
-    msg.textContent = '❌ الكود غير صحيح أو منتهي الصلاحية';
-    msg.className = 'promo-msg text-xs font-bold mt-2 min-h-[16px] error';
-  }
-}
-
-function updateAllPricesWithDiscount(){
-  var newPriceText = DISCOUNTED_USD + '$';
-  var newSarText = 'حوالي ' + DISCOUNTED_SAR + ' ريال سعودي';
-  var savingsSar = Math.round((TOTAL_VALUE_USD - parseFloat(DISCOUNTED_USD)) * 3.75);
-
-  // نصوص أزرار الشراء (كلها بتشارك نفس الكلاس)
-  document.querySelectorAll('.btn-price').forEach(function(el){
-    el.textContent = newPriceText + ' — حوالي ' + DISCOUNTED_SAR + ' ريال سعودي';
-  });
-
-  // قسم العرض
-  var offerMainPrice = document.getElementById('offerMainPrice');
-  if (offerMainPrice) offerMainPrice.textContent = newPriceText;
-  var offerMainPriceSar = document.getElementById('offerMainPriceSar');
-  if (offerMainPriceSar) offerMainPriceSar.textContent = newSarText;
-
-  // الفاتورة
-  var receiptItemPrice = document.getElementById('receiptItemPrice');
-  if (receiptItemPrice) receiptItemPrice.textContent = newPriceText;
-  var receiptTotal = document.getElementById('receiptTotal');
-  if (receiptTotal) receiptTotal.textContent = newPriceText;
-  var receiptNote = document.getElementById('receiptNote');
-  if (receiptNote) receiptNote.textContent = 'المبلغ المطلوب بالدولار، ويعادل تقريباً ' + DISCOUNTED_SAR + ' ريال سعودي';
-  var receiptSavings = document.getElementById('receiptSavings');
-  if (receiptSavings) receiptSavings.textContent = '✦ توفير أكثر من ' + savingsSar + ' ريال عن القيمة الحقيقية للباقة ✦';
-
-  // الشريط اللاصق
-  var stickyPrice = document.getElementById('stickyPrice');
-  if (stickyPrice) stickyPrice.textContent = newPriceText;
-  var stickyPriceSar = document.getElementById('stickyPriceSar');
-  if (stickyPriceSar) stickyPriceSar.textContent = newSarText;
-
-  // سؤال الاسترجاع في الأسئلة الشائعة
-  var faqRefundPrice = document.getElementById('faqRefundPrice');
-  if (faqRefundPrice) faqRefundPrice.textContent = newPriceText;
-}
-
-// ============ EXIT-INTENT DISCOUNT POPUP ============
-var EXIT_POPUP_CODE = 'MOM50';
-var EXIT_POPUP_SESSION_KEY = 'exitPopupShown';
-var exitPopupHasBeenShown = false;
-
-function showExitPopup(){
-  if (exitPopupHasBeenShown) return;
-  if (appliedDiscount) return; // العميلة أصلاً طبّقت خصم
-  exitPopupHasBeenShown = true;
-  try { sessionStorage.setItem(EXIT_POPUP_SESSION_KEY, '1'); } catch(e) {}
-  document.getElementById('exitPopupOverlay').classList.add('show');
-}
-
-function hideExitPopup(){
-  document.getElementById('exitPopupOverlay').classList.remove('show');
-}
-
-function copyExitPromoCode(){
-  var hint = document.getElementById('exitCopyHint');
-  var done = function(){
-    hint.textContent = 'تم النسخ ✓';
-    setTimeout(function(){ hint.textContent = 'اضغطي للنسخ'; }, 2000);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(EXIT_POPUP_CODE).then(done).catch(done);
-  } else {
-    done();
-  }
-}
-
-function applyExitDiscountAndCheckout(){
-  if (VALID_PROMO_CODES[EXIT_POPUP_CODE]) {
-    appliedDiscount = { code: EXIT_POPUP_CODE, percent: VALID_PROMO_CODES[EXIT_POPUP_CODE] };
-    updateAllPricesWithDiscount();
-    var promoInput = document.getElementById('promoInput');
-    var promoBtn = document.getElementById('promoBtn');
-    var promoMsg = document.getElementById('promoMsg');
-    if (promoInput) { promoInput.value = EXIT_POPUP_CODE; promoInput.disabled = true; }
-    if (promoBtn) { promoBtn.disabled = true; promoBtn.textContent = 'تم ✓'; }
-    if (promoMsg) { promoMsg.textContent = '✅ تم تطبيق كود الخصم! السعر الجديد أقل بنسبة 50٪'; promoMsg.className = 'promo-msg text-xs font-bold mt-2 min-h-[16px] success'; }
-  }
-  hideExitPopup();
-  openPaddleCheckout();
-}
-
-document.getElementById('exitPopupClose').addEventListener('click', hideExitPopup);
-document.getElementById('exitPopupDismiss').addEventListener('click', hideExitPopup);
-document.getElementById('exitPopupOverlay').addEventListener('click', function(e){
-  if (e.target === this) hideExitPopup();
-});
-
-try {
-  if (sessionStorage.getItem(EXIT_POPUP_SESSION_KEY) === '1') {
-    exitPopupHasBeenShown = true;
-  }
-} catch(e) {}
-
-// كمبيوتر: خروج الماوس من فوق الصفحة
-document.addEventListener('mouseout', function(e){
-  if (!e.relatedTarget && !e.toElement && e.clientY <= 0) {
-    showExitPopup();
-  }
-});
-
-// جوال: اعتراض ضغطة زرار الرجوع
-try {
-  history.pushState({ exitPopupGuard: true }, '', location.href);
-  window.addEventListener('popstate', function(){
-    if (!exitPopupHasBeenShown) {
-      showExitPopup();
-      history.pushState({ exitPopupGuard: true }, '', location.href);
-    }
-  });
-} catch(e) {}
-
-// جوال/كمبيوتر: بعد 30 ثانية + وصول العميلة لقسم "محتوى الكتاب" أو بعده
-var exitTimerElapsed = false;
-var exitScrolledEnough = false;
-
-function maybeShowTimedExitPopup(){
-  if (exitTimerElapsed && exitScrolledEnough) {
-    showExitPopup();
-    window.removeEventListener('scroll', onExitScrollCheck);
-  }
-}
-
-function onExitScrollCheck(){
-  var target = document.getElementById('benefitsSection');
-  if (target && target.getBoundingClientRect().top < window.innerHeight) {
-    exitScrolledEnough = true;
-    maybeShowTimedExitPopup();
-  }
-}
-
-window.addEventListener('scroll', onExitScrollCheck, { passive: true });
-setTimeout(function(){
-  exitTimerElapsed = true;
-  maybeShowTimedExitPopup();
-}, 30000);
 
 // كل أزرار الشراء متصلة بدالة openPaddleCheckout() اللي بتفتح نافذة الدفع من Paddle
 // مباشرة بسعر المنتج pri_01kwm0cv7scd97gwhztg7h2293، وبعد نجاح الدفع بادل يوديها تلقائيًا
