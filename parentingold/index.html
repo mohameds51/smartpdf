@@ -39,6 +39,9 @@
   .cta-btn:active{ transform:translateY(0); }
   .promo-msg.success{ color:#3E6A3B; }
   .promo-msg.error{ color:#C0392B; }
+  .offer-price-card .promo-msg.success{ color:#D9FBE0; }
+  .offer-price-card .promo-msg.error{ color:#FFE1D6; }
+  .offer-price-card input::placeholder{ color:rgba(255,255,255,0.65); }
 
   /* Exit-intent discount popup */
   .exit-popup-overlay{
@@ -166,13 +169,13 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   <div class="max-w-6xl mx-auto px-5 md:px-10 grid md:grid-cols-2 gap-10 items-center text-center md:text-right">
     <div>
       <h1 class="font-display font-black text-ink text-2xl md:text-4xl leading-snug mb-4">
-        كتاب «بين شد وجذب»<br>
+        مجموعة «بين شد وجذب»<br>
         <span class="text-coral">وداعًا للعصبية والصراخ من اليوم..</span> علّمي طفلك ينضبط من نفسه
       </h1>
       <p class="text-lg md:text-2xl text-[#171310] font-medium leading-relaxed mb-7 max-w-md md:max-w-none mx-auto md:mx-0">
         دليلك العملي المجرّب لإنهاء العناد اليومي بدون احتراق نفسي.. خطوات واضحة تبدئين تطبيقها من أول ساعة، لينعم بيتك بالهدوء.
       </p>
-      <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block md:inline-block bg-coral text-white font-display font-extrabold text-lg md:text-xl py-4 px-7 rounded-2xl shadow-xl shadow-coral/30">
+      <a href="#offer" onclick="scrollToOffer(event)" class="cta-btn block md:inline-block bg-coral text-white font-display font-extrabold text-lg md:text-xl py-4 px-7 rounded-2xl shadow-xl shadow-coral/30">
         📥 احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span>
       </a>
       <div class="flex justify-center md:justify-start gap-4 flex-wrap text-sm text-[#171310] font-bold mt-5">
@@ -291,85 +294,38 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 </section>
 
 <!-- ============ OFFER ============ -->
-<section id="offer" class="py-12 md:py-20 bg-cream">
-  <div class="max-w-5xl mx-auto px-5">
+<section class="py-12 md:py-20 bg-cream">
+  <div class="max-w-2xl mx-auto px-5">
     <span class="block text-center text-sm md:text-base font-extrabold text-coral uppercase mb-2">الحزمة كاملة</span>
     <h2 class="text-center font-display font-black text-2xl md:text-3xl mb-10 leading-relaxed">الحزمة التربوية المتكاملة:<br><span class="text-coral">استثمار ذكي وشامل يغنيكِ عن الاستشارات المكلفة</span></h2>
 
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      <div class="bg-white border border-[#EAE0D2] rounded-2xl p-5 md:p-7 shadow-sm">
-        <div class="flex gap-4 items-start py-4 border-b border-[#EAE0D2]">
-          <img src="/parenting/images/book-main.jpg" alt="بين شد وجذب" class="w-14 rounded shadow shrink-0">
-          <div>
-            <div class="font-extrabold text-base md:text-lg">كتاب «بين شد وجذب»</div>
-            <div class="text-sm text-ink font-medium mt-1 leading-relaxed">مرشدكِ العملي لفك شفرة العناد، وضبط سلوك طفلكِ دون صراخ،<br>مع الحفاظ على توازنكِ النفسي وصحتكِ العصبية</div>
-          </div>
-        </div>
-        <div class="flex gap-4 items-start py-4 border-b border-[#EAE0D2]">
-          <img src="/parenting/images/book-60.jpg" alt="موسوعة الـ 60 موقفًا" class="w-14 rounded shadow shrink-0">
-          <div class="flex-1">
-            <div class="flex justify-between items-start gap-2">
-              <div class="font-extrabold text-base md:text-lg">هدية ١: موسوعة «الـ ٦٠ موقفًا تربويًا إسعافيًا»</div>
-              <span class="text-[12px] font-extrabold bg-gold-light text-gold px-2.5 py-0.5 rounded-full whitespace-nowrap">مجانًا</span>
-            </div>
-            <div class="text-sm text-ink font-medium mt-2 leading-relaxed">دليلكِ السريع وكتالوج الطوارئ لحل أشهر الأزمات اليومية المفاجئة: شجار الإخوة، العناد وقت النوم، رفض الأكل، أو البكاء في الأماكن العامة.. تفتحين الصفحة وتطبقين الحل فورًا</div>
-          </div>
-        </div>
-        <div class="flex gap-4 items-start py-4">
-          <img src="/parenting/images/book-animals.jpg" alt="مملكة الحيوانات الذكي" class="w-14 rounded shadow shrink-0">
-          <div class="flex-1">
-            <div class="flex justify-between items-start gap-2">
-              <div class="font-extrabold text-base md:text-lg">هدية ٢: كتاب تلوين ونطق «مملكة الحيوانات الذكي»</div>
-              <span class="text-[12px] font-extrabold bg-gold-light text-gold px-2.5 py-0.5 rounded-full whitespace-nowrap">مجانًا</span>
-            </div>
-            <div class="text-sm text-ink font-medium mt-2 leading-relaxed">أداة تعليمية ذكية تحفّز طفلك على التعلم بالإنجليزية والتلوين بعيدًا عن الشاشات</div>
-          </div>
+    <div class="bg-white border border-[#EAE0D2] rounded-2xl p-5 md:p-7 shadow-sm">
+      <div class="flex gap-4 items-start py-4 border-b border-[#EAE0D2]">
+        <img src="/parenting/images/book-main.jpg" alt="بين شد وجذب" class="w-14 rounded shadow shrink-0">
+        <div>
+          <div class="font-extrabold text-base md:text-lg">كتاب «بين شد وجذب»</div>
+          <div class="text-sm text-ink font-medium mt-1 leading-relaxed">مرشدكِ العملي لفك شفرة العناد، وضبط سلوك طفلكِ دون صراخ،<br>مع الحفاظ على توازنكِ النفسي وصحتكِ العصبية</div>
         </div>
       </div>
-
-      <div>
-        <div class="text-center mb-5">
-          <div class="text-base line-through text-[#A8A096]">القيمة الإجمالية: 45$ <span class="text-sm">(حوالي 169 ريال)</span></div>
-          <div class="font-display font-black text-5xl md:text-5xl text-coral mt-1" id="offerMainPrice">12.99$</div>
-          <div class="text-sm text-[#171310] font-semibold mt-1" id="offerMainPriceSar">حوالي 49 ريال سعودي</div>
-          <div class="text-sm text-[#171310] font-semibold mt-2 leading-relaxed">استثمار تربوي ذكي وشامل أقل من تكلفة استشارة تربوية واحدة، يعيد لكِ الهدوء لسنوات</div>
-        </div>
-
-        <div class="bg-white border border-[#EAE0D2] rounded-2xl p-4 mb-5">
-          <div class="flex gap-2">
-            <input type="text" id="promoInput" placeholder="عندك كود خصم؟" autocapitalize="characters" autocomplete="off"
-                   class="flex-1 min-w-0 border border-[#EAE0D2] rounded-xl px-3 py-3 text-[16px] font-tajawal">
-            <button type="button" id="promoBtn" onclick="applyPromoCode()"
-                    class="shrink-0 bg-ink text-white font-display font-extrabold text-sm rounded-xl px-5">تطبيق</button>
+      <div class="flex gap-4 items-start py-4 border-b border-[#EAE0D2]">
+        <img src="/parenting/images/book-60.jpg" alt="موسوعة الـ 60 موقفًا" class="w-14 rounded shadow shrink-0">
+        <div class="flex-1">
+          <div class="flex justify-between items-start gap-2">
+            <div class="font-extrabold text-base md:text-lg">هدية ١: موسوعة «الـ ٦٠ موقفًا تربويًا إسعافيًا»</div>
+            <span class="text-[12px] font-extrabold bg-gold-light text-gold px-2.5 py-0.5 rounded-full whitespace-nowrap">مجانًا</span>
           </div>
-          <p class="promo-msg text-xs font-bold mt-2 min-h-[16px]" id="promoMsg"></p>
+          <div class="text-sm text-ink font-medium mt-2 leading-relaxed">دليلكِ السريع وكتالوج الطوارئ لحل أشهر الأزمات اليومية المفاجئة: شجار الإخوة، العناد وقت النوم، رفض الأكل، أو البكاء في الأماكن العامة.. تفتحين الصفحة وتطبقين الحل فورًا</div>
         </div>
-
-        <div class="bg-white border border-dashed border-[#EAE0D2] rounded-2xl p-4 text-center mb-5">
-          <div class="text-sm font-extrabold text-redish mb-3">⏰ دقائق قليلة وينتهي العرض ويرجع السعر الأساسي</div>
-          <div class="flex justify-center gap-2" id="countdown" dir="ltr">
-            <div class="bg-[#2D251E] rounded-xl px-3 py-2 min-w-[58px]">
-              <div class="font-display font-black text-3xl text-white" data-unit="d">00</div>
-              <div class="text-[11px] font-bold text-white/70 mt-0.5">يوم</div>
-            </div>
-            <div class="bg-[#2D251E] rounded-xl px-3 py-2 min-w-[58px]">
-              <div class="font-display font-black text-3xl text-white" data-unit="h">01</div>
-              <div class="text-[11px] font-bold text-white/70 mt-0.5">ساعة</div>
-            </div>
-            <div class="bg-[#2D251E] rounded-xl px-3 py-2 min-w-[58px]">
-              <div class="font-display font-black text-3xl text-white" data-unit="m">00</div>
-              <div class="text-[11px] font-bold text-white/70 mt-0.5">دقيقة</div>
-            </div>
-            <div class="bg-[#2D251E] rounded-xl px-3 py-2 min-w-[58px]">
-              <div class="font-display font-black text-3xl text-white" data-unit="s">00</div>
-              <div class="text-[11px] font-bold text-white/70 mt-0.5">ثانية</div>
-            </div>
+      </div>
+      <div class="flex gap-4 items-start py-4">
+        <img src="/parenting/images/book-animals.jpg" alt="مملكة الحيوانات الذكي" class="w-14 rounded shadow shrink-0">
+        <div class="flex-1">
+          <div class="flex justify-between items-start gap-2">
+            <div class="font-extrabold text-base md:text-lg">هدية ٢: كتاب تلوين ونطق «مملكة الحيوانات الذكي»</div>
+            <span class="text-[12px] font-extrabold bg-gold-light text-gold px-2.5 py-0.5 rounded-full whitespace-nowrap">مجانًا</span>
           </div>
+          <div class="text-sm text-ink font-medium mt-2 leading-relaxed">أداة تعليمية ذكية تحفّز طفلك على التعلم بالإنجليزية والتلوين بعيدًا عن الشاشات</div>
         </div>
-        <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
-        <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block text-center bg-coral text-white font-display font-extrabold text-lg md:text-xl py-4 rounded-2xl shadow-lg shadow-coral/30">
-          🛒 احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span>
-        </a>
       </div>
     </div>
   </div>
@@ -410,7 +366,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     </div>
 
     <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
-    <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block max-w-md mx-auto text-center bg-coral text-white font-display font-extrabold py-4 rounded-2xl mb-4">
+    <a href="#offer" onclick="scrollToOffer(event)" class="cta-btn block max-w-md mx-auto text-center bg-coral text-white font-display font-extrabold py-4 rounded-2xl mb-4">
       احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span> <span class="block text-sm font-bold mt-1 opacity-85">دفع آمن عبر مدى أو Apple Pay</span>
     </a>
     <div class="flex justify-center items-center gap-2 mb-10">
@@ -448,6 +404,51 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- ============ FINAL OFFER CARD ============ -->
+<section id="offer" class="py-12 md:py-20 bg-cream scroll-mt-4">
+  <div class="max-w-md mx-auto px-5">
+    <div class="offer-price-card bg-gradient-to-b from-coral to-coral-dark text-white rounded-3xl p-6 md:p-7 shadow-xl shadow-coral/30 text-center">
+      <span class="inline-block bg-white/20 text-white text-xs font-extrabold rounded-full px-4 py-1.5 mb-4">عرض اليوم</span>
+      <h3 class="font-display font-black text-xl md:text-2xl mb-1">احصلي على المجموعة كاملة الآن</h3>
+      <p class="text-sm text-white/80 mb-5">السعر الحالي متاح لفترة محدودة، ثم يعود إلى سعره الأصلي</p>
+
+      <div class="flex items-baseline justify-center gap-2 mb-1">
+        <span class="font-display font-black text-4xl md:text-5xl" id="offerMainPrice">12.99$</span>
+        <span class="text-sm line-through text-white/60">45$</span>
+      </div>
+      <div class="text-sm text-white/85 font-semibold mb-5" id="offerMainPriceSar">حوالي 49 ريال سعودي</div>
+
+      <div class="bg-white/10 border border-white/25 rounded-2xl p-3 mb-5">
+        <div class="flex gap-2">
+          <input type="text" id="promoInput" placeholder="عندك كود خصم؟" autocapitalize="characters" autocomplete="off"
+                 class="flex-1 min-w-0 bg-white/10 border border-white/30 rounded-xl px-3 py-3 text-[16px] font-tajawal text-white placeholder-white/60">
+          <button type="button" id="promoBtn" onclick="applyPromoCode()"
+                  class="shrink-0 bg-white text-coral-dark font-display font-extrabold text-sm rounded-xl px-5">تطبيق</button>
+        </div>
+        <p class="promo-msg text-xs font-bold mt-2 min-h-[16px]" id="promoMsg"></p>
+      </div>
+
+      <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
+      <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn block text-center bg-white text-coral-dark font-display font-extrabold text-lg py-4 rounded-2xl mb-4">
+        ⬇ احصلي على المجموعة كاملة الآن
+      </a>
+
+      <p class="text-xs text-white/85 font-bold mb-4">تسليم فوري · دفع آمن · ضمان استرداد خلال ١٤ يومًا</p>
+
+      <p class="text-xs text-white/75 leading-relaxed mb-5" id="offerPriceNote">
+        سيتم الدفع بالدولار الأمريكي <span class="font-display font-black text-[15px] text-white" id="offerPriceNoteUsd">(12.99 USD)</span> عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا <span id="offerPriceNoteSar">49 ريالًا</span> سعوديًا حسب سعر الصرف وقت الشراء.
+      </p>
+
+      <div class="flex justify-center items-center gap-2">
+        <span class="bg-white/10 border border-white/25 rounded-lg p-1.5"><svg width="38" height="24" viewBox="0 0 42 26" xmlns="http://www.w3.org/2000/svg"><rect width="42" height="26" rx="4" fill="#1A1F71"/><text x="21" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-style="italic" font-weight="700" font-size="10" fill="#ffffff">VISA</text></svg></span>
+        <span class="bg-white/10 border border-white/25 rounded-lg p-1.5"><svg width="38" height="24" viewBox="0 0 42 26" xmlns="http://www.w3.org/2000/svg"><rect width="42" height="26" rx="4" fill="#ffffff"/><circle cx="17" cy="13" r="7" fill="#EB001B"/><circle cx="25" cy="13" r="7" fill="#F79E1B" fill-opacity="0.9"/></svg></span>
+        <span class="bg-white/10 border border-white/25 rounded-lg p-1.5"><svg width="38" height="24" viewBox="0 0 42 26" xmlns="http://www.w3.org/2000/svg"><rect width="42" height="26" rx="4" fill="#ffffff"/><text x="21" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="9" fill="#111111">mada</text><rect x="9" y="18" width="24" height="2" fill="#0BA45B"/></svg></span>
+        <span class="bg-white/10 border border-white/25 rounded-lg p-1.5"><svg width="38" height="24" viewBox="0 0 42 26" xmlns="http://www.w3.org/2000/svg"><rect width="42" height="26" rx="4" fill="#000000"/><text x="21" y="17" text-anchor="middle" font-family="-apple-system, Arial, sans-serif" font-weight="600" font-size="9" fill="#ffffff"> Pay</text></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="py-12 md:py-20 bg-cream">
   <div class="max-w-2xl mx-auto px-5">
@@ -461,6 +462,10 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
       <div class="flex justify-between items-center font-extrabold text-base">وش طرق الدفع المتاحة؟<span class="qm-icon text-coral text-xl">+</span></div>
       <div class="faq-a text-sm text-[#171310] leading-relaxed">الدفع آمن وسهل عبر بوابة دفع عالمية معتمدة، تقدرين تدفعين ببطاقتك البنكية "مدى"، فيزا، ماستركارد، أو Apple Pay، والمبلغ يُحسب بالدولار الأمريكي.</div>
+    </div>
+    <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
+      <div class="flex justify-between items-center font-extrabold text-base">ليه الدفع بيتم بالدولار؟<span class="qm-icon text-coral text-xl">+</span></div>
+      <div class="faq-a text-sm text-[#171310] leading-relaxed">لأننا نبيع الكتاب بشكل عالمي وما تقتصر مبيعاتنا على السعودية بس، البوابة اللي نستخدمها موحّدة العملة بالدولار الأمريكي لكل عملائنا حول العالم. المبلغ المعروض بالريال جنب كل سعر هو تقريبي بس عشان تعرفين وش بتدفعين فعليًا.</div>
     </div>
     <div class="faq-item border-b border-[#EAE0D2] py-3 cursor-pointer" onclick="this.classList.toggle('open')">
       <div class="flex justify-between items-center font-extrabold text-base">الكتاب يفتح على الجوال؟<span class="qm-icon text-coral text-xl">+</span></div>
@@ -482,7 +487,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   <h2 class="font-display font-black text-xl md:text-3xl mb-2">جاهزة تبدين رحلة تربية أهدى؟</h2>
   <p class="text-base md:text-lg text-white/85 mb-6">آلاف الأمهات بدأن فعلاً.. دورك جاي 💛</p>
   <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
-  <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn inline-block bg-ink text-white font-display font-extrabold py-4 px-8 rounded-2xl">احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span></a>
+  <a href="#offer" onclick="scrollToOffer(event)" class="cta-btn inline-block bg-ink text-white font-display font-extrabold py-4 px-8 rounded-2xl">احصلي على الحقيبة كاملة الآن بـ <span class="btn-price">12.99$ — حوالي 49 ريال سعودي</span></a>
 </section>
 
 <footer class="bg-cream text-[#171310] text-center text-sm py-7 px-5 leading-loose border-t border-[#EAE0D2]">
@@ -502,7 +507,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
 <div id="stickyBar" class="fixed bottom-0 inset-x-0 bg-white border-t border-[#EAE0D2] shadow-[0_-8px_24px_-10px_rgba(0,0,0,0.15)] flex items-center gap-3 px-5 py-3 z-50">
   <div class="font-display font-black text-xl text-deep whitespace-nowrap"><span id="stickyPrice">12.99$</span><span class="block text-[11px] font-bold text-[#171310]" id="stickyPriceSar">حوالي 49 ريال</span></div>
   <!-- TODO: ضعي رابط الدفع من Paddle هنا -->
-  <a href="#" onclick="openPaddleCheckout(event)" class="cta-btn flex-1 text-center bg-coral text-white font-extrabold text-base py-3 rounded-xl">احصلي على الحقيبة كاملة الآن</a>
+  <a href="#offer" onclick="scrollToOffer(event)" class="cta-btn flex-1 text-center bg-coral text-white font-extrabold text-base py-3 rounded-xl">احصلي على الحقيبة كاملة الآن</a>
 </div>
 
 <!-- ============ EXIT-INTENT DISCOUNT POPUP ============ -->
@@ -571,6 +576,13 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   tick();
 })();
 
+// ============ SCROLL TO OFFER ============
+function scrollToOffer(e){
+  if (e) e.preventDefault();
+  var target = document.getElementById('offer');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 // ============ PROMO CODE ============
 var VALID_PROMO_CODES = { 'MOM50': 0.5 };
 var appliedDiscount = null; // { code, percent }
@@ -614,6 +626,10 @@ function updateAllPricesWithDiscount(){
   if (offerMainPrice) offerMainPrice.textContent = newPriceText;
   var offerMainPriceSar = document.getElementById('offerMainPriceSar');
   if (offerMainPriceSar) offerMainPriceSar.textContent = newSarText;
+  var offerPriceNoteUsd = document.getElementById('offerPriceNoteUsd');
+  if (offerPriceNoteUsd) offerPriceNoteUsd.textContent = '(' + DISCOUNTED_USD + ' USD)';
+  var offerPriceNoteSar = document.getElementById('offerPriceNoteSar');
+  if (offerPriceNoteSar) offerPriceNoteSar.textContent = DISCOUNTED_SAR + ' ريالًا';
 
   // الفاتورة
   var receiptItemPrice = document.getElementById('receiptItemPrice');
