@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<base href="/parenting/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>حزمة الأم الهادئة — 3 كتب تربوية متكاملة</title>
+<meta name="description" content="حزمة تربوية متكاملة من 3 كتب تساعدك على التعامل مع أكثر المواقف اليومية مع طفلك، بخطوات واضحة وسهلة التطبيق، وضمان استرداد خلال 14 يومًا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6F0;
+    --cream-deep:#F3ECE1;
+    --charcoal:#2B241F;
+    --charcoal-soft:#5C5248;
+    --coral:#E2724D;
+    --coral-deep:#C85A38;
+    --coral-tint:#FBE7DE;
+    --sage:#6E8F72;
+    --sage-tint:#E9F0E9;
+    --card:#FFFFFF;
+    --line:#EAE0D3;
+    --shadow: 0 8px 24px -12px rgba(43,36,31,0.18);
+    --shadow-lift: 0 16px 40px -16px rgba(43,36,31,0.28);
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --maxw: 560px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:'Tajawal', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.75;
+    padding-bottom:96px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    line-height:1.4;
+    color:var(--charcoal);
+  }
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+  .section{padding:52px 0;}
+  .section + .section{border-top:1px solid var(--line);}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--sage);
+    background:var(--sage-tint);
+    padding:6px 14px; border-radius:100px;
+    margin-bottom:14px;
+  }
+  .eyebrow-coral{ color:var(--coral-deep); background:var(--coral-tint); }
+  .center{text-align:center;}
+  .muted{color:var(--charcoal-soft);}
+
+  :focus-visible{outline:2px solid var(--coral-deep); outline-offset:3px;}
+
+  .top-bar{
+    background:var(--charcoal); color:#fff;
+    font-size:12.5px; text-align:center;
+    padding:8px 12px;
+  }
+
+  /* ---------- HERO — real photo, reordered for above-the-fold CTA ---------- */
+  .hero{
+    padding:0 0 44px;
+    background:var(--cream);
+  }
+  .hero-photo-wrap{
+    position:relative;
+    width:100%;
+    padding:18px 20px 14px;
+    overflow:hidden;
+  }
+  .hero-photo-bg{
+    position:absolute; inset:0;
+    background-image:url('assets/photos/hero-bg.webp');
+    background-size:cover;
+    background-position:24% 38%;
+    filter:blur(3px) contrast(0.93) brightness(1.03);
+    transform:scale(1.06);
+    z-index:0;
+  }
+  .hero-photo-bg::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(250,246,240,0.62) 0%, rgba(250,246,240,0.92) 78%, var(--cream) 100%);
+  }
+  .hero-photo-wrap .wrap{ position:relative; z-index:1; }
+  .hero h1{
+    font-size:25px; margin-bottom:12px;
+    animation:heroFadeIn 550ms ease-out both;
+  }
+  .hero .sub{
+    font-size:14.5px; color:var(--charcoal); font-weight:600;
+    margin-bottom:18px; max-width:400px; margin-inline:auto;
+  }
+  .hero .sub strong{ font-weight:800; color:var(--charcoal); }
+
+  /* Social proof — premium frosted glass badge */
+  .hero-social-proof{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,0.5);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.65);
+    padding:6px 14px; border-radius:100px;
+    font-size:11.5px; font-weight:700; color:var(--charcoal);
+    box-shadow:0 8px 20px -10px rgba(43,36,31,0.25);
+    margin-bottom:20px;
+  }
+  .hero-social-proof .n{color:var(--coral-deep); font-family:'Cairo'; font-weight:900;}
+
+  /* Book bundle — premium depth: rim light, layered ambient shadow, soft center glow */
+  .hero-visual{
+    direction:ltr; /* physical left/right placement regardless of page RTL */
+    position:relative;
+    display:flex; align-items:flex-end; justify-content:center;
+    width:100%; max-width:340px;
+    margin:0 auto;
+    padding-top:20px;
+  }
+  .hero-visual-glow{
+    position:absolute; inset:-18% 6%;
+    background:radial-gradient(58% 58% at 50% 44%, rgba(255,255,255,0.42) 0%, transparent 72%);
+    filter:blur(28px);
+    z-index:0;
+  }
+  .hero-visual::after{
+    content:'';
+    position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+    width:58%; height:20px; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(43,36,31,0.26), transparent 75%);
+    filter:blur(4px);
+    z-index:0;
+  }
+  .hero-book{
+    position:relative;
+    border-radius:8px; overflow:hidden;
+    background:var(--cream-deep);
+    aspect-ratio:2/3;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.4),
+      inset -1px 0 0 rgba(0,0,0,0.04);
+  }
+  .hero-book img{width:100%; height:100%; object-fit:cover; display:block;}
+  .hero-book.side{
+    width:37%;
+    z-index:1; margin-bottom:6%;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.35),
+      0 4px 10px -4px rgba(43,36,31,0.18),
+      0 16px 30px -14px rgba(43,36,31,0.26);
+    opacity:.97;
+  }
+  .hero-book.side.left{ margin-right:-9%; animation:heroFadeUpLeft 600ms ease-out 80ms both; }
+  .hero-book.side.right{ margin-left:-9%; animation:heroFadeUpRight 600ms ease-out 80ms both; }
+  .hero-book.main{
+    width:50%;
+    z-index:2;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.45),
+      inset -1px 0 0 rgba(0,0,0,0.03),
+      0 4px 10px -4px rgba(43,36,31,0.2),
+      0 18px 30px -12px rgba(43,36,31,0.28),
+      0 38px 64px -18px rgba(43,36,31,0.42);
+    animation:heroFadeUpMain 600ms ease-out 160ms both, heroFloat 4.8s ease-in-out 760ms infinite;
+  }
+  @keyframes heroFloat{
+    0%, 100%{ transform:translateY(0); }
+    50%{ transform:translateY(-6px); }
+  }
+  @keyframes heroFadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+  }
+  @keyframes heroFadeUpLeft{
+    from{ opacity:0; transform:translateY(14px) rotate(-6deg); }
+    to{ opacity:1; transform:translateY(0) rotate(-6deg); }
+  }
+  @keyframes heroFadeUpRight{
+    from{ opacity:0; transform:translateY(14px) rotate(6deg); }
+    to{ opacity:1; transform:translateY(0) rotate(6deg); }
+  }
+  @keyframes heroFadeUpMain{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* Price — stronger hierarchy: heavier new price, lighter/quieter old price */
+  .price-block{
+    display:flex; align-items:baseline; justify-content:center; gap:12px;
+    margin:28px 0 10px;
+    animation:heroFadeIn 650ms ease-out 300ms both;
+  }
+  .price-new{font-family:'Cairo'; font-weight:900; font-size:48px; letter-spacing:-0.6px; color:var(--coral-deep);}
+  .price-old{font-size:15px; color:var(--charcoal-soft); text-decoration:line-through; opacity:.45; font-weight:400;}
+  .price-save{
+    display:inline-block; margin-top:6px;
+    font-size:12px; font-weight:700; color:var(--sage);
+    background:var(--sage-tint); padding:5px 14px; border-radius:100px;
+  }
+
+  .guarantee-badge{
+    display:flex; align-items:center; justify-content:center; gap:7px;
+    margin:14px auto 0; width:fit-content;
+    font-size:13px; font-weight:800; color:var(--sage);
+    background:var(--sage-tint); border:1px solid rgba(110,143,114,0.25);
+    padding:8px 16px; border-radius:100px;
+  }
+  .guarantee-badge .ic{ font-size:14px; }
+
+  .cta-btn{
+    display:block; width:100%;
+    background:var(--coral); color:#fff; border:none; border-radius:100px;
+    padding:17px 20px; font-family:'Cairo'; font-weight:800; font-size:17px;
+    box-shadow:0 14px 30px -10px rgba(226,114,77,0.55);
+    transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    min-height:52px;
+  }
+  .cta-btn:active{transform:scale(.98);}
+
+  /* Hero-only CTA enhancement — scoped so Offer/sticky CTAs stay untouched */
+  .hero-cta-btn{
+    padding:18px 20px; font-size:17.5px; min-height:56px;
+    box-shadow:0 22px 44px -14px rgba(226,114,77,0.68);
+  }
+  .hero-cta-btn:active{ transform:scale(.97); filter:brightness(0.96); }
+  @media (hover:hover){
+    .hero-cta-btn:hover{ transform:translateY(-2px); box-shadow:0 26px 48px -14px rgba(226,114,77,0.72); filter:brightness(1.03); }
+  }
+
+  .cta-sub{text-align:center; font-size:12.5px; color:var(--charcoal-soft); margin-top:10px;}
+
+  /* Subtle currency disclosure — deliberately quiet, never competes with the CTA */
+  .price-note{
+    text-align:center; font-size:11.5px; line-height:1.7; color:var(--charcoal-soft);
+    font-weight:600; opacity:.9; margin-top:8px; max-width:400px; margin-inline:auto;
+  }
+  .usd-highlight{ font-family:'Cairo'; font-weight:800; font-size:1.05em; color:var(--charcoal-soft); }
+  .sar-highlight{ font-family:'Cairo'; font-weight:900; font-size:1.35em; color:var(--coral-deep); }
+  .price-note .usd-highlight{
+    font-family:'Cairo'; font-weight:800; font-size:1.05em; color:var(--charcoal-soft);
+  }
+  .price-note .sar-highlight{
+    font-family:'Cairo'; font-weight:900; font-size:1.35em; color:var(--charcoal);
+  }
+  .dl-icon{ vertical-align:-3px; margin-inline-start:6px; }
+
+  /* Benefit cards — shrunk ~22%, now below the CTA (supporting, not competing) */
+  .hero-benefits{
+    display:flex;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius-md); box-shadow:var(--shadow);
+    overflow:hidden;
+    margin-top:22px;
+  }
+  .hero-benefit-item{
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    text-align:center; gap:7px; padding:15px 6px;
+  }
+  .hero-benefit-item + .hero-benefit-item{ border-inline-start:1px solid var(--line); }
+  .hero-benefit-item .ic{
+    width:34px; height:34px; border-radius:50%; flex-shrink:0;
+    background:var(--sage-tint); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-benefit-item .ic svg{width:15px; height:15px;}
+  .hero-benefit-item p{font-size:10px; font-weight:700; color:var(--charcoal); line-height:1.35;}
+
+  /* ---------- Payment trust icons ---------- */
+  .pay-row{
+    display:flex; justify-content:center; align-items:center; gap:10px;
+    margin-top:20px; flex-wrap:wrap;
+  }
+  .pay-badge{
+    height:38px; width:64px; border-radius:8px;
+    background:var(--card); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    padding:6px;
+  }
+  .pay-badge img{width:100%; height:100%; object-fit:contain;}
+
+  /* Bottom trust row — minimal, plain columns (no card chrome) */
+  .hero-trust-strip{
+    display:flex;
+    margin-top:22px;
+  }
+  .hero-trust-strip-item{
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    text-align:center; gap:6px; padding:6px;
+  }
+  .hero-trust-strip-item .ic{
+    width:26px; height:26px; border-radius:50%; background:var(--sage-tint); color:var(--sage);
+    display:flex; align-items:center; justify-content:center; font-size:13px; margin-bottom:2px;
+  }
+  .hero-trust-strip-item .t{font-family:'Cairo'; font-weight:700; font-size:11.5px; color:var(--charcoal);}
+  .hero-trust-strip-item .d{font-size:10px; color:var(--charcoal-soft); line-height:1.3;}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-book.main{ animation:none; }
+    .hero-book.side.left{ animation:none; transform:rotate(-6deg); }
+    .hero-book.side.right{ animation:none; transform:rotate(6deg); }
+    .hero h1, .price-block{ animation:none; opacity:1; }
+  }
+
+  /* ---------- SITUATIONS ---------- */
+  .sit-head{margin-bottom:22px;}
+  .sit-head h2{font-size:22px; margin-bottom:8px;}
+  .sit-head p{color:var(--charcoal-soft); font-size:14.5px;}
+  .sit-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; margin-bottom:18px;}
+  .sit-card{
+    background:var(--card); border:1.5px solid var(--line); border-radius:var(--radius-md);
+    padding:14px 12px; display:flex; flex-direction:column; align-items:flex-start; gap:8px;
+    text-align:right; font-family:'Tajawal'; font-weight:700; font-size:13.5px; color:var(--charcoal);
+    transition:all .18s ease; position:relative; -webkit-tap-highlight-color:transparent;
+    min-height:76px; justify-content:center;
+  }
+  .sit-card .ic{font-size:20px;}
+  .sit-card .check{
+    position:absolute; top:10px; left:10px; width:18px; height:18px; border-radius:50%;
+    background:var(--coral); color:#fff; display:none; align-items:center; justify-content:center; font-size:11px;
+  }
+  .sit-card.active{border-color:var(--coral); background:var(--coral-tint); box-shadow:var(--shadow);}
+  .sit-card.active .check{display:flex;}
+  .sit-feedback{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:16px; font-size:14px; color:var(--charcoal-soft); text-align:center;
+    transition:all .2s ease; min-height:20px;
+  }
+  .sit-feedback strong{color:var(--coral-deep); font-family:'Cairo';}
+
+  /* ---------- WHY THIS GUIDE ---------- */
+  .why-card{background:var(--card); border-radius:var(--radius-lg); padding:26px 22px; box-shadow:var(--shadow); text-align:center;}
+  .why-card h2{font-size:21px; margin-bottom:12px;}
+  .why-card p{color:var(--charcoal-soft); font-size:15px;}
+
+  /* ---------- WHAT'S INSIDE ---------- */
+  .inside-grid{display:grid; grid-template-columns:1fr; gap:12px;}
+  .inside-row{display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius-md); padding:14px 16px; min-height:64px;}
+  .inside-row .num{font-family:'Cairo'; font-weight:900; font-size:18px; color:var(--coral); width:34px; flex-shrink:0; text-align:center;}
+  .inside-cover{flex-shrink:0; width:56px; height:74px; border-radius:6px; overflow:hidden; box-shadow:0 4px 10px -4px rgba(43,36,31,0.25);}
+  .inside-cover img{width:100%; height:100%; object-fit:cover;}
+
+  .testi-grid{display:grid; grid-template-columns:1fr; gap:12px;}
+  .testi-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius-md); padding:16px;}
+  .testi-card .stars{font-size:13px; margin-bottom:8px; letter-spacing:1px;}
+  .testi-card p{font-size:14.5px; line-height:1.7; margin-bottom:12px;}
+  .testi-card .who{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700;}
+  .testi-card .av{
+    display:flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:100%;
+    background:var(--coral-tint); color:var(--coral-deep);
+    font-family:'Cairo'; font-weight:800; font-size:13px; flex-shrink:0;
+  }
+  .inside-row .txt strong{display:block; font-size:14.5px; font-family:'Cairo'; font-weight:700;}
+  .inside-row .txt span{font-size:12.5px; color:var(--charcoal-soft);}
+
+  /* ---------- BENEFITS ---------- */
+  .benefits-list{display:flex; flex-direction:column; gap:14px;}
+  .benefit-item{display:flex; align-items:flex-start; gap:12px; background:var(--sage-tint); border-radius:var(--radius-md); padding:15px 16px; min-height:56px;}
+  .benefit-item .ic{
+    width:30px; height:30px; border-radius:50%; background:var(--sage); color:#fff; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:14px;
+  }
+  .benefit-item p{font-size:14.5px; font-weight:700; color:var(--charcoal);}
+
+  /* ---------- BUNDLE ---------- */
+  .bundle-card{background:var(--charcoal); color:#fff; border-radius:var(--radius-lg); padding:26px 20px; box-shadow:var(--shadow-lift);}
+  .bundle-card h2{color:#fff; font-size:20px; text-align:center; margin-bottom:20px;}
+  .invoice-head{display:flex; align-items:baseline; justify-content:space-between; padding-bottom:14px; border-bottom:1.5px dashed rgba(255,255,255,0.25); margin-bottom:6px;}
+  .invoice-head .t{font-family:'Cairo'; font-weight:800; font-size:14.5px;}
+  .invoice-head .s{font-size:11.5px; opacity:.55;}
+
+  .delivery-steps{display:flex; flex-direction:column; gap:16px;}
+
+  .payment-gateway-note{
+    background:var(--cream-deep); color:var(--charcoal-soft);
+    font-size:13px; font-weight:500; line-height:1.7; text-align:center;
+    border:1px solid var(--line);
+    border-radius:var(--radius-md); padding:14px 18px;
+    margin-bottom:22px;
+  }
+  .payment-gateway-note strong{ color:var(--charcoal); font-weight:800; }
+  .payment-gateway-note .usd-highlight{ color:var(--charcoal-soft); }
+  .payment-gateway-note .sar-highlight{ color:var(--coral-deep); }
+  .delivery-step{display:flex; align-items:flex-start; gap:12px;}
+  .delivery-step .n{
+    flex-shrink:0; width:30px; height:30px; border-radius:100%;
+    background:var(--charcoal); color:#fff; font-family:'Cairo'; font-weight:800; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .delivery-step .txt strong{display:block; font-size:14.5px; font-family:'Cairo'; font-weight:700; margin-bottom:3px;}
+  .delivery-step .txt span{font-size:13px; color:var(--charcoal-soft); line-height:1.65;}
+  .bundle-item{display:flex; align-items:center; gap:14px; padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.12); min-height:68px;}
+  .bundle-item:last-of-type{border-bottom:none;}
+  .bundle-cover{
+    width:52px; height:68px; border-radius:8px; flex-shrink:0; overflow:hidden;
+    background:linear-gradient(155deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  }
+  .bundle-cover img{width:100%; height:100%; object-fit:cover;}
+  .bundle-item .name{font-size:14px; font-weight:700; flex:1;}
+  .bundle-item .name span{display:block; font-size:11.5px; font-weight:400; opacity:.65; margin-top:2px;}
+  .bundle-item .val{font-size:13px; opacity:.6; text-decoration:line-through; flex-shrink:0;}
+  .bundle-total{margin-top:16px; padding-top:16px; border-top:1.5px dashed rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:space-between;}
+  .bundle-total .label{font-size:13px; opacity:.75;}
+  .bundle-total .amount{font-family:'Cairo'; font-weight:900; font-size:24px; color:var(--coral-tint);}
+  .bundle-save{text-align:center; margin-top:14px; background:rgba(110,143,114,0.25); color:#B9D6BC; font-size:12.5px; font-weight:700; padding:8px; border-radius:100px;}
+
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border:1px solid var(--line); border-radius:var(--radius-md); margin-bottom:10px; overflow:hidden; background:var(--card);}
+  .faq-q{
+    width:100%; text-align:right; background:transparent; border:none; padding:16px;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    font-family:'Cairo'; font-weight:700; font-size:14px; color:var(--charcoal);
+    min-height:52px;
+  }
+  .faq-q .plus{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--coral-tint); color:var(--coral-deep);
+    display:flex; align-items:center; justify-content:center; font-size:14px; transition:transform .2s ease;
+  }
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding:0 16px 16px; font-size:13.5px; color:var(--charcoal-soft);}
+
+  /* ---------- OFFER ---------- */
+  .offer-card{
+    background:linear-gradient(160deg, var(--coral) 0%, var(--coral-deep) 100%); color:#fff;
+    border-radius:var(--radius-lg); padding:30px 22px; text-align:center; box-shadow:var(--shadow-lift);
+  }
+  .offer-card .eyebrow{background:rgba(255,255,255,0.18); color:#fff;}
+  .offer-card h2{color:#fff; font-size:21px; margin-bottom:6px;}
+  .offer-card .urgency{font-size:13px; opacity:.9; margin-bottom:18px;}
+  .offer-price{display:flex; align-items:baseline; justify-content:center; gap:10px; margin-bottom:20px;}
+  .offer-price .new{font-family:'Cairo'; font-weight:900; font-size:34px;}
+  .offer-price .old{font-size:16px; text-decoration:line-through; opacity:.7;}
+
+  .promo-box{ margin-bottom:16px; }
+  .promo-input-row{ display:flex; gap:8px; }
+  .promo-input{
+    flex:1; min-width:0;
+    background:rgba(255,255,255,0.12); border:1.5px solid rgba(255,255,255,0.3);
+    border-radius:10px; padding:12px 14px; font-size:16px; font-family:'Tajawal',sans-serif;
+    color:#fff;
+  }
+  .promo-input::placeholder{ color:rgba(255,255,255,0.65); }
+  .promo-input:disabled{ opacity:.6; }
+  .promo-btn{
+    flex-shrink:0; background:#fff; color:var(--coral-deep);
+    border:none; border-radius:10px; padding:0 20px;
+    font-family:'Cairo'; font-weight:800; font-size:14px; cursor:pointer;
+  }
+  .promo-btn:disabled{ opacity:.6; }
+  .promo-msg{ font-size:12.5px; font-weight:700; margin-top:8px; min-height:16px; }
+  .promo-msg.success{ color:#B9F0C4; }
+  .promo-msg.error{ color:#FFC9B8; }
+
+  /* Exit-intent discount popup */
+  .exit-popup-overlay{
+    display:none; position:fixed; inset:0; z-index:200;
+    background:rgba(21,17,13,0.6);
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .exit-popup-overlay.show{ display:flex; }
+  .exit-popup{
+    position:relative; width:100%; max-width:360px;
+    background:var(--cream); border-radius:20px;
+    padding:30px 22px 24px; text-align:center;
+    box-shadow:0 30px 60px -12px rgba(0,0,0,0.4);
+    animation:exitPopupIn 280ms ease-out both;
+  }
+  @keyframes exitPopupIn{ from{opacity:0; transform:translateY(14px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);} }
+  .exit-popup-close{
+    position:absolute; top:12px; left:12px;
+    width:30px; height:30px; border-radius:100%;
+    background:rgba(43,36,31,0.06); border:none;
+    color:var(--charcoal-soft); font-size:14px; cursor:pointer;
+  }
+  .exit-popup-emoji{ font-size:40px; margin-bottom:10px; }
+  .exit-popup h3{ font-family:'Cairo'; font-weight:800; font-size:19px; margin-bottom:10px; color:var(--charcoal); }
+  .exit-popup p{ font-size:14px; color:var(--charcoal-soft); line-height:1.7; margin-bottom:18px; }
+  .exit-popup p strong{ color:var(--coral-deep); font-weight:800; }
+  .exit-promo-code{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    background:#fff; border:2px dashed var(--coral); border-radius:12px;
+    padding:12px 16px; margin-bottom:18px; cursor:pointer;
+  }
+  .exit-promo-code .code{ font-family:'Cairo'; font-weight:900; font-size:20px; letter-spacing:2px; color:var(--coral-deep); }
+  .exit-promo-code .copy-hint{ font-size:11.5px; color:var(--charcoal-soft); font-weight:600; }
+  .exit-popup-cta{ width:100%; margin-bottom:10px; }
+  .exit-popup-dismiss{
+    background:none; border:none; color:var(--charcoal-soft);
+    font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer;
+  }
+  .offer-card .cta-btn{background:#fff; color:var(--coral-deep); box-shadow:0 14px 30px -10px rgba(0,0,0,0.35);}
+  .offer-card .cta-sub{color:rgba(255,255,255,0.85);}
+  .offer-card .price-note{color:rgba(255,255,255,0.8); opacity:.9;}
+  .offer-card .price-note .usd-highlight{ color:rgba(255,255,255,0.75); }
+  .offer-card .price-note .sar-highlight{ color:#fff; }
+  .offer-card .pay-badge{background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.25);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:34px 0 24px; text-align:center;}
+  footer .support{
+    display:flex; justify-content:center; gap:18px; flex-wrap:wrap;
+    margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--line);
+  }
+  footer .support-item{display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; color:var(--charcoal-soft);}
+  footer .links{display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:14px;}
+  footer .links a{color:var(--charcoal-soft); font-size:12.5px; text-decoration:none;}
+  footer .copy{font-size:11.5px; color:var(--charcoal-soft); opacity:.7;}
+
+  /* ---------- STICKY CTA ---------- */
+  .sticky-cta{
+    position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:1px solid var(--line);
+    padding:10px 20px calc(10px + env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; gap:6px;
+    box-shadow:0 -10px 30px -14px rgba(43,36,31,0.25);
+    transform:translateY(120%); transition:transform .3s ease;
+    z-index:50; max-width:var(--maxw); margin:0 auto;
+  }
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta-row{display:flex; align-items:center; gap:12px;}
+  .sticky-cta .p .n{font-family:'Cairo'; font-weight:900; font-size:16px; color:var(--coral-deep);}
+  .sticky-cta .p .o{font-size:11px; color:var(--charcoal-soft); text-decoration:line-through;}
+  .sticky-cta .cta-btn{padding:12px 18px; font-size:14px; box-shadow:none; min-height:44px;}
+  .sticky-cta .price-note{font-size:9.5px; margin-top:0;}
+
+  @media (min-width:400px){ .hero h1{font-size:29px;} }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4558359724490249');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script") ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9A1U7RC77U6Q0JCJV70');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<!-- Paddle.js -->
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+  Paddle.Environment.set('production');
+  Paddle.Initialize({
+    token: 'live_a07b4297de5c464acf6121122ee',
+    eventCallback: function(data){
+      if (data.name === 'checkout.completed') {
+        // بادل هيوديها لصفحة الشكر تلقائيًا حسب successUrl تحت
+      }
+    }
+  });
+</script>
+
+</head>
+<body>
+
+<div class="top-bar">🛡️ ضمان استرداد الأموال خلال ١٤ يومًا · تسليم فوري بعد الدفع</div>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-bg" aria-hidden="true"></div>
+    <div class="wrap center">
+      <h1>حزمة تربوية متكاملة تجعلكِ الأم الهادئة في كل موقف مع طفلك</h1>
+      <p class="sub"><strong>3 كتب تكمّل بعضها من أول صفحة لآخرها</strong>: دليل عملي، موسوعة مواقف يومية، وكتاب أنشطة لطفلك — بخطوات واضحة وسهلة التطبيق فورًا.</p>
+
+      <span class="hero-social-proof">
+        <span class="n">739+</span> أم أعدن الهدوء إلى منازلهن
+      </span>
+
+      <div class="hero-visual">
+        <div class="hero-visual-glow" aria-hidden="true"></div>
+        <div class="hero-book side left">
+          <img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="126" height="189" loading="eager" decoding="async">
+        </div>
+        <div class="hero-book main">
+          <img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="170" height="255" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="hero-book side right">
+          <img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="126" height="189" loading="eager" decoding="async">
+        </div>
+      </div>
+
+      <div class="price-block">
+        <span class="price-new">٤٩ ريال فقط</span>
+        <span class="price-old">٢١٧ ريال</span>
+      </div>
+      <span class="price-save">وفّري ١٦٨ ريال اليوم</span>
+
+      <div class="guarantee-badge">
+        <span class="ic" aria-hidden="true">🛡️</span>
+        <span>ضمان استرداد كامل خلال ١٤ يومًا</span>
+      </div>
+
+      <div style="height:20px"></div>
+
+      <button class="cta-btn hero-cta-btn" onclick="scrollToOffer()">احصلي على الهدوء الآن</button>
+    </div>
+  </div>
+
+  <div class="wrap center">
+    <p class="cta-sub">دفع آمن · تسليم فوري · متوافق مع جميع الأجهزة</p>
+
+    <div class="hero-benefits">
+      <div class="hero-benefit-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>
+        </span>
+        <p>أكثر من 60 موقفاً<br>تربوياً عملياً</p>
+      </div>
+      <div class="hero-benefit-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13.5s-3.2-2-3.2-4.3a2 2 0 0 1 3.7-1.1 2 2 0 0 1 3.7 1.1c0 2.3-3.2 4.3-3.2 4.3z"/><path d="M4 17c1.5 1.5 4 2.5 8 2.5s6.5-1 8-2.5"/></svg>
+        </span>
+        <p>حلول هادئة بعيداً<br>عن الصراخ والعقاب</p>
+      </div>
+      <div class="hero-benefit-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9 5 5 0 0 1 9.6-1.9A4.5 4.5 0 0 1 17 18H7z"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
+        </span>
+        <p>استلام فوري<br>بصيغة PDF</p>
+      </div>
+    </div>
+
+    <div class="pay-row" aria-label="طرق الدفع المتاحة">
+      <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="64" height="38" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/mada.svg" alt="مدى" width="64" height="38" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/visa.svg" alt="Visa" width="64" height="38" loading="lazy" decoding="async"></span>
+      <span class="pay-badge"><img src="assets/icons/mastercard.svg" alt="Mastercard" width="64" height="38" loading="lazy" decoding="async"></span>
+    </div>
+
+    <div class="hero-trust-strip">
+      <div class="hero-trust-strip-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19v1a3 3 0 0 1-3 3h-2"/></svg>
+        </span>
+        <span class="t">دعم فني</span>
+        <span class="d">يخدمك دائماً</span>
+      </div>
+      <div class="hero-trust-strip-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </span>
+        <span class="t">خصوصيتك آمنة</span>
+        <span class="d">نحمي بياناتك</span>
+      </div>
+      <div class="hero-trust-strip-item">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span class="t">ضمان 14 يوم</span>
+        <span class="d">استرداد كامل للمبلغ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. DAILY SITUATIONS ============ -->
+<section class="section" id="situations">
+  <div class="wrap">
+    <div class="sit-head center">
+      <h2>هل مررتِ بأحد هذه المواقف؟</h2>
+      <p>اضغطي على المواقف التي تواجهينها كثيرًا مع طفلك</p>
+    </div>
+
+    <div class="sit-grid" id="sitGrid">
+      <button class="sit-card" data-label="رفض النوم"><span class="check">✓</span><span class="ic">🌙</span>يرفض النوم</button>
+      <button class="sit-card" data-label="رفض المذاكرة"><span class="check">✓</span><span class="ic">📚</span>يرفض المذاكرة</button>
+      <button class="sit-card" data-label="رفض الأكل"><span class="check">✓</span><span class="ic">🍽️</span>يرفض الأكل</button>
+      <button class="sit-card" data-label="نوبات الغضب"><span class="check">✓</span><span class="ic">😠</span>نوبات الغضب</button>
+      <button class="sit-card" data-label="رفض المدرسة"><span class="check">✓</span><span class="ic">🎒</span>يرفض المدرسة</button>
+      <button class="sit-card" data-label="عدم السمع"><span class="check">✓</span><span class="ic">👂</span>لا يسمع الكلام</button>
+      <button class="sit-card" data-label="التعلق بالجوال"><span class="check">✓</span><span class="ic">📱</span>متعلق بالجوال</button>
+      <button class="sit-card" data-label="ضرب الإخوة"><span class="check">✓</span><span class="ic">🤜</span>يضرب إخوته</button>
+      <button class="sit-card" data-label="الغيرة"><span class="check">✓</span><span class="ic">💔</span>الغيرة</button>
+      <button class="sit-card" data-label="الخوف"><span class="check">✓</span><span class="ic">🌩️</span>الخوف</button>
+      <button class="sit-card" data-label="الكذب"><span class="check">✓</span><span class="ic">🙈</span>الكذب</button>
+      <button class="sit-card" data-label="رفض الاستحمام"><span class="check">✓</span><span class="ic">🛁</span>رفض الاستحمام</button>
+    </div>
+
+    <div class="sit-feedback" id="sitFeedback" aria-live="polite">اضغطي على أي موقف، وسنوضح لكِ أن له إجابة جاهزة داخل الحزمة</div>
+  </div>
+</section>
+
+<!-- ============ 3. WHY THIS BUNDLE ============ -->
+<section class="section" id="whyBundleSection">
+  <div class="wrap">
+    <div class="why-card">
+      <span class="eyebrow">لماذا هذه الحزمة التربوية؟</span>
+      <h2>حلول جاهزة، لا حاجة للبحث كل مرة</h2>
+      <p>بدلاً من البحث عن إجابة كل مرة يحدث فيها موقف مع طفلك، تمنحك هذه الحزمة إجابة واضحة وجاهزة لكل موقف من المواقف اليومية التي تعيشينها فعلاً — مع نشاط هادئ لطفلك في نفس الوقت. تفتحين الكتاب المناسب، وتعرفين ماذا تفعلين، في نفس اللحظة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. WHAT'S INSIDE THE BUNDLE ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sit-head center">
+      <span class="eyebrow">داخل الحزمة</span>
+      <h2>محتوى الحزمة التربوية</h2>
+      <p>3 كتب مصممة لتكمّل بعضها، من أول لحظة توتر إلى أطول يوم مع طفلك</p>
+    </div>
+    <div class="inside-grid">
+      <div class="inside-row">
+        <div class="inside-cover"><img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="56" height="74" loading="lazy" decoding="async"></div>
+        <span class="txt"><strong>دليل بين الشد والجذب</strong><span>الأساس: تفهمين سبب تصرف طفلك، وتتعلمين الحزم دون صراخ، خطوة بخطوة من لحظة الانفعال إلى ما بعدها</span></span>
+      </div>
+      <div class="inside-row">
+        <div class="inside-cover"><img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="56" height="74" loading="lazy" decoding="async"></div>
+        <span class="txt"><strong>موسوعة 60 موقفاً تربوياً</strong><span>إسعاف فوري: تفتحين الموقف اللي تعيشينه الآن — رفض نوم، عناد، غيرة — وتلقين الحل جاهزاً في ثوانٍ</span></span>
+      </div>
+      <div class="inside-row">
+        <div class="inside-cover"><img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="56" height="74" loading="lazy" decoding="async"></div>
+        <span class="txt"><strong>كتاب تلوين مملكة الحيوانات</strong><span>نشاط هادئ لطفلك: يلوّن كل حيوان ويتعلم اسمه بالإنجليزية المكتوبة تحت الرسمة، بعيداً عن الجوال، ويمنحك وقتاً هادئاً وأنتِ مطمئنة</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. BENEFITS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sit-head center">
+      <h2>كيف يسهّل هذا يومك؟</h2>
+    </div>
+    <div class="benefits-list">
+      <div class="benefit-item"><span class="ic">✓</span><p>تنتهي كل موقف في دقائق بدلاً من ساعات من التوتر</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>تتخذين قرارك بثقة، دون تردد أو شعور بالذنب لاحقًا</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>يقل الصراخ والاحتكاك اليومي بينك وبين طفلك</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>تجدين الحل في هاتفك خلال ثوانٍ، أينما كنتِ</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>تفهمين سبب عناد طفلك، بدل ما تتعاملين معه بغضب</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>ترسمين حدوداً واضحة يلتزم بها طفلك من نفسه، لا خوفاً منك</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>تقولين «لا» بصوت هادئ وثابت، دون أن يتحول البيت لساحة توتر</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>تقلّلين اعتماد طفلك على الجوال بخطوات عملية، دون معارك يومية</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>يقضي طفلك وقتاً هادئاً في التلوين والتعلم بدل الشاشات</p></div>
+      <div class="benefit-item"><span class="ic">✓</span><p>تبنين مع طفلك علاقة أساسها الثقة، لا الخوف والتوتر</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. BUNDLE CONTENTS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sit-head center">
+      <span class="eyebrow">الحزمة كاملة</span>
+      <h2>الحزمة التربوية المتكاملة: استثمار ذكي وشامل يغنيكِ عن الاستشارات المكلفة</h2>
+    </div>
+    <div class="bundle-card">
+      <div class="invoice-head">
+        <span class="t">فاتورة الحزمة التربوية الكاملة</span>
+        <span class="s">smartpdf.shop</span>
+      </div>
+      <div class="bundle-item">
+        <div class="bundle-cover"><img src="assets/covers/hero-book.webp" alt="غلاف دليل بين الشد والجذب" width="52" height="68" loading="lazy" decoding="async"></div>
+        <span class="name">دليل بين الشد والجذب<span>الدليل الأساسي</span></span>
+        <span class="val">٩٩ ريال</span>
+      </div>
+      <div class="bundle-item">
+        <div class="bundle-cover"><img src="assets/covers/bonus-60.webp" alt="غلاف موسوعة 60 موقفاً تربوياً" width="52" height="68" loading="lazy" decoding="async"></div>
+        <span class="name">موسوعة 60 موقفاً تربوياً<span>إجابة جاهزة لكل موقف يومي</span></span>
+        <span class="val">٧٩ ريال</span>
+      </div>
+      <div class="bundle-item">
+        <div class="bundle-cover"><img src="assets/covers/animal-book.webp" alt="غلاف كتاب تلوين مملكة الحيوانات" width="52" height="68" loading="lazy" decoding="async"></div>
+        <span class="name">كتاب تلوين مملكة الحيوانات<span>رسم وتعلم أسماء الحيوانات بالإنجليزية</span></span>
+        <span class="val">٣٩ ريال</span>
+      </div>
+      <div class="bundle-total">
+        <span class="label">الإجمالي</span>
+        <span class="amount">٤٩ ريال فقط</span>
+      </div>
+      <div class="bundle-save">القيمة الأصلية ٢١٧ ريال — توفير أكثر من ٧٥٪</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. REAL PREVIEW — removed per request ============ -->
+<!--
+  Section removed: real interior page screenshots were not available,
+  and the client requested this section be dropped rather than left
+  waiting on assets. Re-add if/when real preview screenshots exist.
+-->
+
+<!-- ============ 8. TESTIMONIALS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sit-head center">
+      <span class="eyebrow">قالوا عن الحزمة</span>
+      <h2>أمهات جربن.. وهذا اللي صار</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>تخلصت من صراخ السوبرماركت وعناد الصباح في ٣ أيام بس.. ما كنت أتوقع إن الطريقة تكون سهلة كذا.</p>
+        <div class="who"><span class="av">س</span> سارة، أم لطفلين</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>ابني كان يرمي نفسه على الأرض كل ما أرفض له طلب.. الحين صار يفاوض مو يصرخ.</p>
+        <div class="who"><span class="av">م</span> منى، أم لـ«يوسف» (٤ سنين)</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>حرب الآيباد صارت تاريخ. موسوعة المواقف إسعاف فوري، أفتحها على جوالي وقت الأزمة فعلاً.</p>
+        <div class="who"><span class="av">ه</span> هبة، أم لـ«نورة» (٦ سنين)</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>حسيت إني مو أم مقصّرة.. الحزمة وضّحت لي إن العناد مرحلة طبيعية، وعطتني أدوات حقيقية أستخدمها.</p>
+        <div class="who"><span class="av">ن</span> نور، أم لثلاثة أطفال</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>جلسة المذاكرة صارت أهدأ بكثير.. وتعلمت أعتذر لابني لما أغلط، وهذا غيّر علاقتنا فعلاً.</p>
+        <div class="who"><span class="av">ر</span> رانيا، أم لـ«خالد» (٨ سنين)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. HOW DELIVERY WORKS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sit-head center">
+      <span class="eyebrow eyebrow-coral">خطوات بسيطة</span>
+      <h2>استلام رقمي فوري خلال دقائق</h2>
+    </div>
+    <div class="payment-gateway-note" id="paymentGatewayNote">
+      <strong>ملاحظة مهمة:</strong> نستخدم بوابة دفع عالمية آمنة، والحزمة تُباع بشكل عالمي، ولذلك يظهر لك السعر بالدولار الأمريكي <span class="usd-highlight">(12.99$)</span> وهو ما يعادل تقريبًا <span class="sar-highlight">49 ريالًا سعوديًا</span> حسب سعر الصرف وقت الشراء.
+    </div>
+    <div class="delivery-steps">
+      <div class="delivery-step">
+        <span class="n">١</span>
+        <span class="txt"><strong>اضغطي على زر الشراء الآمن</strong><span>أي زر «احصلي على الهدوء الآن» يوديكِ مباشرة لبوابة الدفع</span></span>
+      </div>
+      <div class="delivery-step">
+        <span class="n">٢</span>
+        <span class="txt"><strong>أدخلي إيميلك وادفعي بأمان</strong><span>بوابة الدفع تطلب إيميلك أولاً لترسل لك فاتورة الشراء تلقائياً، ثم تدفعين بمدى أو فيزا أو ماستركارد أو Apple Pay عبر بوابة دفع عالمية موثوقة</span></span>
+      </div>
+      <div class="delivery-step">
+        <span class="n">٣</span>
+        <span class="txt"><strong>حمّلي الحزمة فوراً</strong><span>فور إتمام الدفع تظهر لك روابط تحميل الكتب الثلاثة مباشرة على صفحة الشكر، تحمّليها على جوالك بصيغة PDF، أو تطلبي نسختك جاهزة على واتساب من نفس الصفحة</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. FAQ ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sit-head center">
+      <h2>أسئلة شائعة</h2>
+    </div>
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q"><span>متى سأستلم المحتوى؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>روابط تحميل الكتب الثلاثة تظهر لك مباشرة على صفحة الشكر فور إتمام الدفع، وتقدرين تحمّليها على جوالك أو جهازك من هناك، أو تطلبي نسختك جاهزة على واتساب من نفس الصفحة.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>هل أحتاج إلى خبرة تربوية للاستفادة من الحزمة؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>لا. تم إعداد محتوى الحزمة بلغة بسيطة وسهلة التطبيق، لتكون مناسبة لكل أم، سواء كانت تبحث عن حلول لأول مرة أو ترغب في تطوير أسلوبها التربوي.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>هل يمكنني استخدامها من الجوال؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>نعم، الملفات بصيغة PDF ويمكن فتحها مباشرة من جوالك أو الآيباد دون الحاجة لأي برامج إضافية.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>لأي عمر يناسب المحتوى؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>الحزمة مناسبة لأمهات الأطفال من سن سنة وحتى سن المراهقة، وكل جزء فيها يخدم مرحلة عمرية مختلفة حسب احتياج طفلك.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>هل الدفع آمن؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>نعم، تتم عملية الدفع عبر بوابة دفع آمنة ومشفّرة بالكامل، وتدعم Apple Pay ومدى وفيزا وماستركارد.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>لماذا يتم الدفع بالدولار الأمريكي؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>نستخدم بوابة الدفع العالمية Paddle، لذلك يتم عرض المبلغ النهائي بالدولار الأمريكي <span class="usd-highlight">(12.99 USD)</span>. ويعادل ذلك تقريبًا <span class="sar-highlight">49 ريالًا سعوديًا</span> حسب سعر الصرف وقت الشراء.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>هل يمكن استرجاع المبلغ؟</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>نعم، لديك ضمان استرداد كامل خلال 14 يومًا من الشراء. إذا شعرتِ أن الحزمة غير مناسبة لك، تواصلي معنا وسنسترجع مبلغك دون تعقيد.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. OFFER ============ -->
+<section class="section" id="offer">
+  <div class="wrap">
+    <div class="offer-card">
+      <span class="eyebrow">عرض اليوم</span>
+      <h2>احصلي على الحزمة كاملة الآن</h2>
+      <p class="urgency">السعر الحالي متاح لفترة محدودة، ثم يعود إلى سعره الأصلي</p>
+      <div class="offer-price" id="offerPriceBlock">
+        <span class="new">٤٩ ريال فقط</span>
+        <span class="old">٢١٧ ريال</span>
+      </div>
+
+      <div class="promo-box">
+        <div class="promo-input-row">
+          <input type="text" id="promoInput" class="promo-input" placeholder="عندك كود خصم؟" autocapitalize="characters" autocomplete="off">
+          <button type="button" class="promo-btn" id="promoBtn" onclick="applyPromoCode()">تطبيق</button>
+        </div>
+        <p class="promo-msg" id="promoMsg"></p>
+      </div>
+
+      <button class="cta-btn" id="checkoutBtn" onclick="redirectToCheckout()">
+        <svg class="dl-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>
+        احصلي على الحقيبة كاملة الآن
+      </button>
+      <p class="cta-sub">تسليم فوري · دفع آمن · ضمان استرداد خلال ١٤ يومًا</p>
+      <p class="price-note" id="offerPriceNote">سيتم الدفع بالدولار الأمريكي <span class="usd-highlight">(12.99 USD)</span> عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا <span class="sar-highlight">49 ريالًا سعوديًا</span> حسب سعر الصرف وقت الشراء.</p>
+      <div class="pay-row" aria-label="طرق الدفع المتاحة">
+        <span class="pay-badge"><img src="assets/icons/applepay.svg" alt="Apple Pay" width="44" height="28" loading="lazy" decoding="async"></span>
+        <span class="pay-badge"><img src="assets/icons/mada.svg" alt="مدى" width="44" height="28" loading="lazy" decoding="async"></span>
+        <span class="pay-badge"><img src="assets/icons/visa.svg" alt="Visa" width="44" height="28" loading="lazy" decoding="async"></span>
+        <span class="pay-badge"><img src="assets/icons/mastercard.svg" alt="Mastercard" width="44" height="28" loading="lazy" decoding="async"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="support">
+      <span class="support-item">✓ خدمة العملاء</span>
+      <span class="support-item">✓ تحميل فوري</span>
+      <span class="support-item">✓ واتساب</span>
+    </div>
+    <div class="links">
+      <a href="contact.html">تواصلي معنا</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="refund.html">سياسة الاسترجاع</a>
+    </div>
+    <p class="copy">© 2026 smartpdf.shop — جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-row">
+    <div class="p"><span class="n">٤٩ ريال فقط</span><br><span class="o">٢١٧ ريال</span></div>
+    <button class="cta-btn" style="flex:1" onclick="scrollToOffer()">احصلي عليها الآن</button>
+  </div>
+  <p class="price-note" id="stickyPriceNote">سيتم الدفع بالدولار الأمريكي <span class="usd-highlight">(12.99 USD)</span> عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا <span class="sar-highlight">49 ريالًا سعوديًا</span> حسب سعر الصرف وقت الشراء.</p>
+</div>
+
+<!-- ============ EXIT-INTENT DISCOUNT POPUP ============ -->
+<div class="exit-popup-overlay" id="exitPopupOverlay">
+  <div class="exit-popup">
+    <button class="exit-popup-close" id="exitPopupClose" aria-label="إغلاق">✕</button>
+    <div class="exit-popup-emoji">🎁</div>
+    <h3>استني.. قبل ما تسكّرين الصفحة!</h3>
+    <p>عندنا خصم خاص لك دلوقتي بس، خصم <strong>٥٠٪</strong> على الحزمة كاملة. مايتكررش بسهولة.</p>
+    <div class="exit-promo-code" id="exitPromoCode" onclick="copyExitPromoCode()">
+      <span class="code">MOM50</span>
+      <span class="copy-hint" id="exitCopyHint">اضغطي للنسخ</span>
+    </div>
+    <button class="cta-btn exit-popup-cta" onclick="applyExitDiscountAndCheckout()">طبّقي الخصم واحصلي على الحزمة الآن</button>
+    <button class="exit-popup-dismiss" id="exitPopupDismiss">لأ، شكرًا</button>
+  </div>
+</div>
+
+<script>
+  const feedbackMap = {
+    'رفض النوم':'روتين نوم هادئ خطوة بخطوة، دون صراخ أو توتر.',
+    'رفض المذاكرة':'أسلوب يجعله يذاكر دون أن تتحول المذاكرة إلى صراع يومي.',
+    'رفض الأكل':'طريقة عملية تقلل التوتر على مائدة الطعام دون إجبار.',
+    'نوبات الغضب':'خطوات لحظة الانهيار، تساعدك على تهدئة طفلك مع الحفاظ على هدوئك.',
+    'رفض المدرسة':'كيف تفهمين السبب الحقيقي وتتعاملين معه بثقة.',
+    'عدم السمع':'أسلوب حازم وهادئ يجعله يستجيب دون تكرار الكلام.',
+    'التعلق بالجوال':'حدود واضحة لاستخدام الجوال دون معارك يومية.',
+    'ضرب الإخوة':'كيف تتعاملين مع الغيرة بين الإخوة من جذورها.',
+    'الغيرة':'خطوات تجعل طفلك يشعر بالأمان دون مقارنة.',
+    'الخوف':'طريقة لطمأنة طفلك دون تضخيم خوفه.',
+    'الكذب':'فهم سبب الكذب، والرد عليه دون كسر الثقة بينكما.',
+    'رفض الاستحمام':'حيلة بسيطة تجعل وقت الاستحمام أسهل بكثير.'
+  };
+
+  const cards = document.querySelectorAll('.sit-card');
+  const feedback = document.getElementById('sitFeedback');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const wasActive = card.classList.contains('active');
+      cards.forEach(c => c.classList.remove('active'));
+
+      if (!wasActive) {
+        card.classList.add('active');
+        const label = card.getAttribute('data-label');
+        feedback.innerHTML = `<strong>${card.textContent.trim()}</strong> — ${feedbackMap[label] || 'له إجابة جاهزة داخل الحزمة.'}`;
+      } else {
+        feedback.textContent = 'اضغطي على أي موقف، وسنوضح لكِ أن له إجابة جاهزة داخل الحزمة';
+      }
+    });
+  });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        open.classList.remove('open');
+        open.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  const stickyCta = document.getElementById('stickyCta');
+  const situationsSection = document.getElementById('situations');
+  const offerSection = document.getElementById('offer');
+  window.addEventListener('scroll', () => {
+    const sitTop = situationsSection.getBoundingClientRect().top;
+    const offerTop = offerSection.getBoundingClientRect().top;
+    const winH = window.innerHeight;
+    if (sitTop < winH * 0.3 && offerTop > winH) {
+      stickyCta.classList.add('show');
+    } else {
+      stickyCta.classList.remove('show');
+    }
+  });
+
+  // ============ PROMO CODE ============
+  // أكواد الخصم الصالحة ونسبتها. أضيفي أي كود جديد هنا بنفس الشكل.
+  const VALID_PROMO_CODES = { 'MOM50': 0.5 };
+  let appliedDiscount = null; // { code, percent }
+
+  function toArabicNumerals(value){
+    const map = {'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+    return String(value).split('').map(ch => map[ch] !== undefined ? map[ch] : ch).join('');
+  }
+
+  function formatSar(amount){
+    // تنسيق بسيط: يشيل الصفر العشري لو مش محتاج (24.0 -> 24)، ويسيب رقم عشري واحد لو محتاج (24.5)
+    const rounded = Math.round(amount * 10) / 10;
+    const str = Number.isInteger(rounded) ? String(rounded) : String(rounded);
+    return toArabicNumerals(str) + ' ريال';
+  }
+
+  function applyPromoCode(){
+    const input = document.getElementById('promoInput');
+    const btn = document.getElementById('promoBtn');
+    const msg = document.getElementById('promoMsg');
+    const code = input.value.trim().toUpperCase();
+
+    if (!code) return;
+
+    if (VALID_PROMO_CODES[code]) {
+      appliedDiscount = { code: code, percent: VALID_PROMO_CODES[code] };
+      updatePricesWithDiscount();
+      msg.textContent = '✅ تم تطبيق كود الخصم! السعر الجديد أقل بنسبة ' + Math.round(appliedDiscount.percent * 100) + '٪';
+      msg.className = 'promo-msg success';
+      input.disabled = true;
+      btn.disabled = true;
+      btn.textContent = 'تم ✓';
+    } else {
+      msg.textContent = '❌ الكود غير صحيح أو منتهي الصلاحية';
+      msg.className = 'promo-msg error';
+    }
+  }
+
+  function updatePricesWithDiscount(){
+    if (!appliedDiscount) return;
+    const baseSar = 49;
+    const baseUsd = 12.99;
+    const newSar = baseSar * (1 - appliedDiscount.percent);
+    const newUsd = (baseUsd * (1 - appliedDiscount.percent)).toFixed(2);
+    const newSarRounded = toArabicNumerals(Math.round(newSar));
+    const newSarLabel = newSarRounded + ' ريال فقط';
+
+    // سعر قسم العرض
+    const offerNew = document.querySelector('#offerPriceBlock .new');
+    if (offerNew) offerNew.textContent = newSarLabel;
+
+    // سعر الهيرو
+    const heroNew = document.querySelector('.price-new');
+    if (heroNew) heroNew.textContent = newSarLabel;
+
+    // سعر الشريط اللاصق
+    const stickyNew = document.querySelector('.sticky-cta .p .n');
+    if (stickyNew) stickyNew.textContent = newSarLabel;
+
+    // النص الجديد لملاحظات السعر: نفس الصياغة، وملحوظة قسم "خطوات بسيطة" بيتحافظ فيها على بادئة "ملاحظة مهمة"
+    const updatedNoteHtml = 'بعد تطبيق كود الخصم، سيتم الدفع بالدولار الأمريكي <span class="usd-highlight">(' + newUsd + ' USD)</span> عبر بوابة دفع آمنة، وهو ما يعادل تقريبًا <span class="sar-highlight">' + newSarRounded + ' ريالًا سعوديًا</span> حسب سعر الصرف وقت الشراء.';
+
+    ['offerPriceNote', 'stickyPriceNote'].forEach(function(id){
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = updatedNoteHtml;
+    });
+
+    const gatewayNote = document.getElementById('paymentGatewayNote');
+    if (gatewayNote) {
+      gatewayNote.innerHTML = '<strong>ملاحظة مهمة:</strong> ' + updatedNoteHtml;
+    }
+  }
+
+  function scrollToOffer(){
+    const target = document.getElementById('offer');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // زرار "احصلي على الحزمة كاملة الآن" في قسم العرض هو اللي بيفتح شاشة الدفع الفعلية من Paddle.
+  // بعد نجاح الدفع، Paddle بيوجّه العميلة تلقائيًا لصفحة الشكر حسب successUrl تحت.
+  function redirectToCheckout(){
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', {
+        content_ids: ['tarbia-waia-bundle'],
+        content_name: 'الحزمة التربوية المتكاملة',
+        content_type: 'product',
+        value: 12.99,
+        currency: 'USD'
+      });
+    }
+    if (typeof ttq !== 'undefined') {
+      ttq.track('InitiateCheckout', {
+        contents: [{
+          content_id: 'tarbia-waia-bundle',
+          content_name: 'الحزمة التربوية المتكاملة',
+          content_type: 'product',
+          quantity: 1,
+          price: 12.99
+        }],
+        value: 12.99,
+        currency: 'USD'
+      });
+    }
+    const checkoutParams = {
+      items: [{ priceId: 'pri_01kwm0cv7scd97gwhztg7h2293', quantity: 1 }],
+      settings: {
+        successUrl: 'https://smartpdf.shop/parenting/thank-you'
+      }
+    };
+    // لو العميلة طبّقت كود خصم صحيح في الصفحة، نبعته لـ Paddle عشان يتطبق تلقائي في شاشة الدفع
+    if (appliedDiscount) {
+      checkoutParams.discountCode = appliedDiscount.code;
+    }
+    Paddle.Checkout.open(checkoutParams);
+  }
+
+  // ============ EXIT-INTENT DISCOUNT POPUP ============
+  const EXIT_POPUP_CODE = 'MOM50';
+  const EXIT_POPUP_SESSION_KEY = 'exitPopupShown';
+  let exitPopupHasBeenShown = false;
+
+  function showExitPopup(){
+    if (exitPopupHasBeenShown) return;
+    if (appliedDiscount) return; // العميلة أصلاً طبّقت خصم، مفيش داعي نزعجها
+    exitPopupHasBeenShown = true;
+    try { sessionStorage.setItem(EXIT_POPUP_SESSION_KEY, '1'); } catch(e) {}
+    document.getElementById('exitPopupOverlay').classList.add('show');
+  }
+
+  function hideExitPopup(){
+    document.getElementById('exitPopupOverlay').classList.remove('show');
+  }
+
+  function copyExitPromoCode(){
+    const hint = document.getElementById('exitCopyHint');
+    const done = () => {
+      hint.textContent = 'تم النسخ ✓';
+      setTimeout(() => { hint.textContent = 'اضغطي للنسخ'; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(EXIT_POPUP_CODE).then(done).catch(done);
+    } else {
+      done();
+    }
+  }
+
+  function applyExitDiscountAndCheckout(){
+    if (VALID_PROMO_CODES[EXIT_POPUP_CODE]) {
+      appliedDiscount = { code: EXIT_POPUP_CODE, percent: VALID_PROMO_CODES[EXIT_POPUP_CODE] };
+      updatePricesWithDiscount();
+      // نعكس نفس الحالة على مكان إدخال الكود في قسم العرض لو موجود
+      const promoInput = document.getElementById('promoInput');
+      const promoBtn = document.getElementById('promoBtn');
+      const promoMsg = document.getElementById('promoMsg');
+      if (promoInput) { promoInput.value = EXIT_POPUP_CODE; promoInput.disabled = true; }
+      if (promoBtn) { promoBtn.disabled = true; promoBtn.textContent = 'تم ✓'; }
+      if (promoMsg) { promoMsg.textContent = '✅ تم تطبيق كود الخصم! السعر الجديد أقل بنسبة 50٪'; promoMsg.className = 'promo-msg success'; }
+    }
+    hideExitPopup();
+    redirectToCheckout();
+  }
+
+  document.getElementById('exitPopupClose').addEventListener('click', hideExitPopup);
+  document.getElementById('exitPopupDismiss').addEventListener('click', hideExitPopup);
+  document.getElementById('exitPopupOverlay').addEventListener('click', function(e){
+    if (e.target === this) hideExitPopup();
+  });
+
+  // لو ظهر الـ popup قبل كده في نفس الجلسة، منعرضوش تاني
+  try {
+    if (sessionStorage.getItem(EXIT_POPUP_SESSION_KEY) === '1') {
+      exitPopupHasBeenShown = true;
+    }
+  } catch(e) {}
+
+  // كمبيوتر/لابتوب: لما الماوس يتحرك برا الصفحة من فوق (نية الخروج الكلاسيكية)
+  document.addEventListener('mouseout', function(e){
+    if (!e.relatedTarget && !e.toElement && e.clientY <= 0) {
+      showExitPopup();
+    }
+  });
+
+  // جوال: نعترض ضغطة زرار الرجوع (مش هينفع نمنع إغلاق التطبيق أو التبويب نفسه، بس زرار الرجوع أكتر حاجة بتستخدمها الزائرة)
+  try {
+    history.pushState({ exitPopupGuard: true }, '', location.href);
+    window.addEventListener('popstate', function(){
+      if (!exitPopupHasBeenShown) {
+        showExitPopup();
+        history.pushState({ exitPopupGuard: true }, '', location.href);
+      }
+    });
+  } catch(e) {}
+
+  // جوال/كمبيوتر: تظهر بعد 30 ثانية من فتح الصفحة، وبس لو العميلة فعلاً نزلت وشافت
+  // قسم "لماذا هذه الحزمة التربوية" أو بعده (يعني مش لسه واقفة في الهيرو)
+  let exitTimerElapsed = false;
+  let exitScrolledEnough = false;
+
+  function maybeShowTimedExitPopup(){
+    if (exitTimerElapsed && exitScrolledEnough) {
+      showExitPopup();
+      window.removeEventListener('scroll', onExitScrollCheck);
+    }
+  }
+
+  function onExitScrollCheck(){
+    const target = document.getElementById('whyBundleSection');
+    if (target && target.getBoundingClientRect().top < window.innerHeight) {
+      exitScrolledEnough = true;
+      maybeShowTimedExitPopup();
+    }
+  }
+
+  window.addEventListener('scroll', onExitScrollCheck, { passive: true });
+  setTimeout(function(){
+    exitTimerElapsed = true;
+    maybeShowTimedExitPopup();
+  }, 30000);
+
+</script>
+
+</body>
+</html>
