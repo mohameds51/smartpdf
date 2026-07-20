@@ -6,9 +6,7 @@
 <title>بين شد وجذب — الدليل العملي لتربية الجيل الرقمي بدون احتراق نفسي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 /* Static stylesheet replacing the Tailwind Play CDN runtime compiler.
    Hand-built to cover exactly the utility classes used on this page —
@@ -835,30 +833,10 @@ try {
   });
 } catch(e) {}
 
-// جوال/كمبيوتر: بعد 30 ثانية + وصول العميلة لقسم "محتوى الكتاب" أو بعده
-var exitTimerElapsed = false;
-var exitScrolledEnough = false;
-
-function maybeShowTimedExitPopup(){
-  if (exitTimerElapsed && exitScrolledEnough) {
-    showExitPopup();
-    window.removeEventListener('scroll', onExitScrollCheck);
-  }
-}
-
-function onExitScrollCheck(){
-  var target = document.getElementById('benefitsSection');
-  if (target && target.getBoundingClientRect().top < window.innerHeight) {
-    exitScrolledEnough = true;
-    maybeShowTimedExitPopup();
-  }
-}
-
-window.addEventListener('scroll', onExitScrollCheck, { passive: true });
+// كود الخصم يظهر تلقائيًا للعميلة بعد 10 ثوانٍ من فتح الصفحة
 setTimeout(function(){
-  exitTimerElapsed = true;
-  maybeShowTimedExitPopup();
-}, 30000);
+  showExitPopup();
+}, 10000);
 
 // كل أزرار الشراء متصلة بدالة openPaddleCheckout() اللي بتفتح نافذة الدفع من Paddle
 // مباشرة بسعر المنتج pri_01kwm0cv7scd97gwhztg7h2293، وبعد نجاح الدفع بادل يوديها تلقائيًا
