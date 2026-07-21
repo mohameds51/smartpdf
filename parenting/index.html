@@ -326,7 +326,7 @@ setTimeout(loadDeferredTrackers, 3000);
       </div>
     </div>
     <p class="text-center font-extrabold text-sage-dark mt-8 max-w-2xl mx-auto leading-relaxed">
-      المشكلة مو فيكِ، المشكلة إنك لسه ما اكتشفتي سر "التوازن" بين الحزم واللين.. وهذا بالضبط اللي يدربك عليه كتاب بين شد وجذب.
+      المشكلة مو فيكِ، المشكلة إنك لسا ما اكتشفتي سر "التوازن" بين الحزم واللين.. وهذا بالضبط اللي يدربك عليه كتاب بين شد وجذب.
     </p>
   </div>
 </section>
@@ -622,15 +622,15 @@ setTimeout(loadDeferredTrackers, 3000);
 <div class="exit-popup-overlay" id="exitPopupOverlay">
   <div class="exit-popup">
     <button class="exit-popup-close" id="exitPopupClose" aria-label="إغلاق">✕</button>
-    <div class="exit-popup-emoji">🎁</div>
-    <h3>استني.. قبل ما تسكّرين الصفحة!</h3>
-    <p>عندنا خصم خاص لك دلوقتي بس، خصم <strong>٥٠٪</strong> على الحقيبة كاملة. مايتكررش بسهولة.</p>
+    <div class="exit-popup-emoji">🎉</div>
+    <h3>مبروك! انتِ مؤهلة لخصم خاص</h3>
+    <p>خصم <strong>٥٠٪</strong> على الحقيبة كاملة، متاح لأول <strong>٥٠ نسخة</strong> بس. متبقي نسخ محدودة وبعدها يرجع السعر الأساسي.</p>
     <div class="exit-promo-code" id="exitPromoCode" onclick="copyExitPromoCode()">
       <span class="code">MOM50</span>
       <span class="copy-hint" id="exitCopyHint">اضغطي للنسخ</span>
     </div>
     <button class="cta-btn exit-popup-cta bg-coral text-white font-display font-extrabold text-base py-4 rounded-2xl" onclick="applyExitDiscountAndCheckout()">طبّقي الخصم واحصلي على الحقيبة الآن</button>
-    <button class="exit-popup-dismiss" id="exitPopupDismiss">لأ، شكرًا</button>
+    <button class="exit-popup-dismiss" id="exitPopupDismiss">لا، شكرًا</button>
   </div>
 </div>
 
@@ -835,10 +835,27 @@ try {
   });
 } catch(e) {}
 
-// كود الخصم يظهر تلقائيًا للعميلة بعد 10 ثوانٍ من فتح الصفحة
-setTimeout(function(){
-  showExitPopup();
-}, 10000);
+// الكود يظهر بعد ما العميلة فعلاً تشوف قسم السعر والباقة كاملة (مش قبل كده)
+(function(){
+  var offerSection = document.getElementById('offer');
+  if (!offerSection) return;
+  var hasSeenOffer = false;
+
+  function checkOfferSeen(){
+    if (hasSeenOffer) return;
+    var rect = offerSection.getBoundingClientRect();
+    // القسم كله (لحد آخره) بقى ظاهر في الشاشة، يعني العميلة قرأته
+    if (rect.bottom <= window.innerHeight && rect.bottom > 0) {
+      hasSeenOffer = true;
+      window.removeEventListener('scroll', checkOfferSeen);
+      // ثانيتين مهلة بسيطة قبل ما يظهر، عشان تدي وقت تهضم السعر
+      setTimeout(showExitPopup, 2000);
+    }
+  }
+
+  window.addEventListener('scroll', checkOfferSeen, { passive: true });
+  checkOfferSeen(); // لو الصفحة صغيرة والقسم ظاهر من غير سكرول أصلاً
+})();
 
 // كل أزرار الشراء متصلة بدالة openPaddleCheckout() اللي بتفتح نافذة الدفع من Paddle
 // مباشرة بسعر المنتج pri_01kwm0cv7scd97gwhztg7h2293، وبعد نجاح الدفع بادل يوديها تلقائيًا
