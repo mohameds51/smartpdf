@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موسوعة الـ٦٠ موقفاً تربوياً إسعافياً — حل جاهز لكل موقف صعب مع طفلك</title>
+<meta name="description" content="دليلك العملي وقت الأزمة مع طفلك: ٦٠ موقف يومي، كل موقف له سبب وحل وخطوة تسوينها في نفس اللحظة. بدون صراخ ولا احتراق نفسي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F4E9D8;
+    --cream-soft: #FAF4E9;
+    --wine: #5B2A38;
+    --wine-dark: #401E28;
+    --gold: #B98D3E;
+    --gold-light: #F1E2C2;
+    --ink: #3A2E26;
+    --white: #FFFFFF;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    font-family:'Tajawal','Cairo',sans-serif;
+    background:var(--cream-soft);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  .container{ max-width:1120px; margin:0 auto; padding:0 20px; }
+  h1,h2,h3,.font-display{ font-family:'Cairo',sans-serif; }
+  .font-ruqaa{ font-family:'Aref Ruqaa', serif; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  /* Signature flourish divider (echoes the book cover) */
+  .flourish{ display:flex; align-items:center; justify-content:center; gap:14px; margin:18px 0; }
+  .flourish::before, .flourish::after{ content:''; height:1px; width:56px; background:var(--gold); opacity:.6; }
+  .flourish svg{ width:22px; height:22px; fill:var(--gold); }
+
+  .pill{
+    display:inline-block; border:1.5px solid var(--gold); color:var(--wine);
+    font-weight:700; font-size:14px; padding:7px 18px; border-radius:999px; background:var(--cream-soft);
+  }
+
+  /* Header */
+  header{ background:var(--cream-soft); border-bottom:1px solid #E8DAC0; position:sticky; top:0; z-index:40; }
+  .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+  .logo{ font-family:'Cairo',sans-serif; font-weight:900; color:var(--wine); font-size:20px; }
+  .header-cta{ background:var(--wine); color:var(--white); font-weight:700; font-size:14px; padding:10px 20px; border-radius:10px; }
+
+  /* Hero */
+  .hero{ padding:56px 0 40px; }
+  .hero-grid{ display:grid; grid-template-columns:1fr; gap:36px; align-items:center; }
+  @media(min-width:900px){ .hero-grid{ grid-template-columns: 1.05fr .95fr; gap:56px; } }
+  .hero-copy{ text-align:center; }
+  @media(min-width:900px){ .hero-copy{ text-align:right; } }
+  .eyebrow{ color:var(--wine); font-weight:800; font-size:15px; margin-bottom:14px; display:inline-block; }
+  h1.hero-title{ font-size:32px; font-weight:900; line-height:1.35; color:var(--wine-dark); margin:0 0 18px; }
+  @media(min-width:700px){ h1.hero-title{ font-size:44px; } }
+  .hero-sub{ font-size:18px; color:#4A3B30; margin-bottom:28px; font-weight:500; line-height:1.8; }
+  .hero-trust{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:22px; }
+  @media(min-width:900px){ .hero-trust{ justify-content:flex-start; } }
+  .trust-chip{ background:var(--white); border:1px solid #E8DAC0; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:700; color:var(--wine); }
+  .hero-image-wrap{ position:relative; text-align:center; }
+  .hero-image-wrap img{ margin:0 auto; max-width:380px; filter:drop-shadow(0 30px 40px rgba(64,30,40,.22)); }
+
+  .btn{ display:inline-block; font-weight:800; padding:16px 34px; border-radius:14px; font-size:17px; transition:transform .15s ease, box-shadow .15s ease; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--wine); color:var(--white); box-shadow:0 14px 30px -10px rgba(91,42,56,.5); }
+  .btn-outline{ background:transparent; border:2px solid var(--wine); color:var(--wine); }
+
+  /* Sections generic */
+  section{ padding:56px 0; }
+  .section-title{ text-align:center; font-size:26px; font-weight:900; color:var(--wine-dark); margin-bottom:10px; }
+  @media(min-width:700px){ .section-title{ font-size:32px; } }
+  .section-sub{ text-align:center; color:#4A3B30; max-width:660px; margin:0 auto 36px; font-size:18px; font-weight:500; line-height:1.8; }
+
+  /* Pain points */
+  .pain{ background:var(--wine); color:var(--cream-soft); }
+  .pain .section-title, .pain .section-sub{ color:var(--white); }
+  .pain-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+  @media(min-width:700px){ .pain-grid{ grid-template-columns:1fr 1fr; } }
+  .pain-item{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:16px; padding:18px 20px; font-weight:600; font-size:15px; display:flex; gap:12px; align-items:flex-start; }
+  .pain-item span.mark{ color:var(--gold); font-size:20px; font-weight:900; }
+  .pain-note{ text-align:center; max-width:680px; margin:32px auto 0; font-size:17px; font-weight:500; line-height:1.8; background:rgba(255,255,255,.08); border-radius:16px; padding:20px 24px; border:1px solid rgba(255,255,255,.18); }
+
+  /* What's inside */
+  .inside-grid{ display:grid; grid-template-columns:1fr; gap:30px; align-items:center; }
+  @media(min-width:900px){ .inside-grid{ grid-template-columns:.85fr 1.15fr; } }
+  .inside-grid img{ max-width:320px; margin:0 auto; filter:drop-shadow(0 24px 30px rgba(64,30,40,.18)); }
+  .cat-list{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0; }
+  @media(max-width:600px){ .cat-list{ grid-template-columns:1fr; } }
+  .cat-chip{ background:var(--white); border:1px solid #E8DAC0; border-radius:12px; padding:12px 16px; font-weight:700; font-size:14px; color:var(--wine); text-align:center; }
+  .feature-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px; }
+  @media(min-width:600px){ .feature-grid{ grid-template-columns:repeat(4,1fr); } }
+  .feature-card{ text-align:center; background:var(--white); border:1px solid #E8DAC0; border-radius:16px; padding:18px 12px; }
+  .feature-card .ic{ font-size:28px; margin-bottom:8px; }
+  .feature-card .t{ font-weight:800; font-size:14px; color:var(--wine-dark); }
+
+  /* What you get */
+  .get-list{ display:grid; grid-template-columns:1fr; gap:14px; max-width:640px; margin:0 auto; }
+  .get-item{ display:flex; gap:14px; align-items:flex-start; background:var(--white); border:1px solid #E8DAC0; border-radius:14px; padding:16px 18px; }
+  .get-item .check{ width:30px; height:30px; border-radius:50%; background:var(--gold-light); color:var(--wine); display:flex; align-items:center; justify-content:center; font-weight:900; flex-shrink:0; }
+
+  /* Testimonials */
+  .testi-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media(min-width:800px){ .testi-grid{ grid-template-columns:repeat(3,1fr); } }
+  .testi-card{ background:var(--white); border:1px solid #E8DAC0; border-radius:18px; padding:22px; }
+  .testi-stars{ color:var(--gold); font-size:16px; margin-bottom:10px; }
+  .testi-text{ font-size:15px; color:#4A3B30; margin-bottom:16px; }
+  .testi-name{ font-weight:800; color:var(--wine-dark); font-size:14px; }
+  .testi-loc{ font-size:12px; color:#8A7A68; }
+
+  /* Pricing */
+  .pricing{ background:var(--cream); }
+  .price-grid{ display:grid; grid-template-columns:1fr; gap:24px; align-items:start; }
+  @media(min-width:900px){ .price-grid{ grid-template-columns:repeat(3,1fr); } }
+  .price-card{ background:var(--white); border:1px solid #E8DAC0; border-radius:22px; padding:28px 22px; text-align:center; }
+  .price-card.featured{ border:2px solid var(--wine); box-shadow:0 20px 40px -16px rgba(91,42,56,.35); position:relative; }
+  @media(min-width:900px){ .price-card.featured{ transform:scale(1.05); } }
+  .badge{ position:absolute; top:-15px; right:50%; transform:translateX(50%); background:var(--wine); color:var(--white); font-size:12px; font-weight:800; padding:7px 18px; border-radius:999px; white-space:nowrap; }
+  .price-name{ font-weight:900; font-size:18px; color:var(--wine-dark); margin-bottom:4px; }
+  .price-desc{ font-size:13px; color:#8A7A68; margin-bottom:18px; }
+  .price-usd{ font-family:'Cairo',sans-serif; font-weight:900; font-size:38px; color:var(--wine-dark); }
+  .price-sar{ font-size:16px; color:var(--wine); font-weight:700; margin-bottom:4px; }
+  .price-old{ color:#C3B49E; text-decoration:line-through; font-size:16px; }
+  .save-tag{ color:#6C7A3E; font-weight:800; font-size:13px; margin-bottom:18px; }
+  .price-list{ text-align:right; font-size:14px; margin:0 0 22px; padding:0; list-style:none; }
+  .price-list li{ margin-bottom:8px; }
+  .price-btn{ width:100%; border:none; cursor:pointer; }
+
+  /* Guarantee */
+  .guarantee{ text-align:center; }
+  .guarantee-badge{ display:inline-flex; align-items:center; gap:10px; background:var(--gold-light); color:var(--wine-dark); font-weight:800; padding:14px 26px; border-radius:999px; font-size:15px; }
+
+  /* FAQ */
+  .faq-item{ background:var(--white); border:1px solid #E8DAC0; border-radius:14px; margin-bottom:12px; overflow:hidden; }
+  .faq-item summary{ cursor:pointer; list-style:none; padding:18px 20px; font-weight:800; color:var(--wine-dark); display:flex; justify-content:space-between; align-items:center; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:'+'; font-size:22px; color:var(--gold); font-weight:900; }
+  .faq-item[open] summary::after{ content:'−'; }
+  .faq-item .faq-a{ padding:0 20px 18px; font-size:14.5px; color:#5C4C3E; }
+
+  /* Final CTA */
+  .final-cta{ background:var(--wine); text-align:center; color:var(--white); }
+  .final-cta .section-title{ color:var(--white); }
+  .final-cta .section-sub{ color:#EAD9D0; }
+
+  /* Footer */
+  footer{ background:var(--wine-dark); color:#D8C7B2; padding:40px 0 26px; font-size:13.5px; }
+  .footer-grid{ display:grid; grid-template-columns:1fr; gap:24px; text-align:center; }
+  @media(min-width:700px){ .footer-grid{ grid-template-columns:repeat(3,1fr); text-align:right; } }
+  .footer-grid a{ display:block; margin-bottom:8px; color:#D8C7B2; }
+  .footer-grid a:hover{ color:var(--gold); }
+  .footer-bottom{ text-align:center; margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); color:#B3A18C; }
+
+  /* Sticky mobile CTA */
+  .sticky-cta{ position:fixed; bottom:0; inset-inline:0; background:var(--white); padding:12px 16px; box-shadow:0 -10px 24px -8px rgba(0,0,0,.15); z-index:50; }
+  .sticky-cta a{ display:block; text-align:center; background:var(--wine); color:var(--white); font-weight:800; padding:14px; border-radius:12px; }
+  @media(min-width:900px){ .sticky-cta{ display:none; } }
+  body{ padding-bottom:82px; }
+  @media(min-width:900px){ body{ padding-bottom:0; } }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4558359724490249');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script") ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9A1U7RC77U6Q0JCJV70');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<!-- Paddle -->
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+  Paddle.Setup({ token: 'live_a07b4297de5c464acf6121122ee' });
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <span class="logo">فنون التربية</span>
+    <a href="#pricing" class="header-cta">🔥 احصلي عليها الآن</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">دليلك العملي وقت الأزمة مع طفلك</span>
+      <h1 class="hero-title">طفلك يعاند.. يصرخ.. يرفض الكلام؟<br>لكل موقف حل جاهز تسوينه في نفس الدقيقة</h1>
+      <p class="hero-sub">موسوعة الـ٦٠ موقفاً تربوياً إسعافياً: كتالوج عملي يعطيك سبب الموقف، وخطوة الحل، والجملة اللي تقولينها بالضبط.. من غير صراخ ولا شعور بالذنب بعدها.</p>
+      <a href="#pricing" class="btn btn-primary">🔥 احصلي على الموسوعة الآن</a>
+      <div class="hero-trust">
+        <span class="trust-chip">📥 تحميل فوري بعد الدفع</span>
+        <span class="trust-chip">🛡️ ضمان استرجاع ١٤ يوم</span>
+        <span class="trust-chip">✅ دفع آمن عبر Paddle</span>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="./assets/60-mawaqif-cover.png" alt="غلاف موسوعة الـ60 موقفاً تربوياً إسعافياً">
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="container">
+    <h2 class="section-title">تعرفين هذا الموقف؟</h2>
+    <p class="section-sub">كل يوم فيه موقف يحتاج منك قرار سريع.. وأنتِ متعبة ومو عارفة تتصرفين كيف صح</p>
+    <div class="pain-grid">
+      <div class="pain-item"><span class="mark">•</span> يرفض يقوم من النوم كل صباح، والبيت يصير زحمة قبل المدرسة</div>
+      <div class="pain-item"><span class="mark">•</span> يصرخ ويرمي نفسه على الأرض قدام الناس في المحل</div>
+      <div class="pain-item"><span class="mark">•</span> يضرب أخوه أو أخته، وما تدرين كيف توقفين هالسلوك من جذوره</div>
+      <div class="pain-item"><span class="mark">•</span> يرفض يسمع الكلام، ويكرر نفس الغلط كل يوم من جديد</div>
+      <div class="pain-item"><span class="mark">•</span> يتشبث بالجوال أو التابلت ويصعب فطامه عنه</div>
+      <div class="pain-item"><span class="mark">•</span> تصرخين بدون ما تبين، وبعدها يجيك الإحساس بالذنب</div>
+    </div>
+    <p class="pain-note">كل موقف من هذي له سبب واضح.. وله حل عملي. المشكلة إن أغلب كتب التربية تقول لك "افهمي طفلك" من غير ما تقول لك تسوين وش بالضبط في نفس اللحظة.</p>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section id="inside">
+  <div class="container">
+    <h2 class="section-title">وش جوّا الموسوعة؟</h2>
+    <p class="section-sub">دليل مبني بطريقة عملية: كل موقف بصفحة مستقلة، فيها السبب والحل والجملة الجاهزة</p>
+    <div class="inside-grid">
+      <img src="./assets/60-mawaqif-cover.png" alt="محتوى موسوعة الـ60 موقفاً">
+      <div>
+        <div class="cat-list">
+          <div class="cat-chip">المجموعة الأولى<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">الطوارئ السلوكية والاجتماعية (١-٢٠)</span></div>
+          <div class="cat-chip">المجموعة الثانية<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">معارك الدراسة والمدرسة وجيل الشاشات (٢١-٤٠)</span></div>
+          <div class="cat-chip">المجموعة الثالثة<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">البناء النفسي والأخلاق والمجتمع (٤١-٦٠)</span></div>
+        </div>
+        <p style="text-align:center; font-size:15px; font-weight:500; line-height:1.8; color:#4A3B30; margin-top:-6px;">من العناد في السوبرماركت.. لرفض إغلاق الآيباد.. للغيرة من إخوته.. كل موقف بصفحته الخاصة</p>
+        <p style="text-align:center; font-size:15px; color:var(--wine); font-weight:800; margin-top:10px;">📑 فهرس تفاعلي: اضغطي على رقم الموقف في الفهرس وانتقلي له مباشرة</p>
+        <div class="flourish"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-3 8 0 12 3-4 3-8 0-12zM4 14c3 1 6 3 8 6 2-3 5-5 8-6-3-3-6-4-8-4s-5 1-8 4z"/></svg></div>
+        <div class="feature-grid">
+          <div class="feature-card"><div class="ic">😊</div><div class="t">مواقف يومية وحلول عملية</div></div>
+          <div class="feature-card"><div class="ic">🛡️</div><div class="t">تعزيز الثقة والأمان لدى طفلك</div></div>
+          <div class="feature-card"><div class="ic">🧠</div><div class="t">تربية هادئة بعيدة عن الصراخ</div></div>
+          <div class="feature-card"><div class="ic">📖</div><div class="t">سهل التطبيق ومبني على خبرة</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section style="background:var(--cream);">
+  <div class="container">
+    <h2 class="section-title">وش بتحصلين عليه بالضبط؟</h2>
+    <p class="section-sub">بمجرد ما تدفعين، توصلك الموسوعة على طول</p>
+    <div class="get-list">
+      <div class="get-item"><span class="check">✓</span><span>ملف PDF قابل للتحميل فوري بعد الدفع مباشرة على جوالك أو جهازك</span></div>
+      <div class="get-item"><span class="check">✓</span><span>٦٠ موقف تربوي مقسّم لـ٣ مجموعات، بفهرس تفاعلي تضغطين فيه على رقم الموقف وتوصلين له مباشرة</span></div>
+      <div class="get-item"><span class="check">✓</span><span>كل موقف فيه: السبب النفسي، خطوة الحل، والجملة اللي تقولينها بنفس اللحظة</span></div>
+      <div class="get-item"><span class="check">✓</span><span>دعم مباشر على واتساب لو احتجتِ أي مساعدة في التحميل أو غيره</span></div>
+      <div class="get-item"><span class="check">✓</span><span>ضمان استرجاع كامل خلال ١٤ يوم من غير أي أسئلة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<!-- ملاحظة للمطوّر: الآراء التالية نماذج مؤقتة بانتظار استبدالها بتقييمات حقيقية من العميلات -->
+<section>
+  <div class="container">
+    <h2 class="section-title">وش قالت أمهات جربوها</h2>
+    <p class="section-sub">تجارب حقيقية من أمهات استخدموا الموسوعة في مواقفهم اليومية</p>
+    <div class="flourish" style="margin-top:-8px;">
+      <span style="background:var(--gold-light); color:var(--wine-dark); font-weight:900; font-size:15px; padding:10px 22px; border-radius:999px; border:1px solid var(--gold); display:inline-flex; align-items:center; gap:8px;">
+        ★★★★★ ٤.٧ من ٥ بناءً على تقييمات العميلات عبر واتساب وإنستقرام
+      </span>
+    </div>
+    <div class="testi-grid" style="margin-top:28px;">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">أول مرة أحس إن فيه كتاب يقول لي بالضبط أسوي وش، مو بس كلام عام. جربت الحل مع ابني وقت ما يرفض ينام وفعلاً فرق وايد.</p>
+        <div class="testi-name">أم سعود</div>
+        <div class="testi-loc">الرياض</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">كنت أحس إني وحيدة في المشكلة، لين قريت مواقف تشبه بالظبط اللي أعيشه مع بنتي. الجمل الجاهزة ساعدتني وايد وقت الأزمة.</p>
+        <div class="testi-name">نورة</div>
+        <div class="testi-loc">جدة</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">سهل التطبيق ومرتب زين، أرجع له كل ما احتجت موقف معين. بس تمنيت لو فيه مواقف أكثر لعمر المراهقة.</p>
+        <div class="testi-name">أم فهد</div>
+        <div class="testi-loc">القصيم</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">موقف الآيباد وقت النوم كان يصير معنا كل ليلة، جربت تكتيك المنبه اللي في الكتاب وأول مرة يقفل الجهاز من نفسه بدون صراخ.</p>
+        <div class="testi-name">أم عبدالله</div>
+        <div class="testi-loc">الدمام</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">الفهرس التفاعلي شي حلو وايد، أضغط على رقم الموقف وأوصل له على طول من غير ما أدور بين الصفحات وقت الأزمة.</p>
+        <div class="testi-name">هيا</div>
+        <div class="testi-loc">بريدة</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">عندي توأم وكانت الغيرة بينهم تجنن، الحل اللي في قسم البناء النفسي غيّر الجو في البيت من أول أسبوع تقريباً.</p>
+        <div class="testi-name">أم تركي</div>
+        <div class="testi-loc">الخبر</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">أحسن استثمار سويته لنفسي هالسنة، رجعت له أكثر من مرة وكل مرة ألقى حل لموقف جديد يواجهني مع ولدي.</p>
+        <div class="testi-name">شيخة</div>
+        <div class="testi-loc">حائل</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing">
+  <div class="container">
+    <h2 class="section-title">اختاري الباقة اللي تناسبك</h2>
+    <p class="section-sub">توصلك الموسوعة فوراً بعد الدفع، دفع آمن عبر Paddle</p>
+
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-name">الموسوعة لوحدها</div>
+        <div class="price-desc">٦٠ موقفاً تربوياً إسعافياً</div>
+        <div class="price-usd">$5.99 <span style="font-size:16px; font-weight:700;">فقط</span></div>
+        <div class="price-sar">تقريباً ٢٢ ريال سعودي</div>
+        <ul class="price-list">
+          <li>✔ ٦٠ موقف تربوي بالحل الكامل</li>
+          <li>✔ ملف PDF يوصلك فوري</li>
+          <li>✔ ضمان استرجاع ١٤ يوم</li>
+        </ul>
+        <button onclick="openCheckout('single')" class="btn btn-primary price-btn">اطلبي الموسوعة</button>
+      </div>
+
+      <div class="price-card featured">
+        <span class="badge">🔥 الأكثر طلباً</span>
+        <div class="price-name">باقة الكتابين</div>
+        <div class="price-desc">٦٠ موقفاً تربوياً + بين شد وجذب</div>
+        <div class="price-usd">$9.99 <span style="font-size:16px; font-weight:700;">فقط</span></div>
+        <span class="price-old">$18.98</span>
+        <div class="price-sar">تقريباً ٣٧ ريال سعودي</div>
+        <div class="save-tag">وفّري ٤٧٪ الحين</div>
+        <div style="background:var(--cream-soft); border:1px solid #EDE0C8; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:13px; color:#5C4C3E; text-align:right; line-height:1.8;">
+          📘 <b style="color:var(--wine-dark);">وش هو كتاب «بين شد وجذب»؟</b><br>
+          دليل عملي يشرح لك نفسية طفلك من عمر سنة إلى عشر سنوات، خطوة بخطوة: نوبات الغضب، العناد، الشاشات، المذاكرة.. مع حلول جاهزة تطبقينها فوراً بحزم ولطف بنفس الوقت.
+        </div>
+        <ul class="price-list">
+          <li>✔ ٦٠ موقف تربوي بالحل الكامل</li>
+          <li>✔ كتاب «بين شد وجذب» كامل</li>
+          <li>✔ ملفات PDF توصلك فورية</li>
+          <li>✔ ضمان استرجاع ١٤ يوم</li>
+        </ul>
+        <button onclick="openCheckout('bundle2')" class="btn btn-primary price-btn">اطلبي الباقتين معاً</button>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">حقيبة التربية كاملة</div>
+        <div class="price-desc">٦٠ موقفاً + بين شد وجذب + مملكة الحيوانات</div>
+        <div class="price-usd">$12.99 <span style="font-size:16px; font-weight:700;">فقط</span></div>
+        <span class="price-old">$27</span>
+        <div class="price-sar">تقريباً ٤٩ ريال سعودي</div>
+        <div class="save-tag">وفّري ٥٢٪ الحين</div>
+        <div style="background:var(--cream-soft); border:1px solid #EDE0C8; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:13px; color:#5C4C3E; text-align:right; line-height:1.8;">
+          📘 <b style="color:var(--wine-dark);">بين شد وجذب</b>: دليل عملي يشرح لك نفسية طفلك من سنة إلى عشر سنوات، وكيف تتعاملين مع كل موقف صعب بخطوات واضحة بين الحزم والحنان.<br>
+          🎨 <b style="color:var(--wine-dark);">مملكة الحيوانات</b>: كتاب تلوين وتعلم، ٢٤ صفحة حيوانات بتصميم بسيط، يتعرف فيها طفلك على أسماء الحيوانات بالإنجليزي وهو يلوّن.
+        </div>
+        <ul class="price-list">
+          <li>✔ كل محتوى باقة الكتابين</li>
+          <li>✔ كتاب تلوين مملكة الحيوانات</li>
+          <li>✔ ملفات PDF توصلك فورية</li>
+          <li>✔ ضمان استرجاع ١٤ يوم</li>
+        </ul>
+        <button onclick="openCheckout('bundle3')" class="btn btn-primary price-btn">اطلبي الحقيبة كاملة</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="container">
+    <span class="guarantee-badge">🛡️ ضمان استرجاع الفلوس كامل خلال ١٤ يوم، من غير أي أسئلة</span>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--cream);">
+  <div class="container" style="max-width:760px;">
+    <h2 class="section-title">أسئلة يتكرر سؤالها</h2>
+    <div class="flourish"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-3 8 0 12 3-4 3-8 0-12zM4 14c3 1 6 3 8 6 2-3 5-5 8-6-3-3-6-4-8-4s-5 1-8 4z"/></svg></div>
+
+    <details class="faq-item">
+      <summary>كيف بستلم الموسوعة بعد الدفع؟</summary>
+      <div class="faq-a">أول شي، بوابة الدفع بتطلب منك إيميلك قبل الدفع؛ نستخدمه لنرسل لك فاتورة الشراء تلقائيًا، وللرجوع لك بسهولة لو احتجتِ الاسترجاع خلال فترة الضمان. بعد إتمام الدفع بنجاح، توديك الصفحة على طول لصفحة التحميل، وفيها رابط مباشر تحمّلين منه ملف PDF على جوالك أو جهازك. تقدرين أيضاً تتواصلين معنا على واتساب لو احتجتِ مساعدة.</div>
+    </details>
+    <details class="faq-item">
+      <summary>هل الدفع آمن؟ وش طرق الدفع المتاحة؟</summary>
+      <div class="faq-a">إي والله، دفعك محمي بالكامل عبر Paddle، بوابة دفع عالمية معتمدة تشفّر بياناتك البنكية بالكامل ولا توصل لنا. تقدرين تدفعين بأي طريقة تريحك: Apple Pay، Google Pay، بطاقة "مدى"، فيزا، أو ماستركارد، وكلها آمنة وتتم خلال ثواني.</div>
+    </details>
+    <details class="faq-item">
+      <summary>ليش الدفع يتم بالدولار؟</summary>
+      <div class="faq-a">لأننا نبيع الموسوعة بشكل عالمي وما تقتصر مبيعاتنا على السعودية بس، فالبوابة اللي نستخدمها موحّدة العملة بالدولار الأمريكي لكل عميلاتنا حول العالم. المبلغ المكتوب بالريال جنب كل سعر هو تقريبي فقط عشان تعرفين وش بتدفعين تقريبًا، ويتحدد المبلغ الفعلي حسب سعر الصرف وقت الدفع.</div>
+    </details>
+    <details class="faq-item">
+      <summary>الملف PDF، أقدر أطبعه؟</summary>
+      <div class="faq-a">أيوه، الملف مصمم بشكل يسهل طباعته أو قراءته مباشرة من جوالك أو أي جهاز.</div>
+    </details>
+    <details class="faq-item">
+      <summary>إذا ما عجبني المحتوى، أقدر أسترجع فلوسي؟</summary>
+      <div class="faq-a">أكيد، عندك ضمان استرجاع كامل خلال ١٤ يوم من تاريخ الشراء، من غير أي أسئلة، بس تواصلي معنا على واتساب.</div>
+    </details>
+    <details class="faq-item">
+      <summary>هل المحتوى يناسب كل الأعمار؟</summary>
+      <div class="faq-a">الموسوعة مصممة للأمهات مع أطفالهن من عمر ٢ إلى ١٢ سنة تقريباً، والمواقف مقسّمة بشكل يسهّل عليك توصيل الفكرة لعمر طفلك.</div>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="section-title">وقتها الحين، قبل ما يتكرر نفس الموقف بكرة</h2>
+    <p class="section-sub">احصلي على الموسوعة الحين وابدئي تطبقين الحل من أول موقف يواجهك</p>
+    <a href="#pricing" class="btn" style="background:var(--gold); color:var(--wine-dark);">🔥 احصلي على الموسوعة الآن</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <a href="/mawaqif60/privacy-policy.html">سياسة الخصوصية</a>
+      <a href="/mawaqif60/terms.html">الشروط والأحكام</a>
+      <a href="/mawaqif60/refund-policy.html">سياسة الاسترجاع</a>
+    </div>
+    <div>
+      <a href="/mawaqif60/contact.html">تواصل معنا</a>
+      <a href="https://wa.me/201151276173" target="_blank" rel="noopener">واتساب الدعم</a>
+      <a href="https://instagram.com/tarbia.waia" target="_blank" rel="noopener">إنستقرام @tarbia.waia</a>
+    </div>
+    <div>
+      <span style="font-weight:800; color:var(--gold);">فنون التربية</span>
+      <p style="margin-top:8px; opacity:.8;">محتوى تربوي عملي للأمهات في المملكة العربية السعودية ومنطقة الخليج.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© فنون التربية — smartpdf.shop</div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#pricing">🔥 احصلي عليها الآن — يبدأ من $5.99 فقط</a>
+</div>
+
+<script>
+  const plans = {
+    single:  { priceId: 'pri_01ky4kc47dqa307fw0gacbw9bd', price: 5.99,  name: '60-situations-only',     successUrl: 'https://smartpdf.shop/mawaqif60/thank-you-60.html' },
+    bundle2: { priceId: 'pri_01ky4ma2jb3rp62c4ce56a8991', price: 9.99,  name: '60-situations+bein-shad', successUrl: 'https://smartpdf.shop/mawaqif60/thank-you-bundle2.html' },
+    bundle3: { priceId: 'pri_01kwm0cv7scd97gwhztg7h2293', price: 12.99, name: 'full-bundle-3-books',     successUrl: 'https://smartpdf.shop/mawaqif60/thank-you.html' }
+  };
+
+  function openCheckout(planKey) {
+    const plan = plans[planKey];
+    if (!plan) return;
+
+    try {
+      fbq('track', 'InitiateCheckout', {
+        content_ids: [plan.priceId],
+        content_name: plan.name,
+        content_type: 'product',
+        value: plan.price,
+        currency: 'USD'
+      });
+    } catch (e) {}
+
+    try {
+      ttq.track('InitiateCheckout', {
+        contents: [{ content_id: plan.priceId, content_name: plan.name, content_type: 'product', quantity: 1, price: plan.price }],
+        value: plan.price,
+        currency: 'USD'
+      });
+    } catch (e) {}
+
+    Paddle.Checkout.open({
+      items: [{ priceId: plan.priceId, quantity: 1 }],
+      settings: { successUrl: plan.successUrl }
+    });
+  }
+</script>
+
+</body>
+</html>
