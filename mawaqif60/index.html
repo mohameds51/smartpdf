@@ -27,6 +27,7 @@
     line-height:1.7;
   }
   .container{ max-width:1120px; margin:0 auto; padding:0 20px; }
+  @media(max-width:420px){ .container{ padding:0 22px; } }
   h1,h2,h3,.font-display{ font-family:'Cairo',sans-serif; }
   .font-ruqaa{ font-family:'Aref Ruqaa', serif; }
   a{ color:inherit; text-decoration:none; }
@@ -44,12 +45,16 @@
 
   /* Header */
   header{ background:var(--cream-soft); border-bottom:1px solid #E8DAC0; position:sticky; top:0; z-index:40; }
-  .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-  .logo{ font-family:'Cairo',sans-serif; font-weight:900; color:var(--wine); font-size:20px; }
-  .header-cta{ background:var(--wine); color:var(--white); font-weight:700; font-size:14px; padding:10px 20px; border-radius:10px; }
+  .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 4px; }
+  .logo{ font-family:'Cairo',sans-serif; font-weight:900; color:var(--wine); font-size:20px; white-space:nowrap; }
+  .header-cta{ background:var(--wine); color:var(--white); font-weight:700; font-size:14px; padding:10px 20px; border-radius:10px; white-space:nowrap; }
+  @media(max-width:380px){
+    .logo{ font-size:16px; }
+    .header-cta{ font-size:12.5px; padding:9px 14px; }
+  }
 
   /* Hero */
-  .hero{ padding:56px 0 40px; }
+  .hero{ padding:36px 0 32px; }
   .hero-grid{ display:grid; grid-template-columns:1fr; gap:36px; align-items:center; }
   @media(min-width:900px){ .hero-grid{ grid-template-columns: 1.05fr .95fr; gap:56px; } }
   .hero-copy{ text-align:center; }
@@ -57,8 +62,9 @@
   .eyebrow{ color:var(--wine); font-weight:800; font-size:15px; margin-bottom:14px; display:inline-block; }
   h1.hero-title{ font-size:32px; font-weight:900; line-height:1.35; color:var(--wine-dark); margin:0 0 18px; }
   @media(min-width:700px){ h1.hero-title{ font-size:44px; } }
-  .hero-sub{ font-size:18px; color:#4A3B30; margin-bottom:28px; font-weight:500; line-height:1.8; }
-  .hero-trust{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:22px; }
+  .hero-sub{ font-size:16.5px; color:#4A3B30; margin-bottom:22px; font-weight:500; line-height:1.7; }
+  @media(min-width:700px){ .hero-sub{ font-size:18px; line-height:1.8; } }
+  .hero-trust{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:18px; }
   @media(min-width:900px){ .hero-trust{ justify-content:flex-start; } }
   .trust-chip{ background:var(--white); border:1px solid #E8DAC0; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:700; color:var(--wine); }
   .hero-image-wrap{ position:relative; text-align:center; }
@@ -103,6 +109,11 @@
   .get-item .check{ width:30px; height:30px; border-radius:50%; background:var(--gold-light); color:var(--wine); display:flex; align-items:center; justify-content:center; font-weight:900; flex-shrink:0; }
 
   /* Testimonials */
+  .rating-row{ display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:-8px; }
+  .rating-stars{ color:var(--gold); font-size:19px; letter-spacing:2px; }
+  .rating-score{ font-family:'Cairo',sans-serif; font-weight:900; font-size:17px; color:var(--wine-dark); }
+  .rating-count{ font-size:13px; color:#8A7A68; font-weight:600; }
+  @media(max-width:480px){ .rating-row{ flex-direction:column; gap:4px; } }
   .testi-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
   @media(min-width:800px){ .testi-grid{ grid-template-columns:repeat(3,1fr); } }
   .testi-card{ background:var(--white); border:1px solid #E8DAC0; border-radius:18px; padding:22px; }
@@ -155,7 +166,8 @@
   .footer-bottom{ text-align:center; margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); color:#B3A18C; }
 
   /* Sticky mobile CTA */
-  .sticky-cta{ position:fixed; bottom:0; inset-inline:0; background:var(--white); padding:12px 16px; box-shadow:0 -10px 24px -8px rgba(0,0,0,.15); z-index:50; }
+  .sticky-cta{ position:fixed; bottom:0; inset-inline:0; background:var(--white); padding:12px 16px; box-shadow:0 -10px 24px -8px rgba(0,0,0,.15); z-index:50; transform:translateY(120%); transition:transform .3s ease; }
+  .sticky-cta.show{ transform:translateY(0); }
   .sticky-cta a{ display:block; text-align:center; background:var(--wine); color:var(--white); font-weight:800; padding:14px; border-radius:12px; }
   @media(min-width:900px){ .sticky-cta{ display:none; } }
   body{ padding-bottom:82px; }
@@ -211,17 +223,17 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">دليلك العملي وقت الأزمة مع طفلك</span>
-      <h1 class="hero-title">طفلك يعاند.. يصرخ.. يرفض الكلام؟<br>لكل موقف حل جاهز تسوينه في نفس الدقيقة</h1>
-      <p class="hero-sub">موسوعة الـ٦٠ موقفاً تربوياً إسعافياً: كتالوج عملي يعطيك سبب الموقف، وخطوة الحل، والجملة اللي تقولينها بالضبط.. من غير صراخ ولا شعور بالذنب بعدها.</p>
+      <h1 class="hero-title">طفلك يعاند.. يصرخ.. يرفض الكلام؟<br>لكل موقف حل جاهز في نفس الدقيقة</h1>
+      <p class="hero-sub">موسوعة الـ٦٠ موقفاً تربوياً إسعافياً: السبب، الحل، والجملة اللي تقولينها بالضبط.. من غير صراخ.</p>
       <a href="#pricing" class="btn btn-primary">🔥 احصلي على الموسوعة الآن</a>
       <div class="hero-trust">
-        <span class="trust-chip">📥 تحميل فوري بعد الدفع</span>
-        <span class="trust-chip">🛡️ ضمان استرجاع ١٤ يوم</span>
-        <span class="trust-chip">✅ دفع آمن عبر Paddle</span>
+        <span class="trust-chip">📥 تحميل فوري</span>
+        <span class="trust-chip">🛡️ ضمان ١٤ يوم</span>
+        <span class="trust-chip">✅ دفع آمن</span>
       </div>
     </div>
     <div class="hero-image-wrap">
-      <img src="./assets/60-mawaqif-cover.png" alt="غلاف موسوعة الـ60 موقفاً تربوياً إسعافياً">
+      <img src="/mawaqif60/assets/60-mawaqif-cover.png" alt="غلاف موسوعة الـ60 موقفاً تربوياً إسعافياً">
     </div>
   </div>
 </section>
@@ -249,7 +261,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <h2 class="section-title">وش جوّا الموسوعة؟</h2>
     <p class="section-sub">دليل مبني بطريقة عملية: كل موقف بصفحة مستقلة، فيها السبب والحل والجملة الجاهزة</p>
     <div class="inside-grid">
-      <img src="./assets/60-mawaqif-cover.png" alt="محتوى موسوعة الـ60 موقفاً">
+      <img src="/mawaqif60/assets/60-mawaqif-cover.png" alt="محتوى موسوعة الـ60 موقفاً">
       <div>
         <div class="cat-list">
           <div class="cat-chip">المجموعة الأولى<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">الطوارئ السلوكية والاجتماعية (١-٢٠)</span></div>
@@ -291,12 +303,12 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   <div class="container">
     <h2 class="section-title">وش قالت أمهات جربوها</h2>
     <p class="section-sub">تجارب حقيقية من أمهات استخدموا الموسوعة في مواقفهم اليومية</p>
-    <div class="flourish" style="margin-top:-8px;">
-      <span style="background:var(--gold-light); color:var(--wine-dark); font-weight:900; font-size:15px; padding:10px 22px; border-radius:999px; border:1px solid var(--gold); display:inline-flex; align-items:center; gap:8px;">
-        ★★★★★ ٤.٧ من ٥ بناءً على تقييمات العميلات عبر واتساب وإنستقرام
-      </span>
+    <div class="rating-row">
+      <span class="rating-stars">★★★★★</span>
+      <span class="rating-score">٤.٧</span>
+      <span class="rating-count">بناءً على تقييمات حقيقية من العميلات</span>
     </div>
-    <div class="testi-grid" style="margin-top:28px;">
+    <div class="testi-grid" style="margin-top:24px;">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">أول مرة أحس إن فيه كتاب يقول لي بالضبط أسوي وش، مو بس كلام عام. جربت الحل مع ابني وقت ما يرفض ينام وفعلاً فرق وايد.</p>
@@ -516,6 +528,21 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       settings: { successUrl: plan.successUrl }
     });
   }
+
+  // إظهار الشريط اللاصق بس بعد ما العميلة تنزل مسافة معينة (تعدت الهيرو تقريباً)
+  (function(){
+    var stickyEl = document.querySelector('.sticky-cta');
+    if (!stickyEl) return;
+    function toggleSticky(){
+      if (window.scrollY > 420) {
+        stickyEl.classList.add('show');
+      } else {
+        stickyEl.classList.remove('show');
+      }
+    }
+    window.addEventListener('scroll', toggleSticky, { passive: true });
+    toggleSticky();
+  })();
 </script>
 
 </body>
