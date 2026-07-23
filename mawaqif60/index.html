@@ -7,6 +7,10 @@
 <meta name="description" content="دليلك العملي وقت الأزمة مع طفلك: ٦٠ موقف يومي، كل موقف له سبب وحل وخطوة تسوينها في نفس اللحظة. بدون صراخ ولا احتراق نفسي.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.paddle.com">
+<link rel="preconnect" href="https://connect.facebook.net">
+<link rel="preconnect" href="https://analytics.tiktok.com">
+<link rel="preconnect" href="https://www.clarity.ms">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet"></noscript>
@@ -71,6 +75,7 @@
   .trust-chip{ background:var(--white); border:1px solid #E8DAC0; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:700; color:var(--wine); }
   .hero-image-wrap{ position:relative; text-align:center; }
   .hero-image-wrap img{ margin:0 auto; max-width:380px; filter:drop-shadow(0 30px 40px rgba(64,30,40,.22)); }
+  @media(max-width:640px){ .hero-image-wrap img{ max-width:200px; } }
 
   .btn{ display:inline-block; font-weight:800; padding:16px 34px; border-radius:14px; font-size:17px; transition:transform .15s ease, box-shadow .15s ease; }
   .btn:hover{ transform:translateY(-2px); }
@@ -78,10 +83,12 @@
   .btn-outline{ background:transparent; border:2px solid var(--wine); color:var(--wine); }
 
   /* Sections generic */
-  section{ padding:56px 0; }
-  .section-title{ text-align:center; font-size:26px; font-weight:900; color:var(--wine-dark); margin-bottom:10px; }
+  section{ padding:40px 0; }
+  @media(min-width:700px){ section{ padding:56px 0; } }
+  .section-title{ text-align:center; font-size:24px; font-weight:900; color:var(--wine-dark); margin-bottom:10px; }
   @media(min-width:700px){ .section-title{ font-size:32px; } }
-  .section-sub{ text-align:center; color:#4A3B30; max-width:660px; margin:0 auto 36px; font-size:18px; font-weight:500; line-height:1.8; }
+  .section-sub{ text-align:center; color:#4A3B30; max-width:660px; margin:0 auto 26px; font-size:16px; font-weight:500; line-height:1.75; }
+  @media(min-width:700px){ .section-sub{ font-size:18px; line-height:1.8; margin-bottom:36px; } }
 
   /* Pain points */
   .pain{ background:var(--wine); color:var(--cream-soft); }
@@ -96,6 +103,7 @@
   .inside-grid{ display:grid; grid-template-columns:1fr; gap:30px; align-items:center; }
   @media(min-width:900px){ .inside-grid{ grid-template-columns:.85fr 1.15fr; } }
   .inside-grid img{ max-width:320px; margin:0 auto; filter:drop-shadow(0 24px 30px rgba(64,30,40,.18)); }
+  @media(max-width:640px){ .inside-grid img{ max-width:190px; } }
   .cat-list{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0; }
   @media(max-width:600px){ .cat-list{ grid-template-columns:1fr; } }
   .cat-chip{ background:var(--white); border:1px solid #E8DAC0; border-radius:12px; padding:12px 16px; font-weight:700; font-size:14px; color:var(--wine); text-align:center; }
@@ -144,7 +152,8 @@
 
   /* Guarantee */
   .guarantee{ text-align:center; }
-  .guarantee-badge{ display:inline-flex; align-items:center; gap:10px; background:var(--gold-light); color:var(--wine-dark); font-weight:800; padding:14px 26px; border-radius:999px; font-size:15px; }
+  .guarantee-badge{ display:inline-flex; align-items:center; gap:10px; background:var(--gold-light); color:var(--wine-dark); font-weight:800; padding:14px 22px; border-radius:999px; font-size:13.5px; line-height:1.5; }
+  @media(min-width:600px){ .guarantee-badge{ font-size:15px; padding:14px 26px; } }
 
   /* FAQ */
   .faq-item{ background:var(--white); border:1px solid #E8DAC0; border-radius:14px; margin-bottom:12px; overflow:hidden; }
