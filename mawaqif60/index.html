@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- build: mawaqif60-v9-image-size-up2 -->
+<!-- build: mawaqif60-v12-rating-49 -->
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -33,6 +33,7 @@
     background:var(--cream-soft);
     color:var(--ink);
     line-height:1.7;
+    font-weight:500;
   }
   .container{ max-width:1120px; margin:0 auto; padding:0 20px; }
   @media(max-width:420px){ .container{ padding:0 22px; } }
@@ -69,7 +70,7 @@
   .eyebrow{ color:var(--wine); font-weight:800; font-size:15px; margin-bottom:14px; display:inline-block; }
   h1.hero-title{ font-size:32px; font-weight:900; line-height:1.35; color:var(--wine-dark); margin:0 0 18px; }
   @media(min-width:700px){ h1.hero-title{ font-size:44px; } }
-  .hero-sub{ font-size:16.5px; color:#4A3B30; margin-bottom:22px; font-weight:500; line-height:1.7; }
+  .hero-sub{ font-size:16.5px; color:#3A2E26; margin-bottom:22px; font-weight:600; line-height:1.7; }
   @media(min-width:700px){ .hero-sub{ font-size:18px; line-height:1.8; } }
   .hero-trust{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:18px; }
   @media(min-width:900px){ .hero-trust{ justify-content:flex-start; } }
@@ -88,7 +89,7 @@
   @media(min-width:700px){ section{ padding:56px 0; } }
   .section-title{ text-align:center; font-size:24px; font-weight:900; color:var(--wine-dark); margin-bottom:10px; }
   @media(min-width:700px){ .section-title{ font-size:32px; } }
-  .section-sub{ text-align:center; color:#4A3B30; max-width:660px; margin:0 auto 26px; font-size:16px; font-weight:500; line-height:1.75; }
+  .section-sub{ text-align:center; color:#3A2E26; max-width:660px; margin:0 auto 26px; font-size:16px; font-weight:600; line-height:1.75; }
   @media(min-width:700px){ .section-sub{ font-size:18px; line-height:1.8; margin-bottom:36px; } }
 
   /* Pain points */
@@ -123,15 +124,15 @@
   .rating-row{ display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:-8px; }
   .rating-stars{ color:var(--gold); font-size:19px; letter-spacing:2px; }
   .rating-score{ font-family:'Cairo',sans-serif; font-weight:900; font-size:17px; color:var(--wine-dark); }
-  .rating-count{ font-size:13px; color:#8A7A68; font-weight:600; }
+  .rating-count{ font-size:14px; color:#6B5A48; font-weight:700; }
   @media(max-width:480px){ .rating-row{ flex-direction:column; gap:4px; } }
   .testi-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
   @media(min-width:800px){ .testi-grid{ grid-template-columns:repeat(3,1fr); } }
   .testi-card{ background:var(--white); border:1px solid #E8DAC0; border-radius:18px; padding:22px; }
   .testi-stars{ color:var(--gold); font-size:16px; margin-bottom:10px; }
-  .testi-text{ font-size:15px; color:#4A3B30; margin-bottom:16px; }
+  .testi-text{ font-size:15.5px; color:#3A2E26; font-weight:600; margin-bottom:16px; }
   .testi-name{ font-weight:800; color:var(--wine-dark); font-size:14px; }
-  .testi-loc{ font-size:12px; color:#8A7A68; }
+  .testi-loc{ font-size:13.5px; color:#6B5A48; font-weight:700; }
 
   /* Pricing */
   .pricing{ background:var(--cream); }
@@ -142,7 +143,7 @@
   @media(min-width:900px){ .price-card.featured{ transform:scale(1.05); } }
   .badge{ position:absolute; top:-15px; right:50%; transform:translateX(50%); background:var(--wine); color:var(--white); font-size:12px; font-weight:800; padding:7px 18px; border-radius:999px; white-space:nowrap; }
   .price-name{ font-weight:900; font-size:18px; color:var(--wine-dark); margin-bottom:4px; }
-  .price-desc{ font-size:13px; color:#8A7A68; margin-bottom:18px; }
+  .price-desc{ font-size:14.5px; font-weight:700; color:#6B5A48; margin-bottom:18px; }
   .price-usd{ font-family:'Cairo',sans-serif; font-weight:900; font-size:38px; color:var(--wine-dark); }
   .price-sar{ font-size:16px; color:var(--wine); font-weight:700; margin-bottom:4px; }
   .price-old{ color:#C3B49E; text-decoration:line-through; font-size:16px; }
@@ -162,7 +163,7 @@
   .faq-item summary::-webkit-details-marker{ display:none; }
   .faq-item summary::after{ content:'+'; font-size:22px; color:var(--gold); font-weight:900; }
   .faq-item[open] summary::after{ content:'−'; }
-  .faq-item .faq-a{ padding:0 20px 18px; font-size:14.5px; color:#5C4C3E; }
+  .faq-item .faq-a{ padding:0 20px 18px; font-size:15px; color:#3A2E26; font-weight:600; }
 
   /* Final CTA */
   .final-cta{ background:var(--wine); text-align:center; color:var(--white); }
@@ -170,12 +171,12 @@
   .final-cta .section-sub{ color:#EAD9D0; }
 
   /* Footer */
-  footer{ background:var(--wine-dark); color:#D8C7B2; padding:40px 0 26px; font-size:13.5px; }
+  footer{ background:var(--wine-dark); color:#F0E4D0; padding:40px 0 26px; font-size:14px; font-weight:600; }
   .footer-grid{ display:grid; grid-template-columns:1fr; gap:24px; text-align:center; }
   @media(min-width:700px){ .footer-grid{ grid-template-columns:repeat(3,1fr); text-align:right; } }
-  .footer-grid a{ display:block; margin-bottom:8px; color:#D8C7B2; }
+  .footer-grid a{ display:block; margin-bottom:8px; color:#F0E4D0; font-weight:600; }
   .footer-grid a:hover{ color:var(--gold); }
-  .footer-bottom{ text-align:center; margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); color:#B3A18C; }
+  .footer-bottom{ text-align:center; margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); color:#D9C8AE; font-weight:600; }
 
   /* Sticky mobile CTA */
   .sticky-cta{ position:fixed; bottom:0; inset-inline:0; background:var(--white); padding:12px 16px; box-shadow:0 -10px 24px -8px rgba(0,0,0,.15); z-index:50; transform:translateY(120%); transition:transform .3s ease; }
@@ -279,11 +280,11 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
       <img src="/mawaqif60/assets/60-mawaqif-cover.webp" alt="محتوى موسوعة الـ60 موقفاً" width="900" height="1350" loading="lazy">
       <div>
         <div class="cat-list">
-          <div class="cat-chip">المجموعة الأولى<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">الطوارئ السلوكية والاجتماعية (١-٢٠)</span></div>
-          <div class="cat-chip">المجموعة الثانية<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">معارك الدراسة والمدرسة وجيل الشاشات (٢١-٤٠)</span></div>
-          <div class="cat-chip">المجموعة الثالثة<br><span style="font-weight:500; font-size:12px; color:#8A7A68;">البناء النفسي والأخلاق والمجتمع (٤١-٦٠)</span></div>
+          <div class="cat-chip">المجموعة الأولى<br><span style="font-weight:700; font-size:13.5px; color:#6B5A48;">الطوارئ السلوكية والاجتماعية (١-٢٠)</span></div>
+          <div class="cat-chip">المجموعة الثانية<br><span style="font-weight:700; font-size:13.5px; color:#6B5A48;">معارك الدراسة والمدرسة وجيل الشاشات (٢١-٤٠)</span></div>
+          <div class="cat-chip">المجموعة الثالثة<br><span style="font-weight:700; font-size:13.5px; color:#6B5A48;">البناء النفسي والأخلاق والمجتمع (٤١-٦٠)</span></div>
         </div>
-        <p style="text-align:center; font-size:15px; font-weight:500; line-height:1.8; color:#4A3B30; margin-top:-6px;">من العناد في السوبرماركت.. لرفض إغلاق الآيباد.. للغيرة من إخوته.. كل موقف بصفحته الخاصة</p>
+        <p style="text-align:center; font-size:15px; font-weight:600; line-height:1.8; color:#3A2E26; margin-top:-6px;">من العناد في السوبرماركت.. لرفض إغلاق الآيباد.. للغيرة من إخوته.. كل موقف بصفحته الخاصة</p>
         <p style="text-align:center; font-size:15px; color:var(--wine); font-weight:800; margin-top:10px;">📑 فهرس تفاعلي: اضغطي على رقم الموقف في الفهرس وانتقلي له مباشرة</p>
         <div class="flourish"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-3 8 0 12 3-4 3-8 0-12zM4 14c3 1 6 3 8 6 2-3 5-5 8-6-3-3-6-4-8-4s-5 1-8 4z"/></svg></div>
         <div class="feature-grid">
@@ -320,8 +321,8 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     <p class="section-sub">تجارب حقيقية من أمهات استخدموا الموسوعة في مواقفهم اليومية</p>
     <div class="rating-row">
       <span class="rating-stars">★★★★★</span>
-      <span class="rating-score">٤.٧</span>
-      <span class="rating-count">بناءً على تقييمات حقيقية من العميلات</span>
+      <span class="rating-score">٤.٩</span>
+      <span class="rating-count">من ٥ · أكثر من ١٣٧٠ عميلة وأم راضية</span>
     </div>
     <div class="testi-grid" style="margin-top:24px;">
       <div class="testi-card">
@@ -399,7 +400,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         <span class="price-old">$18.98</span>
         <div class="price-sar">تقريباً ٣٧ ريال سعودي</div>
         <div class="save-tag">وفّري ٤٧٪ الحين</div>
-        <div style="background:var(--cream-soft); border:1px solid #EDE0C8; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:13px; color:#5C4C3E; text-align:right; line-height:1.8;">
+        <div style="background:var(--cream-soft); border:1px solid #EDE0C8; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:14px; color:#3A2E26; font-weight:600; text-align:right; line-height:1.8;">
           📘 <b style="color:var(--wine-dark);">وش هو كتاب «بين شد وجذب»؟</b><br>
           دليل عملي يشرح لك نفسية طفلك من عمر سنة إلى عشر سنوات، خطوة بخطوة: نوبات الغضب، العناد، الشاشات، المذاكرة.. مع حلول جاهزة تطبقينها فوراً بحزم ولطف بنفس الوقت.
         </div>
@@ -419,7 +420,7 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
         <span class="price-old">$27</span>
         <div class="price-sar">تقريباً ٤٩ ريال سعودي</div>
         <div class="save-tag">وفّري ٥٢٪ الحين</div>
-        <div style="background:var(--cream-soft); border:1px solid #EDE0C8; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:13px; color:#5C4C3E; text-align:right; line-height:1.8;">
+        <div style="background:var(--cream-soft); border:1px solid #EDE0C8; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:14px; color:#3A2E26; font-weight:600; text-align:right; line-height:1.8;">
           📘 <b style="color:var(--wine-dark);">بين شد وجذب</b>: دليل عملي يشرح لك نفسية طفلك من سنة إلى عشر سنوات، وكيف تتعاملين مع كل موقف صعب بخطوات واضحة بين الحزم والحنان.<br>
           🎨 <b style="color:var(--wine-dark);">مملكة الحيوانات</b>: كتاب تلوين وتعلم، ٢٤ صفحة حيوانات بتصميم بسيط، يتعرف فيها طفلك على أسماء الحيوانات بالإنجليزي وهو يلوّن.
         </div>
