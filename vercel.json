@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/mawaqif60/files/(.*)",
+      "source": "/mawaqif60/files/:path*",
       "headers": [
         { "key": "Content-Disposition", "value": "attachment" }
       ]
