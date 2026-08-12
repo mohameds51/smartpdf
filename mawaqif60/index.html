@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.paddle.com">
-<link rel="preconnect" href="https://assets.lemonsqueezy.com">
+<link rel="preconnect" href="https://smartpdfshop.lemonsqueezy.com">
 <link rel="preconnect" href="https://connect.facebook.net">
 <link rel="preconnect" href="https://analytics.tiktok.com">
 <link rel="preconnect" href="https://www.clarity.ms">
@@ -514,9 +514,6 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
   Paddle.Setup({ token: 'live_a07b4297de5c464acf6121122ee' });
 </script>
 
-<!-- Lemon Squeezy Overlay SDK -->
-<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
 <script>
   const plans = {
     single:  {
@@ -564,16 +561,11 @@ src="https://www.facebook.com/tr?id=4558359724490249&ev=PageView&noscript=1"
     } catch (e) {}
 
     if (plan.provider === 'lemonsqueezy') {
+      // ملحوظة: مفيش overlay هنا عمداً — Apple Pay مش بيشتغل جوه iframe/overlay في Lemon Squeezy،
+      // فبنعمل تحويل كامل لصفحة الدفع (top-level redirect) عشان Apple Pay يشتغل صح.
       const url = plan.checkoutUrl
-        + '?embed=1'
-        + '&checkout[redirect_url]=' + encodeURIComponent(plan.successUrl);
-
-      if (window.LemonSqueezy && window.LemonSqueezy.Url) {
-        window.LemonSqueezy.Url.Open(url);
-      } else {
-        // fallback: لو السكربت متأخر في التحميل (مثلاً بسبب ad-blocker)
-        window.location.href = url;
-      }
+        + '?checkout[redirect_url]=' + encodeURIComponent(plan.successUrl);
+      window.location.href = url;
       return;
     }
 
